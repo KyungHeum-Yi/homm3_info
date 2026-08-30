@@ -421,7 +421,7 @@ header p{color:var(--text-sub);font-size:0.98rem}
   border-color:#c5a059 transparent transparent transparent;
 }
 
-/* 스킬 이미지 행 */
+/* ── 스킬 이미지 행 & 숙련도별 테두리 색상 ───────────────── */
 .skills-row{
   display:flex;
   align-items:center;
@@ -439,16 +439,44 @@ header p{color:var(--text-sub);font-size:0.98rem}
   height:38px;
   object-fit:cover;
   border-radius:6px;
-  border:1.5px solid #5a627a;
   background:#14151a;
-  box-shadow:0 3px 6px rgba(0,0,0,0.5);
-  transition:transform 0.15s ease, border-color 0.15s ease;
   display:block;
+  transition:transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+  border-width:2px;
+  border-style:solid;
 }
-.skill-item:hover .skill-icon-img{
+
+/* 초급 스킬 (기본 밝은 슬레이트 테두리) */
+.skill-icon-img.skill-basic{
+  border-color:#6a738a;
+  box-shadow:0 2px 6px rgba(0,0,0,0.5);
+}
+.skill-item.skill-basic:hover .skill-icon-img{
   transform:scale(1.1);
+  border-color:#e0e6ed;
+  box-shadow:0 4px 12px rgba(255,255,255,0.35);
+}
+
+/* 중급 스킬 (황금색 테두리) */
+.skill-icon-img.skill-advanced{
   border-color:#ffd700;
-  box-shadow:0 4px 10px rgba(255,215,0,0.3);
+  box-shadow:0 2px 6px rgba(0,0,0,0.5), 0 0 6px rgba(255,215,0,0.35);
+}
+.skill-item.skill-advanced:hover .skill-icon-img{
+  transform:scale(1.1);
+  border-color:#fff275;
+  box-shadow:0 4px 14px rgba(255,215,0,0.65);
+}
+
+/* 고급 스킬 (빨간색 테두리) */
+.skill-icon-img.skill-expert{
+  border-color:#ff4757;
+  box-shadow:0 2px 6px rgba(0,0,0,0.5), 0 0 6px rgba(255,71,87,0.4);
+}
+.skill-item.skill-expert:hover .skill-icon-img{
+  transform:scale(1.1);
+  border-color:#ff6b81;
+  box-shadow:0 4px 14px rgba(255,71,87,0.7);
 }
 
 /* 스킬 이름 팝업 툴팁 */
@@ -727,10 +755,8 @@ function initFilters() {
 /* ── 티어 버튼 클릭 핸들러 (전체 토글 & 0개 상태 허용) ────── */
 function onAllTierClick() {
   if (selectedTiers.size === ALL_TIERS.length) {
-    // 전체가 이미 모두 켜져 있으면 -> 모두 해제 (0개 선택)
     selectedTiers.clear();
   } else {
-    // 그 외 상태에서는 -> 모두 선택 (전체 On)
     selectedTiers = new Set(ALL_TIERS);
   }
   updateFilterButtonUI();
@@ -739,7 +765,7 @@ function onAllTierClick() {
 
 function onTierClick(tier) {
   if (selectedTiers.has(tier)) {
-    selectedTiers.delete(tier); // 0개가 되어도 그대로 유지
+    selectedTiers.delete(tier);
   } else {
     selectedTiers.add(tier);
   }
@@ -750,10 +776,8 @@ function onTierClick(tier) {
 /* ── 종족 버튼 클릭 핸들러 (전체 토글 & 0개 상태 허용) ────── */
 function onAllTownClick() {
   if (selectedTowns.size === ALL_TOWNS.length) {
-    // 전체가 이미 모두 켜져 있으면 -> 모두 해제 (0개 선택)
     selectedTowns.clear();
   } else {
-    // 그 외 상태에서는 -> 모두 선택 (전체 On)
     selectedTowns = new Set(ALL_TOWNS);
   }
   updateFilterButtonUI();
@@ -762,7 +786,7 @@ function onAllTownClick() {
 
 function onTownClick(town) {
   if (selectedTowns.has(town)) {
-    selectedTowns.delete(town); // 0개가 되어도 그대로 유지
+    selectedTowns.delete(town);
   } else {
     selectedTowns.add(town);
   }
@@ -811,7 +835,6 @@ function updateFilterButtonUI() {
 
 /* ── 필터 & 렌더 (0개 선택 시 0명 표시) ─────────────────── */
 function filterAndRender() {
-  // 티어나 종족 중 어느 하나라도 0개 선택된 경우 바로 빈 목록 반환
   if (selectedTiers.size === 0 || selectedTowns.size === 0) {
     document.getElementById('heroCounter').textContent = '표시 중: 0명';
     renderCards([], false);
@@ -822,14 +845,9 @@ function filterAndRender() {
   const sort  = document.getElementById('sortSelect').value;
 
   let filtered = allHeroes.filter(h => {
-    // 티어 멀티 필터 검사
     const ht = h.tier || 'B';
     if (!selectedTiers.has(ht)) return false;
-
-    // 종족 멀티 필터 검사
     if (!selectedTowns.has(h.town)) return false;
-
-    // 텍스트 검색
     if (query) {
       const hay = [h.name, h.town, h.class, h.specialty, h.specialty_desc||'', ...(h.skills||[]), h.desc].join(' ').toLowerCase();
       if (!hay.includes(query)) return false;
@@ -876,14 +894,21 @@ function renderCards(heroes, groupByTown) {
   });
 }
 
-/* ── 스킬 아이콘 이미지 생성 (마우스 호버 시 스킬 이름 툴팁) ── */
+/* ── 스킬 아이콘 이미지 생성 (숙련도별 테두리: 중급=황금색, 고급=빨간색, 초급=기본) ── */
 function buildSkillItem(h, skillName, index) {
   if (!skillName) return '';
   const imgUrl = `images/heroes_skill/${encodeURIComponent(h.town)}/${encodeURIComponent(h.name)}_${index + 1}.jpg`;
   
+  let levelClass = 'skill-basic';
+  if (skillName.startsWith('중급') || skillName.includes('중급')) {
+    levelClass = 'skill-advanced';
+  } else if (skillName.startsWith('고급') || skillName.includes('고급')) {
+    levelClass = 'skill-expert';
+  }
+  
   return `
-    <div class="skill-item" onclick="event.stopPropagation()">
-      <img class="skill-icon-img" src="${imgUrl}" alt="${skillName}" onerror="this.style.display='none'">
+    <div class="skill-item ${levelClass}" onclick="event.stopPropagation()">
+      <img class="skill-icon-img ${levelClass}" src="${imgUrl}" alt="${skillName}" onerror="this.style.display='none'">
       <div class="skill-tooltip">${skillName}</div>
     </div>
   `;
