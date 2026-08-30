@@ -1,0 +1,5760 @@
+{
+  "heroes": [
+    {
+      "id": 1,
+      "name": "오린",
+      "town": "캐슬",
+      "class": "기사",
+      "tier": "B",
+      "stats": {
+        "attack": 2,
+        "defense": 2,
+        "power": 1,
+        "knowledge": 1
+      },
+      "desc": "오린은 에라시아의 가장 뛰어난 공성전 전술가와 함께 훈련했습니다. 그의 지휘하에 있는 궁수들은 장애물 뒤에 숨은 적에게도 재빨리 화살을 날릴 수 있습니다.",
+      "specialty": "궁술",
+      "specialty_desc": "궁술 스킬에 레벨당 3%의 보너스를 받습니다.",
+      "skills": [
+        "초급 지휘력",
+        "초급 궁술"
+      ],
+      "troops": [
+        {
+          "name": "창병",
+          "count": "15-25"
+        },
+        {
+          "name": "궁수",
+          "count": "3-5"
+        },
+        {
+          "name": "그리핀",
+          "count": "2-3"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": false,
+      "spells": [],
+      "portrait": "images/heroes_portrait/캐슬/오린.jpg",
+      "info_img": "images/heroes_info/캐슬/오린.jpg"
+    },
+    {
+      "id": 2,
+      "name": "발래스카",
+      "town": "캐슬",
+      "class": "기사",
+      "tier": "A",
+      "stats": {
+        "attack": 2,
+        "defense": 2,
+        "power": 1,
+        "knowledge": 1
+      },
+      "desc": "발래스카는 에라시아 최고의 저격수로 유명합니다. 그녀는 부대를 이끌면서도 틈만나면 개인적으로 활쏘기 연습을 합니다.",
+      "specialty": "궁수",
+      "specialty_desc": "궁수와 저격수의 공격력, 방어력, 속도가 증가합니다.",
+      "skills": [
+        "초급 지휘력",
+        "초급 궁술"
+      ],
+      "troops": [
+        {
+          "name": "궁수",
+          "count": "3-5"
+        },
+        {
+          "name": "궁수",
+          "count": "3-5"
+        },
+        {
+          "name": "궁수",
+          "count": "3-5"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": false,
+      "spells": [],
+      "portrait": "images/heroes_portrait/캐슬/발래스카.jpg",
+      "info_img": "images/heroes_info/캐슬/발래스카.jpg"
+    },
+    {
+      "id": 3,
+      "name": "에드릭",
+      "town": "캐슬",
+      "class": "기사",
+      "tier": "B",
+      "stats": {
+        "attack": 2,
+        "defense": 2,
+        "power": 1,
+        "knowledge": 1
+      },
+      "desc": "에드릭의 할아버지는 야생 그리핀을 군사용으로 훈련시킨 최초의 에라시아 사람입니다. 이제 에드릭의 가문은 에라시아에서 가장 큰 그리핀 사육장을 운영하고 있습니다.",
+      "specialty": "그리핀",
+      "specialty_desc": "그리핀과 로열그리핀의 공격력, 방어력, 속도가 증가합니다",
+      "skills": [
+        "초급 지휘력",
+        "초급 방어술"
+      ],
+      "troops": [
+        {
+          "name": "창병",
+          "count": "15-25"
+        },
+        {
+          "name": "그리핀",
+          "count": "2-3"
+        },
+        {
+          "name": "그리핀",
+          "count": "2-3"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": false,
+      "spells": [],
+      "portrait": "images/heroes_portrait/캐슬/에드릭.jpg",
+      "info_img": "images/heroes_info/캐슬/에드릭.jpg"
+    },
+    {
+      "id": 4,
+      "name": "실비아",
+      "town": "캐슬",
+      "class": "기사",
+      "tier": "S",
+      "stats": {
+        "attack": 2,
+        "defense": 2,
+        "power": 1,
+        "knowledge": 1
+      },
+      "desc": "실비아는 한때 레그닌 해적으로 활동했지만, 해적 생활이 그녀의 인생의 전부는 아니라는 것을 깨달았습니다. 그녀는 이제 에라시아 군대의 해안 순찰대로 근무하면서, 옛 동료 들이였던 해적들과 싸우고 있습니다.",
+      "specialty": "통치술",
+      "specialty_desc": "통치술 스킬에 레벨당 3%의 보너스를 받습니다.",
+      "skills": [
+        "초급 통치술",
+        "초급 외교술"
+      ],
+      "troops": [
+        {
+          "name": "창병",
+          "count": "15-25"
+        },
+        {
+          "name": "궁수",
+          "count": "3-5"
+        },
+        {
+          "name": "그리핀",
+          "count": "2-3"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": false,
+      "spells": [],
+      "portrait": "images/heroes_portrait/캐슬/실비아.jpg",
+      "info_img": "images/heroes_info/캐슬/실비아.jpg"
+    },
+    {
+      "id": 5,
+      "name": "하트경",
+      "town": "캐슬",
+      "class": "기사",
+      "tier": "B",
+      "stats": {
+        "attack": 2,
+        "defense": 2,
+        "power": 1,
+        "knowledge": 1
+      },
+      "desc": "하트 경이 앙로스 왕국을 떠나온 것은 네크로맨스 신도들과 연루되었기 때문이라는 이야기도 있습니다. 그러나 그는 이전에 롤랜드 아이언피스트 왕을 위해 일할때 만큼이나 완벽하게 에라시아를 위해 일하고 있습니다.",
+      "specialty": "재산관리",
+      "specialty_desc": "재신관리 스킬에 레벨당 3%의 보너스를 받으며 추가 자원도 생산합니다.",
+      "skills": [
+        "초급 재산술",
+        "초급 지휘력"
+      ],
+      "troops": [
+        {
+          "name": "창병",
+          "count": "15-25"
+        },
+        {
+          "name": "궁수",
+          "count": "3-5"
+        },
+        {
+          "name": "그리핀",
+          "count": "2-3"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": false,
+      "spells": [],
+      "portrait": "images/heroes_portrait/캐슬/하트경.jpg",
+      "info_img": "images/heroes_info/캐슬/하트경.jpg"
+    },
+    {
+      "id": 6,
+      "name": "소샤",
+      "town": "캐슬",
+      "class": "기사",
+      "tier": "A",
+      "stats": {
+        "attack": 2,
+        "defense": 2,
+        "power": 1,
+        "knowledge": 1
+      },
+      "desc": "캐서린 여왕의 경우와 마찬가지로, 소샤는 숙달된 검술로 그녀의 능력을 인정받으면서 에라시아 군대에 자리를 잡았습니다. 그녀는 크리건이 에라시아로 침입한 직후에 처음으로 지휘권을 부여받았습니다.",
+      "specialty": "크루세이더 킹",
+      "specialty_desc": "아군 부대의 검사, 크로세이더, 드래곤 슬레이어를 크루세이더 킹으로 업그레이드 할수 있으며 영웅 부대의 크루세이더 킹을 강화시킵니다",
+      "skills": [
+        "초급 지휘력",
+        "초급 공격술"
+      ],
+      "troops": [
+        {
+          "name": "창병",
+          "count": "15-25"
+        },
+        {
+          "name": "궁수",
+          "count": "3-5"
+        },
+        {
+          "name": "검사",
+          "count": "2-3"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": false,
+      "spells": [],
+      "portrait": "images/heroes_portrait/캐슬/소샤.jpg",
+      "info_img": "images/heroes_info/캐슬/소샤.jpg"
+    },
+    {
+      "id": 7,
+      "name": "크리스챤",
+      "town": "캐슬",
+      "class": "기사",
+      "tier": "B",
+      "stats": {
+        "attack": 2,
+        "defense": 2,
+        "power": 1,
+        "knowledge": 1
+      },
+      "desc": "크리스챤은 기사로서 보다는 개척자로서, 그는 에라시아 군대에 들어오기 전에 앙로스 왕국의 거의 전역을 탐험한 인물입니다. 비록 그가 방랑자이고 어느 정도 몽상가이긴 하지만, 그의 전술은 전 세계에서 공포의 대상이 되고 있습니다.",
+      "specialty": "쇠뇌",
+      "specialty_desc": "쇠뇌의 발사 횟수가 늘어나고, 쇠뇌의 공격력, 방어력이 증가합니다.",
+      "skills": [
+        "초급 지휘력",
+        "초급 포술"
+      ],
+      "troops": [
+        {
+          "name": "창병",
+          "count": "15-25"
+        },
+        {
+          "name": "그리핀",
+          "count": "2-3"
+        }
+      ],
+      "war_machines": [
+        "쇠뇌"
+      ],
+      "spellbook": false,
+      "spells": [],
+      "portrait": "images/heroes_portrait/캐슬/크리스챤.jpg",
+      "info_img": "images/heroes_info/캐슬/크리스챤.jpg"
+    },
+    {
+      "id": 8,
+      "name": "티리스",
+      "town": "캐슬",
+      "class": "기사",
+      "tier": "B",
+      "stats": {
+        "attack": 2,
+        "defense": 2,
+        "power": 1,
+        "knowledge": 1
+      },
+      "desc": "티리스는 에라시이 기병대에서 출세한 인물 입니다. 그녀는 뛰어난 승마술 뿐만 아니라 기병전술에 숙달한 재주꾼입니다. 그녀는 미상 창시합에서 결코 패한 적이 없는 챔피언이기도 합니다.",
+      "specialty": "기사",
+      "specialty_desc": "기사와 챔피언의 공격력, 방어력, 속도가 증가합니다.",
+      "skills": [
+        "초급 지휘력",
+        "초급 전술"
+      ],
+      "troops": [
+        {
+          "name": "창병",
+          "count": "15-25"
+        },
+        {
+          "name": "궁수",
+          "count": "3-5"
+        },
+        {
+          "name": "그리핀",
+          "count": "2-3"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": false,
+      "spells": [],
+      "portrait": "images/heroes_portrait/캐슬/티리스.jpg",
+      "info_img": "images/heroes_info/캐슬/티리스.jpg"
+    },
+    {
+      "id": 9,
+      "name": "라이언",
+      "town": "캐슬",
+      "class": "성직자",
+      "tier": "B",
+      "stats": {
+        "attack": 1,
+        "defense": 0,
+        "power": 2,
+        "knowledge": 2
+      },
+      "desc": "라이언은 원래 에라시아 군대의 위생병이었지만, 크리건과 전투중 그의 대장이 사망했을때 뛰어난 통솔력을 보여주었다. 즉, 그는 적군의 허를 찔러서 아군의 증원군이 도착할 때까지 시간을 벌 수 있었던 것이다.",
+      "specialty": "응급 처치",
+      "specialty_desc": "응급 처지 스킬의 효과가 강화됩니다.",
+      "skills": [
+        "초급 독수리의 눈",
+        "초급 응급 치료"
+      ],
+      "troops": [
+        {
+          "name": "창병",
+          "count": "15-25"
+        },
+        {
+          "name": "그리핀",
+          "count": "2-3"
+        }
+      ],
+      "war_machines": [
+        "응급처치 텐트"
+      ],
+      "spellbook": true,
+      "spells": [
+        "석갑"
+      ],
+      "portrait": "images/heroes_portrait/캐슬/라이언.jpg",
+      "info_img": "images/heroes_info/캐슬/라이언.jpg"
+    },
+    {
+      "id": 10,
+      "name": "아델라",
+      "town": "캐슬",
+      "class": "성직자",
+      "tier": "B",
+      "stats": {
+        "attack": 1,
+        "defense": 0,
+        "power": 2,
+        "knowledge": 2
+      },
+      "desc": "원래 아델라는 전투보다는 그녀의 능력으로 공헌했습니다. 만약 그녀가 적과의 교전을 회피하자고 대장을 설득하는 데 실패한다면, 그녀는 전투에 임하기 전에 병사들을 축복하기 위한 준비를 하고 있을 것입니다. 그녀는 화이트스톤 수비대의 지휘를 담당했습니다.",
+      "specialty": "축복",
+      "specialty_desc": "축복의 효과가 강화되며 전투마다 축복을 여러번 사용할 수 있습니다.",
+      "skills": [
+        "초급 물 마법",
+        "초급 외교술"
+      ],
+      "troops": [
+        {
+          "name": "창병",
+          "count": "15-25"
+        },
+        {
+          "name": "궁수",
+          "count": "3-5"
+        },
+        {
+          "name": "그리핀",
+          "count": "2-3"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": true,
+      "spells": [
+        "축복"
+      ],
+      "portrait": "images/heroes_portrait/캐슬/아델라.jpg",
+      "info_img": "images/heroes_info/캐슬/아델라.jpg"
+    },
+    {
+      "id": 11,
+      "name": "커스버트",
+      "town": "캐슬",
+      "class": "성직자",
+      "tier": "B",
+      "stats": {
+        "attack": 1,
+        "defense": 0,
+        "power": 2,
+        "knowledge": 2
+      },
+      "desc": "젊었을때, 커스버트는 암흑의 마법을 다뤘습니다. 하지만 그가 잘못 사용한 마법으로 그의 아내가 사망하자, 그는 암흑의 마법을 떠났고 다시는 뒤를 돌아보지 않았습니다. 암흑의 마법을 꿰뚫는 통찰력에서 그를 능가하는 사람은 없습니다.",
+      "specialty": "약화",
+      "specialty_desc": "약화의 효과가 강화되며 전투마다 약화를 여러번 사용할 수 있습니다.",
+      "skills": [
+        "초급 지혜",
+        "초급 물 마법"
+      ],
+      "troops": [
+        {
+          "name": "창병",
+          "count": "15-25"
+        },
+        {
+          "name": "궁수",
+          "count": "3-5"
+        },
+        {
+          "name": "그리핀",
+          "count": "2-3"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": true,
+      "spells": [
+        "약화"
+      ],
+      "portrait": "images/heroes_portrait/캐슬/커스버트.jpg",
+      "info_img": "images/heroes_info/캐슬/커스버트.jpg"
+    },
+    {
+      "id": 12,
+      "name": "아델레이드",
+      "town": "캐슬",
+      "class": "성직자",
+      "tier": "S",
+      "stats": {
+        "attack": 1,
+        "defense": 0,
+        "power": 2,
+        "knowledge": 2
+      },
+      "desc": "폭풍우가 몰아치는 바다에서, 아델레이드는 눈의 엘프족들이 살고있는 보리 섬으로 표류하고 말았습니다. 그곳에서 그녀는 약 20년간을 엘프들과 함께 수련했고, 그녀가 에리시아로 돌아왔을때 시간이 전혀 흘러가지 않았음을 알게 되었습니다.",
+      "specialty": "얼음 고리",
+      "specialty_desc": "얼음고리의 효과가 강화되며 전투마다 얼음 고리를 여러번 사용할 수 있습니다.",
+      "skills": [
+        "초급 명상",
+        "초급 물 마법"
+      ],
+      "troops": [
+        {
+          "name": "창병",
+          "count": "15-25"
+        },
+        {
+          "name": "궁수",
+          "count": "3-5"
+        },
+        {
+          "name": "그리핀",
+          "count": "2-3"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": true,
+      "spells": [
+        "얼음 고리"
+      ],
+      "portrait": "images/heroes_portrait/캐슬/아델레이드.jpg",
+      "info_img": "images/heroes_info/캐슬/아델레이드.jpg"
+    },
+    {
+      "id": 13,
+      "name": "잉엄",
+      "town": "캐슬",
+      "class": "성직자",
+      "tier": "B",
+      "stats": {
+        "attack": 1,
+        "defense": 0,
+        "power": 2,
+        "knowledge": 2
+      },
+      "desc": "잉엄은 크리건의 공격이 있기 전에는 수도사 였습니다. 그와 동료 수도승들은 전쟁이 발발하자 에라시아 군대로 편입되었습니다.",
+      "specialty": "수도사",
+      "specialty_desc": "수도사와 열성수도사의 공격력, 방어력, 속도가 증가합니다.",
+      "skills": [
+        "초급 지혜",
+        "초급 명상"
+      ],
+      "troops": [
+        {
+          "name": "창병",
+          "count": "15-25"
+        },
+        {
+          "name": "궁수",
+          "count": "3-5"
+        },
+        {
+          "name": "그리핀",
+          "count": "2-3"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": true,
+      "spells": [
+        "저주"
+      ],
+      "portrait": "images/heroes_portrait/캐슬/잉엄.jpg",
+      "info_img": "images/heroes_info/캐슬/잉엄.jpg"
+    },
+    {
+      "id": 14,
+      "name": "사냐",
+      "town": "캐슬",
+      "class": "성직자",
+      "tier": "A",
+      "stats": {
+        "attack": 1,
+        "defense": 0,
+        "power": 2,
+        "knowledge": 2
+      },
+      "desc": "사냐는 모든 것을 빨리 배웠습니다. 가장 뛰어난 학생이었던 그녀는 다른 지원자들을 제치고 교회에 들어갔습니다. 그녀는 마법 주문을 배우는데 천부적인 능력을 타고났습니다. 어떤 경우에는 다른 사람이 새로운 마법을 사용하는 것을 보기만 해도, 그것을 자신의 마법으로 만들기도 했으니까요.",
+      "specialty": "물 마법",
+      "specialty_desc": "물마법의 데미지가 15% 증가하고 전투마다 물마법을 추가로 사용할 수 있습니다.",
+      "skills": [
+        "초급 지혜",
+        "초급 물 마법"
+      ],
+      "troops": [
+        {
+          "name": "창병",
+          "count": "15-25"
+        },
+        {
+          "name": "궁수",
+          "count": "3-5"
+        },
+        {
+          "name": "그리핀",
+          "count": "2-3"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": true,
+      "spells": [
+        "해제"
+      ],
+      "portrait": "images/heroes_portrait/캐슬/사냐.jpg",
+      "info_img": "images/heroes_info/캐슬/사냐.jpg"
+    },
+    {
+      "id": 15,
+      "name": "로이니스",
+      "town": "캐슬",
+      "class": "성직자",
+      "tier": "B",
+      "stats": {
+        "attack": 1,
+        "defense": 0,
+        "power": 2,
+        "knowledge": 2
+      },
+      "desc": "로이니스는 마법과 기도를 행할 수 있는 한, 물리적인 폭력은 필요없다고 믿고 있던 사람입니다. 그는 놀라울 정도로 임무를 완수 했기에, 이제는 성공적인 지도자로 인정받고 있습니다.",
+      "specialty": "기원",
+      "specialty_desc": "기원의 효과가 강화되며 전투마다 기원올 여러번 사용할 수 있습니다.",
+      "skills": [
+        "초급 지혜",
+        "초급 학습"
+      ],
+      "troops": [
+        {
+          "name": "창병",
+          "count": "15-25"
+        },
+        {
+          "name": "궁수",
+          "count": "3-5"
+        },
+        {
+          "name": "그리핀",
+          "count": "2-3"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": true,
+      "spells": [
+        "기원"
+      ],
+      "portrait": "images/heroes_portrait/캐슬/로이니스.jpg",
+      "info_img": "images/heroes_info/캐슬/로이니스.jpg"
+    },
+    {
+      "id": 16,
+      "name": "케이틀린",
+      "town": "캐슬",
+      "class": "성직자",
+      "tier": "B",
+      "stats": {
+        "attack": 1,
+        "defense": 0,
+        "power": 2,
+        "knowledge": 2
+      },
+      "desc": "지휘관으로 선임되기 전, 몇몇 사람은 케이틀린이 악의 영혼을 소유했다고 생각했습니다. 하지만 이러한 일부의 주장에도 불구하고, 그녀가 교회에 몸담고 있었던 시기에 교회에 대한 헌신에서 그녀를 따라갈 사람은 아무도 없었습니다.",
+      "specialty": "금 +350",
+      "specialty_desc": "매일 왕국의 금수입이 350 증가하고 자원을 생산합니다.",
+      "skills": [
+        "초급 독수리의 눈",
+        "초급 학습"
+      ],
+      "troops": [
+        {
+          "name": "창병",
+          "count": "15-25"
+        },
+        {
+          "name": "궁수",
+          "count": "3-5"
+        },
+        {
+          "name": "그리핀",
+          "count": "2-3"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": true,
+      "spells": [
+        "치료"
+      ],
+      "portrait": "images/heroes_portrait/캐슬/케이틀린.jpg",
+      "info_img": "images/heroes_info/캐슬/케이틀린.jpg"
+    },
+    {
+      "id": 17,
+      "name": "메팔라",
+      "town": "램파트",
+      "class": "레인저",
+      "tier": "A",
+      "stats": {
+        "attack": 1,
+        "defense": 3,
+        "power": 1,
+        "knowledge": 1
+      },
+      "desc": "에라시아 군대에서 수련을 쌓은 메팔라는 지형의 잇점을 자유자재로 이용하는 천재적인 능력을 지녔습니다. 에라시아의 분주함보다 애블리의 고요함을 좋아한 그녀는 몇 년 전에 퇴역했습니다.",
+      "specialty": "방어술",
+      "specialty_desc": "레벨당 방어술에 3% 보너스가 추가됩니다.",
+      "skills": [
+        "초급 지휘력",
+        "초급 방어술"
+      ],
+      "troops": [
+        {
+          "name": "켄타우로스",
+          "count": "15-25"
+        },
+        {
+          "name": "드워프",
+          "count": "3-5"
+        },
+        {
+          "name": "엘프",
+          "count": "2-3"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": false,
+      "spells": [],
+      "portrait": "images/heroes_portrait/램파트/메팔라.jpg",
+      "info_img": "images/heroes_info/램파트/메팔라.jpg"
+    },
+    {
+      "id": 18,
+      "name": "우프레틴",
+      "town": "램파트",
+      "class": "레인저",
+      "tier": "A",
+      "stats": {
+        "attack": 1,
+        "defense": 3,
+        "power": 1,
+        "knowledge": 1
+      },
+      "desc": "드워프 레인져는 희귀합니다만, 우프레틴은 타고난 난장이 레인져입니다. 그는 이 땅위에 사는 모든 드워프들의 우상이며, 드워프 종족의 타고난 지도자입니다.",
+      "specialty": "드워프 투창병",
+      "specialty_desc": "아군 부대의 드워프, 드워프 전사, 드워프 광전사를 드워프 투창병으로 업그레이드 할 수 있으며 영웅 부대의 드워프 투창병을 강화시킵니다.",
+      "skills": [
+        "초급 마법 저항",
+        "초급 행운"
+      ],
+      "troops": [
+        {
+          "name": "드워프",
+          "count": "3-5"
+        },
+        {
+          "name": "드워프",
+          "count": "3-5"
+        },
+        {
+          "name": "드워프",
+          "count": "3-5"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": false,
+      "spells": [],
+      "portrait": "images/heroes_portrait/램파트/우프레틴.jpg",
+      "info_img": "images/heroes_info/램파트/우프레틴.jpg"
+    },
+    {
+      "id": 19,
+      "name": "제노바",
+      "town": "램파트",
+      "class": "레인저",
+      "tier": "B",
+      "stats": {
+        "attack": 1,
+        "defense": 3,
+        "power": 1,
+        "knowledge": 1
+      },
+      "desc": "제노바는 그 아름다운 마음씨로 에라시아 전역에 알려진 인물입니다. 그녀의 매력으로 인해 그녀가 따르려는 목적의 가치는 높아집니다.",
+      "specialty": "금 +350",
+      "specialty_desc": "매일 왕국의 금수입이 350 증가하고 자원을 생산합니다.",
+      "skills": [
+        "초급 통치술",
+        "초급 독수리의 눈"
+      ],
+      "troops": [
+        {
+          "name": "켄타우로스",
+          "count": "15-25"
+        },
+        {
+          "name": "드워프",
+          "count": "3-5"
+        },
+        {
+          "name": "엘프",
+          "count": "2-3"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": false,
+      "spells": [],
+      "portrait": "images/heroes_portrait/램파트/제노바.jpg",
+      "info_img": "images/heroes_info/램파트/제노바.jpg"
+    },
+    {
+      "id": 20,
+      "name": "라일란드",
+      "town": "램파트",
+      "class": "레인저",
+      "tier": "A",
+      "stats": {
+        "attack": 1,
+        "defense": 3,
+        "power": 1,
+        "knowledge": 1
+      },
+      "desc": "라일란드는 오래된 나무귀신들에게 애블리의 레인져로 인정받는 최초이자 유일한 인간입니다. 몇몇 사람들은 이전에 그가 엘프족 이었지만, 사망후 다시 인간의 몸을 빌어 태어났다는 농담을 늘어놓기도 합니다.",
+      "specialty": "덴드로이드",
+      "specialty_desc": "덴드로이드 가드와 덴드로이드 솔저의 공격력, 방어력, 속도가 증가합니다.",
+      "skills": [
+        "초급 지휘력",
+        "초급 외교술"
+      ],
+      "troops": [
+        {
+          "name": "켄타우로스",
+          "count": "15-25"
+        },
+        {
+          "name": "드워프",
+          "count": "3-5"
+        },
+        {
+          "name": "엘프",
+          "count": "2-3"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": false,
+      "spells": [],
+      "portrait": "images/heroes_portrait/램파트/라일란드.jpg",
+      "info_img": "images/heroes_info/램파트/라일란드.jpg"
+    },
+    {
+      "id": 21,
+      "name": "토그림",
+      "town": "램파트",
+      "class": "레인저",
+      "tier": "B",
+      "stats": {
+        "attack": 1,
+        "defense": 3,
+        "power": 1,
+        "knowledge": 1
+      },
+      "desc": "어렸을 때 고아가 된 토그림은 애블리의 최북단 삼림지대에서 자라났습니다. 마법에 저항하는 그의 독특한 능력은 널리 알려져 있습니다.",
+      "specialty": "마법저항",
+      "specialty_desc": "레벨당 마법저항에 3% 보너스가 추가됩니다.",
+      "skills": [
+        "중급 마법 저항"
+      ],
+      "troops": [
+        {
+          "name": "켄타우로스",
+          "count": "15-25"
+        },
+        {
+          "name": "드워프",
+          "count": "3-5"
+        },
+        {
+          "name": "엘프",
+          "count": "2-3"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": false,
+      "spells": [],
+      "portrait": "images/heroes_portrait/램파트/토그림.jpg",
+      "info_img": "images/heroes_info/램파트/토그림.jpg"
+    },
+    {
+      "id": 22,
+      "name": "이보르",
+      "town": "램파트",
+      "class": "레인저",
+      "tier": "B",
+      "stats": {
+        "attack": 1,
+        "defense": 3,
+        "power": 1,
+        "knowledge": 1
+      },
+      "desc": "이보르의 혈통에 대해서는 의문점이 많습니다. 귀족의 가문에서 자라났지만, 그는 항상 성급합니다. 전투에서도 방어보다는 공격을 좋아합니다. 물론 이러한 성격 탓에 그가 아직도 살아있기는 하지만...",
+      "specialty": "엘프",
+      "specialty_desc": "엘프와 그랜드엘프의 공격력, 방어력, 속도가 증가합니다.",
+      "skills": [
+        "초급 궁술",
+        "초급 공격술"
+      ],
+      "troops": [
+        {
+          "name": "켄타우로스",
+          "count": "15-25"
+        },
+        {
+          "name": "엘프",
+          "count": "2-3"
+        },
+        {
+          "name": "엘프",
+          "count": "2-3"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": false,
+      "spells": [],
+      "portrait": "images/heroes_portrait/램파트/이보르.jpg",
+      "info_img": "images/heroes_info/램파트/이보르.jpg"
+    },
+    {
+      "id": 23,
+      "name": "클랜시",
+      "town": "램파트",
+      "class": "레인저",
+      "tier": "B",
+      "stats": {
+        "attack": 1,
+        "defense": 3,
+        "power": 1,
+        "knowledge": 1
+      },
+      "desc": "클랜시가 자신이 유니콘과 대화할 수 있다는 것을 알게된 것은 순전히 우연이였습니다. 하지만 이러한 독보적인 능력 덕분에 그는 에블리의 엘리트 군대에 발탁되었습니다.",
+      "specialty": "유니콘",
+      "specialty_desc": "유니콘과 워 유니콘의 공격력, 방어력, 속도가 증가합니다.",
+      "skills": [
+        "초급 마법 저항",
+        "초급 탐험술"
+      ],
+      "troops": [
+        {
+          "name": "켄타우로스",
+          "count": "15-25"
+        },
+        {
+          "name": "드워프",
+          "count": "3-5"
+        },
+        {
+          "name": "엘프",
+          "count": "2-3"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": false,
+      "spells": [],
+      "portrait": "images/heroes_portrait/램파트/클랜시.jpg",
+      "info_img": "images/heroes_info/램파트/클랜시.jpg"
+    },
+    {
+      "id": 24,
+      "name": "키레",
+      "town": "램파트",
+      "class": "레인저",
+      "tier": "S",
+      "stats": {
+        "attack": 1,
+        "defense": 3,
+        "power": 1,
+        "knowledge": 1
+      },
+      "desc": "키레는 크리건의 공격을 애블리가 방어할 때 정찰병으로 활약했습니다. 험난한 지형을 돌아다닐 수 있는 능력은 그녀의 임무와 너무나 잘 맞아 떨어졌습니다.",
+      "specialty": "병참술",
+      "specialty_desc": "레벨당 병참술에 3% 보너스가 추가됩니다.",
+      "skills": [
+        "초급 병참술",
+        "초급 정찰"
+      ],
+      "troops": [
+        {
+          "name": "켄타우로스",
+          "count": "15-25"
+        },
+        {
+          "name": "드워프",
+          "count": "3-5"
+        },
+        {
+          "name": "엘프",
+          "count": "2-3"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": false,
+      "spells": [],
+      "portrait": "images/heroes_portrait/램파트/키레.jpg",
+      "info_img": "images/heroes_info/램파트/키레.jpg"
+    },
+    {
+      "id": 25,
+      "name": "코로니어스",
+      "town": "램파트",
+      "class": "드루이드",
+      "tier": "B",
+      "stats": {
+        "attack": 0,
+        "defense": 2,
+        "power": 1,
+        "knowledge": 2
+      },
+      "desc": "코로니어스는 에라시아 대학에서 한학기간 수강하였으나, 여기서 만족하지 못하고 자신을 지도할 드루이드를 찾아서 애블리로 떠났습니다.",
+      "specialty": "지혜",
+      "specialty_desc": "고급 지혜 스킬을 기지고 시작하며 추가 마법 크리티컬 확률을 가집니다.",
+      "skills": [
+        "고급 지혜",
+        "초급 교육"
+      ],
+      "troops": [
+        {
+          "name": "켄타우로스",
+          "count": "15-25"
+        },
+        {
+          "name": "드워프",
+          "count": "3-5"
+        },
+        {
+          "name": "엘프",
+          "count": "2-3"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": true,
+      "spells": [
+        "얼음 화살"
+      ],
+      "portrait": "images/heroes_portrait/램파트/코로니어스.jpg",
+      "info_img": "images/heroes_info/램파트/코로니어스.jpg"
+    },
+    {
+      "id": 26,
+      "name": "울란드",
+      "town": "램파트",
+      "class": "드루이드",
+      "tier": "B",
+      "stats": {
+        "attack": 0,
+        "defense": 2,
+        "power": 1,
+        "knowledge": 2
+      },
+      "desc": "울란드는 드루이드가 되기 전에는 전쟁터에서 의사의 일을 맡았었지만, 군복무에서 얻은 교훈으로 말미암아 그는 오늘날 뛰어난 지도자가 되었습니다.",
+      "specialty": "치료",
+      "specialty_desc": "치료 마법의 효율이 증가하며 마스터시 2배의 효율을 가집니다. 또한 마력이 +2 증가한채로 게임을 시작합니다.",
+      "skills": [
+        "초급 지혜",
+        "초급 물 마법"
+      ],
+      "troops": [
+        {
+          "name": "켄타우로스",
+          "count": "15-25"
+        },
+        {
+          "name": "드워프",
+          "count": "3-5"
+        },
+        {
+          "name": "엘프",
+          "count": "2-3"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": true,
+      "spells": [
+        "얼음 화살"
+      ],
+      "portrait": "images/heroes_portrait/램파트/울란드.jpg",
+      "info_img": "images/heroes_info/램파트/울란드.jpg"
+    },
+    {
+      "id": 27,
+      "name": "엘리샤",
+      "town": "램파트",
+      "class": "드루이드",
+      "tier": "B",
+      "stats": {
+        "attack": 0,
+        "defense": 2,
+        "power": 1,
+        "knowledge": 2
+      },
+      "desc": "엘리샤는 애블리에서 마법을 공부하는 학생들 중에 가장 똑똑한 사람일 것입니다. 앞으로 몇십년간 그의 능력이 계속 발휘된다면, 그는 가장 젊은 드루이드가 될 것입니다.",
+      "specialty": "지식",
+      "specialty_desc": "레벨당 지식에 3% 보너스가 추가됩니다.",
+      "skills": [
+        "초급 지혜",
+        "초급 지식"
+      ],
+      "troops": [
+        {
+          "name": "켄타우로스",
+          "count": "15-25"
+        },
+        {
+          "name": "드워프",
+          "count": "3-5"
+        },
+        {
+          "name": "엘프",
+          "count": "2-3"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": true,
+      "spells": [
+        "저주"
+      ],
+      "portrait": "images/heroes_portrait/램파트/엘리샤.jpg",
+      "info_img": "images/heroes_info/램파트/엘리샤.jpg"
+    },
+    {
+      "id": 28,
+      "name": "젬",
+      "town": "램파트",
+      "class": "드루이드",
+      "tier": "S",
+      "stats": {
+        "attack": 0,
+        "defense": 2,
+        "power": 1,
+        "knowledge": 2
+      },
+      "desc": "젬은 왕위 계승전쟁에서 롤랜드 아이언피스트 왕을 도와 싸웠던, 잉로스에서 가장 위대한 여자 마법사들중 한명입니다. 롤랜드가 앙로스의 왕좌를 차지한 직후, 그녀는 에리시아를 떠나서 애볼리로 이주했습니다.",
+      "specialty": "응급처치",
+      "specialty_desc": "응급 처지 스킬의 효과가 강화됩니다.",
+      "skills": [
+        "초급 외교술",
+        "초급 응급 치료"
+      ],
+      "troops": [
+        {
+          "name": "켄타우로스",
+          "count": "15-25"
+        },
+        {
+          "name": "엘프",
+          "count": "2-3"
+        }
+      ],
+      "war_machines": [
+        "응급처치 텐트"
+      ],
+      "spellbook": true,
+      "spells": [
+        "역전"
+      ],
+      "portrait": "images/heroes_portrait/램파트/젬.jpg",
+      "info_img": "images/heroes_info/램파트/젬.jpg"
+    },
+    {
+      "id": 29,
+      "name": "말콤",
+      "town": "램파트",
+      "class": "드루이드",
+      "tier": "A",
+      "stats": {
+        "attack": 0,
+        "defense": 2,
+        "power": 1,
+        "knowledge": 2
+      },
+      "desc": "말콤은 드워프로서는 몇안되는 타고난 마법사입니다. 종종 그는 남들의 마법을 보기만하고도 그것을 습득하는 능력도 보여주었습니다. 악한 에오폴이 애블리로 침공해 들어오자, 그는 애볼리에 가담해서 침략군과 싸웠습니다.",
+      "specialty": "물 마법",
+      "specialty_desc": "물마법의 데미지가 15% 증가하고 전투마다 물마법을 추가로 시용할 수 있습니다.",
+      "skills": [
+        "초급 지혜",
+        "초급 물 마법"
+      ],
+      "troops": [
+        {
+          "name": "켄타우로스",
+          "count": "15-25"
+        },
+        {
+          "name": "드워프",
+          "count": "3-5"
+        },
+        {
+          "name": "엘프",
+          "count": "2-3"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": true,
+      "spells": [
+        "마법 화살"
+      ],
+      "portrait": "images/heroes_portrait/램파트/말콤.jpg",
+      "info_img": "images/heroes_info/램파트/말콤.jpg"
+    },
+    {
+      "id": 30,
+      "name": "멜로디아",
+      "town": "램파트",
+      "class": "드루이드",
+      "tier": "B",
+      "stats": {
+        "attack": 0,
+        "defense": 2,
+        "power": 1,
+        "knowledge": 2
+      },
+      "desc": "멜로디아는 애블리의 숙련된 드루이드는 아니지만, 그녀에게는 행운이 동행합니다. 심지어는 명백한 열세 상황 속에서도, 기적적으로 승리를 이끌어 냈습니다. 많은 부대들이 그녀의 지휘하에 들어가기를 원하고 있습니다.",
+      "specialty": "외교술",
+      "specialty_desc": "외교술의 효과가 강화됩니다.",
+      "skills": [
+        "초급 외교술",
+        "초급 명상"
+      ],
+      "troops": [
+        {
+          "name": "켄타우로스",
+          "count": "15-25"
+        },
+        {
+          "name": "드워프",
+          "count": "3-5"
+        },
+        {
+          "name": "엘프",
+          "count": "2-3"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": true,
+      "spells": [
+        "피의 굶주림"
+      ],
+      "portrait": "images/heroes_portrait/램파트/멜로디아.jpg",
+      "info_img": "images/heroes_info/램파트/멜로디아.jpg"
+    },
+    {
+      "id": 31,
+      "name": "알라가",
+      "town": "램파트",
+      "class": "드루이드",
+      "tier": "B",
+      "stats": {
+        "attack": 0,
+        "defense": 2,
+        "power": 1,
+        "knowledge": 2
+      },
+      "desc": "한때 보리 섬의 엘프들과 함께 살았다는 소문이 있는 알라가는 물의 정령을 지휘함에 있어서 타인의 추종을 불허합니다. 그는 크리건의 침입이 있은 후 애블리편에 가담했습니다.",
+      "specialty": "얼음 화실",
+      "specialty_desc": "얼음 화살의 효과가 강화되며 전투마다 얼음 화살을 여러번 사용할 수 있습니다.",
+      "skills": [
+        "초급 지혜",
+        "초급 마법학"
+      ],
+      "troops": [
+        {
+          "name": "켄타우로스",
+          "count": "15-25"
+        },
+        {
+          "name": "드워프",
+          "count": "3-5"
+        },
+        {
+          "name": "엘프",
+          "count": "2-3"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": true,
+      "spells": [
+        "얼음 화살"
+      ],
+      "portrait": "images/heroes_portrait/램파트/알라가.jpg",
+      "info_img": "images/heroes_info/램파트/알라가.jpg"
+    },
+    {
+      "id": 32,
+      "name": "에어리스",
+      "town": "램파트",
+      "class": "드루이드",
+      "tier": "B",
+      "stats": {
+        "attack": 0,
+        "defense": 2,
+        "power": 1,
+        "knowledge": 2
+      },
+      "desc": "에어리스는 애블리의 뛰어난 인재입니다. 그는 엘프족과 페가수스 사이의 감정 교환을 읽어낼 수 있을 만큼 유능한 드루이드 입니다.",
+      "specialty": "페가수스",
+      "specialty_desc": "페기수스와 실버 페가수스의 공격력, 방어력, 속도가 증가합니다.",
+      "skills": [
+        "초급 공격술",
+        "초급 방어술"
+      ],
+      "troops": [
+        {
+          "name": "켄타우로스",
+          "count": "15-25"
+        },
+        {
+          "name": "드워프",
+          "count": "3-5"
+        },
+        {
+          "name": "페가수스",
+          "count": "2-3"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": false,
+      "spells": [],
+      "portrait": "images/heroes_portrait/램파트/에어리스.jpg",
+      "info_img": "images/heroes_info/램파트/에어리스.jpg"
+    },
+    {
+      "id": 33,
+      "name": "피케드람",
+      "town": "타워",
+      "class": "연금술사",
+      "tier": "B",
+      "stats": {
+        "attack": 1,
+        "defense": 1,
+        "power": 2,
+        "knowledge": 2
+      },
+      "desc": "피케드람은 흔한 바위들을 다루는 연금술을 연마하는 데 많은 세월을 보낸 사람입니다. 그는 브라카다 편에서 일하면서 가고일의 기본 디자인을 개량했다고 합니다.",
+      "specialty": "가고일",
+      "specialty_desc": "스톤 가고일과 옵시디언 가고일의 공격력, 방어력, 속도가 증가합니다.",
+      "skills": [
+        "초급 명상",
+        "초급 정찰"
+      ],
+      "troops": [
+        {
+          "name": "스톤 가고일",
+          "count": "3-5"
+        },
+        {
+          "name": "스톤 가고일",
+          "count": "3-5"
+        },
+        {
+          "name": "스톤 가고일",
+          "count": "3-5"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": true,
+      "spells": [
+        "방패"
+      ],
+      "portrait": "images/heroes_portrait/타워/피케드람.jpg",
+      "info_img": "images/heroes_info/타워/피케드람.jpg"
+    },
+    {
+      "id": 34,
+      "name": "테인",
+      "town": "타워",
+      "class": "연금술사",
+      "tier": "B",
+      "stats": {
+        "attack": 1,
+        "defense": 1,
+        "power": 2,
+        "knowledge": 2
+      },
+      "desc": "어느 누구도 테인의 배경에 대해서는 모릅니다. 그는 브라카다에서 오랜 기간동안 연금술을 가르쳐 왔습니다.",
+      "specialty": "교육",
+      "specialty_desc": "교육으로 전해줄 수 있는 경험치의 상한이 사라집니다.",
+      "skills": [
+        "초급 교육",
+        "초급 마법학"
+      ],
+      "troops": [
+        {
+          "name": "그렘린",
+          "count": "30-40"
+        },
+        {
+          "name": "스톤 가고일",
+          "count": "3-5"
+        },
+        {
+          "name": "스톤 골렘",
+          "count": "2-3"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": true,
+      "spells": [
+        "번개"
+      ],
+      "portrait": "images/heroes_portrait/타워/테인.jpg",
+      "info_img": "images/heroes_info/타워/테인.jpg"
+    },
+    {
+      "id": 35,
+      "name": "죠세핀",
+      "town": "타워",
+      "class": "연금술사",
+      "tier": "B",
+      "stats": {
+        "attack": 1,
+        "defense": 1,
+        "power": 2,
+        "knowledge": 2
+      },
+      "desc": "죠세핀은 처음으로 돌 골렘에 생명을 불어넣은 사람입니다. 가고일보다 훨씬 복잡한 과정을 거치는 돌 골렘의 제조에는 그녀의 연구가 바탕으로 깔려 있습니다.",
+      "specialty": "골렘",
+      "specialty_desc": "스톤 골렘과 아이언 골렘의 공격력, 방어력, 속도가 증가합니다.",
+      "skills": [
+        "초급 명상",
+        "초급 마법학"
+      ],
+      "troops": [
+        {
+          "name": "그렘린",
+          "count": "30-40"
+        },
+        {
+          "name": "스톤 골렘",
+          "count": "2"
+        },
+        {
+          "name": "스톤 골렘",
+          "count": "2-3"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": true,
+      "spells": [
+        "가속"
+      ],
+      "portrait": "images/heroes_portrait/타워/죠세핀.jpg",
+      "info_img": "images/heroes_info/타워/죠세핀.jpg"
+    },
+    {
+      "id": 36,
+      "name": "닐라",
+      "town": "타워",
+      "class": "연금술사",
+      "tier": "B",
+      "stats": {
+        "attack": 1,
+        "defense": 1,
+        "power": 2,
+        "knowledge": 2
+      },
+      "desc": "닐라는 가혹한 형벌을 견딜 수 있는 가장 강한 사람입니다. 그녀의 지휘아래 있는 부대는 그녀의 저항력을 전수받게 됩니다.",
+      "specialty": "방어술",
+      "specialty_desc": "레벨당 방어술에 3% 보너스가 추가됩니다.",
+      "skills": [
+        "초급 대지 마법",
+        "초급 방어술"
+      ],
+      "troops": [
+        {
+          "name": "그렘린",
+          "count": "30-40"
+        },
+        {
+          "name": "스톤 가고일",
+          "count": "4"
+        },
+        {
+          "name": "스톤 골렘",
+          "count": "2-3"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": true,
+      "spells": [
+        "방패"
+      ],
+      "portrait": "images/heroes_portrait/타워/닐라.jpg",
+      "info_img": "images/heroes_info/타워/닐라.jpg"
+    },
+    {
+      "id": 37,
+      "name": "토로사",
+      "town": "타워",
+      "class": "연금술사",
+      "tier": "B",
+      "stats": {
+        "attack": 1,
+        "defense": 1,
+        "power": 2,
+        "knowledge": 2
+      },
+      "desc": "원래는 연금술사로서 수련했지만, 토로사는 전장과 공성전 전술에 많은 관심을 가지고 있었습니다. 그래서 그녀는 연금술 관련서적 보다는 전쟁 관련 서적을 더 많이 보곤 했습니다.",
+      "specialty": "부관",
+      "specialty_desc": "부관이 강화됩니다.",
+      "skills": [
+        "초급 궁술",
+        "초급 전술"
+      ],
+      "troops": [
+        {
+          "name": "그렘린",
+          "count": "30-40"
+        },
+        {
+          "name": "스톤 골렘",
+          "count": "2-3"
+        }
+      ],
+      "war_machines": [
+        "쇠뇌"
+      ],
+      "spellbook": false,
+      "spells": [],
+      "portrait": "images/heroes_portrait/타워/토로사.jpg",
+      "info_img": "images/heroes_info/타워/토로사.jpg"
+    },
+    {
+      "id": 38,
+      "name": "파프너",
+      "town": "타워",
+      "class": "연금술사",
+      "tier": "B",
+      "stats": {
+        "attack": 1,
+        "defense": 1,
+        "power": 2,
+        "knowledge": 2
+      },
+      "desc": "파프너는 천년전에 지니가 되었다고 합니다. 지니의 램프를 발견하자, 그는 소원을 들어주는 강력한 지니가 되기를 원했습니다. 그의 소원은 이루어졌고, 그후 그는 브라키다를 위해 일하고 있습니다.",
+      "specialty": "나가 소서리스",
+      "specialty_desc": "아군 부대의 나가, 나가 퀸, 나가 엠프레스를 나가 소서리스로 업그레이드 할 수 있으며, 영웅 부대의 나가 소서리스를 강화시킵니다.",
+      "skills": [
+        "초급 행운",
+        "초급 마법 저항"
+      ],
+      "troops": [
+        {
+          "name": "그렘린",
+          "count": "30-40"
+        },
+        {
+          "name": "스톤 가고일",
+          "count": "3-5"
+        },
+        {
+          "name": "스톤 골렘",
+          "count": "2-3"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": true,
+      "spells": [
+        "가속"
+      ],
+      "portrait": "images/heroes_portrait/타워/파프너.jpg",
+      "info_img": "images/heroes_info/타워/파프너.jpg"
+    },
+    {
+      "id": 39,
+      "name": "리사",
+      "town": "타워",
+      "class": "연금술사",
+      "tier": "A",
+      "stats": {
+        "attack": 1,
+        "defense": 1,
+        "power": 2,
+        "knowledge": 2
+      },
+      "desc": "리사는 쓸모없는 금속조각들을 수은으로 변화시키는 기술을 완성한 연금술사 입니다. 비록 지금은 군대를 지휘하고 있지만, 시간이 날때마다 연금술을 익히고 있습니다.",
+      "specialty": "마스터그렘린",
+      "specialty_desc": "마스터 그렘린을 다수 가지고 시작하며, 그렘린과 마스터 그렘린의 공격력, 방어력, 속도가 증가합니다.",
+      "skills": [
+        "초급 궁술",
+        "초급 대기 마법"
+      ],
+      "troops": [
+        {
+          "name": "마스터 그렘린",
+          "count": "15-25"
+        },
+        {
+          "name": "마스터 그렘린",
+          "count": "15-25"
+        },
+        {
+          "name": "마스터 그렘린",
+          "count": "15-25"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": true,
+      "spells": [
+        "정확성"
+      ],
+      "portrait": "images/heroes_portrait/타워/리사.jpg",
+      "info_img": "images/heroes_info/타워/리사.jpg"
+    },
+    {
+      "id": 40,
+      "name": "이오나",
+      "town": "타워",
+      "class": "연금술사",
+      "tier": "B",
+      "stats": {
+        "attack": 1,
+        "defense": 1,
+        "power": 2,
+        "knowledge": 2
+      },
+      "desc": "이오나는 오래전에 그녀의 종족들보다 자신이 강하다는 것을 입증했지만, 그녀의 매력적인 성격으로 인해서 휘하 부대원들은 그녀의 강력함에 위압감을 느끼지 않습니다.",
+      "specialty": "지니",
+      "specialty_desc": "지니과 마스터지니의 공격력, 방어력, 속도가 증가합니다.",
+      "skills": [
+        "초급 지휘력",
+        "초급 지식"
+      ],
+      "troops": [
+        {
+          "name": "그렘린",
+          "count": "30-40"
+        },
+        {
+          "name": "스톤 가고일",
+          "count": "3-5"
+        },
+        {
+          "name": "지니",
+          "count": "1"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": true,
+      "spells": [
+        "마법 화살"
+      ],
+      "portrait": "images/heroes_portrait/타워/이오나.jpg",
+      "info_img": "images/heroes_info/타워/이오나.jpg"
+    },
+    {
+      "id": 41,
+      "name": "아스트럴",
+      "town": "타워",
+      "class": "마법사",
+      "tier": "B",
+      "stats": {
+        "attack": 0,
+        "defense": 0,
+        "power": 2,
+        "knowledge": 3
+      },
+      "desc": "아스트럴은 약 10년전에 에라시아에 왔으며, 브라카다의 마법사 길드에 가입되었습니다. 길드 안에서 그는 자신의 힘을 성장시켰으며, 몇몇 사람들은 그의 빠른 성공은 오직 마법에 의해서만이 가능했다고 농담을 던지기도 합니다.",
+      "specialty": "최면",
+      "specialty_desc": "최면의 효과가 강화되며 전투마다 최면을 여러번 사용할 수 있습니다.",
+      "skills": [
+        "중급 지혜"
+      ],
+      "troops": [
+        {
+          "name": "그렘린",
+          "count": "30-40"
+        },
+        {
+          "name": "스톤 가고일",
+          "count": "3-5"
+        },
+        {
+          "name": "스톤 골렘",
+          "count": "2-3"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": true,
+      "spells": [
+        "최면"
+      ],
+      "portrait": "images/heroes_portrait/타워/아스트럴.jpg",
+      "info_img": "images/heroes_info/타워/아스트럴.jpg"
+    },
+    {
+      "id": 42,
+      "name": "헤일론",
+      "town": "타워",
+      "class": "마법사",
+      "tier": "B",
+      "stats": {
+        "attack": 0,
+        "defense": 0,
+        "power": 2,
+        "knowledge": 3
+      },
+      "desc": "헤일론은 앙로스의 존경받는 인물이었지만, 왕위 계승전쟁 이후 지루함을 느껴 세계탐험을 떠난 사람입니다. 그는 최근에 브라카다 군대의 지휘관직을 수락했고, 이것이 무언가 그의 인생에 새로운 계기가 되길 바라고 있습니다.",
+      "specialty": "명상",
+      "specialty_desc": "레벨당 명상에 3% 보너스가 추가됩니다.",
+      "skills": [
+        "초급 지혜",
+        "초급 명상"
+      ],
+      "troops": [
+        {
+          "name": "그렘린",
+          "count": "30-40"
+        },
+        {
+          "name": "스톤 가고일",
+          "count": "3-5"
+        },
+        {
+          "name": "스톤 골렘",
+          "count": "2-3"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": true,
+      "spells": [
+        "석갑"
+      ],
+      "portrait": "images/heroes_portrait/타워/헤일론.jpg",
+      "info_img": "images/heroes_info/타워/헤일론.jpg"
+    },
+    {
+      "id": 43,
+      "name": "세레나",
+      "town": "타워",
+      "class": "마법사",
+      "tier": "A",
+      "stats": {
+        "attack": 0,
+        "defense": 0,
+        "power": 2,
+        "knowledge": 3
+      },
+      "desc": "세레나가 처음 마법을 사용했을때, 그녀는 거의 죽다가 살아났습니다. 그녀는 너무나 많은 마법 에너지를 마법 주문에 쏟아 부었고, 이웃 마을의 마법사가 그걸 느꼈을 정도라고 합니다. 그는 재빨리 그녀를 찾아내서, 마법사 길드로 데리고 갔습니다. 거기서 그녀는 자신의 마력을 통제하는 법을 배웠습니다.",
+      "specialty": "대기 마법",
+      "specialty_desc": "대기마법의 데미지가 15% 증가하고 전투마다 대기마법을 추가로 사용할 수 있습니다.",
+      "skills": [
+        "초급 지혜",
+        "초급 대기 마법"
+      ],
+      "troops": [
+        {
+          "name": "그렘린",
+          "count": "30-40"
+        },
+        {
+          "name": "스톤 가고일",
+          "count": "3-5"
+        },
+        {
+          "name": "스톤 골렘",
+          "count": "2-3"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": true,
+      "spells": [
+        "해제"
+      ],
+      "portrait": "images/heroes_portrait/타워/세레나.jpg",
+      "info_img": "images/heroes_info/타워/세레나.jpg"
+    },
+    {
+      "id": 44,
+      "name": "다레미스",
+      "town": "타워",
+      "class": "마법사",
+      "tier": "S",
+      "stats": {
+        "attack": 0,
+        "defense": 0,
+        "power": 2,
+        "knowledge": 3
+      },
+      "desc": "다레미스는 오래전에 죽을 뻔 했습니다. 어디든지 가서 무엇이든 하는 그녀의 태도 때문에 그녀는 살아날 수 없는 상황에 처했었지만, 그녀는 어떻게해서 목숨을 보존했습니다.",
+      "specialty": "외교술",
+      "specialty_desc": "외교술의 효과가 강화됩니다.",
+      "skills": [
+        "초급 외교술",
+        "초급 학습"
+      ],
+      "troops": [
+        {
+          "name": "그렘린",
+          "count": "30-40"
+        },
+        {
+          "name": "스톤 가고일",
+          "count": "3-5"
+        },
+        {
+          "name": "스톤 골렘",
+          "count": "1-2"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": true,
+      "spells": [
+        "행운"
+      ],
+      "portrait": "images/heroes_portrait/타워/다레미스.jpg",
+      "info_img": "images/heroes_info/타워/다레미스.jpg"
+    },
+    {
+      "id": 45,
+      "name": "테오도러스",
+      "town": "타워",
+      "class": "마법사",
+      "tier": "B",
+      "stats": {
+        "attack": 0,
+        "defense": 0,
+        "power": 2,
+        "knowledge": 3
+      },
+      "desc": "테오도러스는 브리키디 최고의 마법사 중 한명입니다. 결과적으로 장인 마법사는 그에게 무언가를 배우려고 그를 찾았으며, 그의 지식의 혜택을 보기를 바랬다고 합니다.",
+      "specialty": "마법사",
+      "specialty_desc": "마법사와 대마법사의 공격력, 방어력, 속도가 증가합니다.",
+      "skills": [
+        "초급 궁술",
+        "초급 지혜"
+      ],
+      "troops": [
+        {
+          "name": "그렘린",
+          "count": "26-38"
+        },
+        {
+          "name": "스톤 골렘",
+          "count": "5-9"
+        },
+        {
+          "name": "메이지",
+          "count": "3-7"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": true,
+      "spells": [
+        "방어막"
+      ],
+      "portrait": "images/heroes_portrait/타워/테오도러스.jpg",
+      "info_img": "images/heroes_info/타워/테오도러스.jpg"
+    },
+    {
+      "id": 46,
+      "name": "솔미르",
+      "town": "타워",
+      "class": "마법사",
+      "tier": "A",
+      "stats": {
+        "attack": 0,
+        "defense": 0,
+        "power": 2,
+        "knowledge": 3
+      },
+      "desc": "솔미르는 천년 이상의 기간을 지니로서 램프에 갇혀 있었으며, 한 인간이 그를 해방 시켜 주었을때, 너무나 감사한 나머지 그에게 평생 충성을 맹세했습니다. 그것이 운명이었을까요? 그를 해방시켜준 인간은 바로 브라카다의 불멸의 지배자 가빈 마그누스 였습니다.",
+      "specialty": "연속 번개",
+      "specialty_desc": "연속 번개의 효과가 강화되며 전투마다 연속 번개를 여러번 사용할 수 있습니다.",
+      "skills": [
+        "초급 지혜",
+        "초급 명상"
+      ],
+      "troops": [
+        {
+          "name": "그렘린",
+          "count": "30-40"
+        },
+        {
+          "name": "스톤 가고일",
+          "count": "3-5"
+        },
+        {
+          "name": "스톤 골렘",
+          "count": "2-3"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": true,
+      "spells": [
+        "연속 번개"
+      ],
+      "portrait": "images/heroes_portrait/타워/솔미르.jpg",
+      "info_img": "images/heroes_info/타워/솔미르.jpg"
+    },
+    {
+      "id": 47,
+      "name": "사이라",
+      "town": "타워",
+      "class": "마법사",
+      "tier": "B",
+      "stats": {
+        "attack": 0,
+        "defense": 0,
+        "power": 2,
+        "knowledge": 3
+      },
+      "desc": "사이라는 원래 마법을 익혀 사랑하는 남자의 마음을 움직이려고 했던 여자입니다. 하지만 그녀는 자신에게 진정한 신비주의의 힘이 흐르고 있다는 것을 알았을때, 그녀는 그 남자의 마음을 자신에게 돌리려는 꿈을 버렸습니다.",
+      "specialty": "가속",
+      "specialty_desc": "가속의 효과가 강화되며 전투마다 가속을 여러번 사용할 수 있습니다.",
+      "skills": [
+        "초급 대기 마법",
+        "초급 포술"
+      ],
+      "troops": [
+        {
+          "name": "그렘린",
+          "count": "30-40"
+        },
+        {
+          "name": "스톤 가고일",
+          "count": "3-5"
+        },
+        {
+          "name": "스톤 골렘",
+          "count": "2-3"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": true,
+      "spells": [
+        "가속"
+      ],
+      "portrait": "images/heroes_portrait/타워/사이라.jpg",
+      "info_img": "images/heroes_info/타워/사이라.jpg"
+    },
+    {
+      "id": 48,
+      "name": "아인",
+      "town": "타워",
+      "class": "마법사",
+      "tier": "A",
+      "stats": {
+        "attack": 0,
+        "defense": 0,
+        "power": 2,
+        "knowledge": 3
+      },
+      "desc": "아인은 예전부터 브라카다에 살고 있었으며, 그 지역에서 가장 부유한 영웅들 중의 한사람 입니다. 그녀는 자신의 재산을 어딘가에 숨겨놓고, 자신의 도움이 필요한 곳이라고 판단되면 지원을 아끼지 않는 착한 심성의 소유자입니다.",
+      "specialty": "금 +350",
+      "specialty_desc": "매일 왕국의 금수입이 350 증가하고 자원을 생산합니다.",
+      "skills": [
+        "초급 외교술",
+        "초급 재산술"
+      ],
+      "troops": [
+        {
+          "name": "그렘린",
+          "count": "30-40"
+        },
+        {
+          "name": "스톤 가고일",
+          "count": "3-5"
+        },
+        {
+          "name": "스톤 골렘",
+          "count": "2-3"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": true,
+      "spells": [
+        "저주"
+      ],
+      "portrait": "images/heroes_portrait/타워/아인.jpg",
+      "info_img": "images/heroes_info/타워/아인.jpg"
+    },
+    {
+      "id": 49,
+      "name": "피오나",
+      "town": "인페르노",
+      "class": "악마숭배자",
+      "tier": "A",
+      "stats": {
+        "attack": 2,
+        "defense": 2,
+        "power": 1,
+        "knowledge": 1
+      },
+      "desc": "악의 세력이 에라시아를 침공하기 전에, 피오나는 원래 꼭예단의 동물 조련사였습니다. 그녀는 까다롭기로 이름난 지옥의 개를 길들여서 자신의 능력을 입증했고, 그후 그녀는 에오폴의 군대를 지휘하는 영웅으로 발탁되었습니다.",
+      "specialty": "정찰",
+      "specialty_desc": "정찰의 효과가 강화됩니다.",
+      "skills": [
+        "초급 정찰",
+        "초급 학습"
+      ],
+      "troops": [
+        {
+          "name": "임프",
+          "count": "15-25"
+        },
+        {
+          "name": "지옥의 개",
+          "count": "3-4"
+        },
+        {
+          "name": "지옥의 개",
+          "count": "3-5"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": false,
+      "spells": [],
+      "portrait": "images/heroes_portrait/인페르노/피오나.jpg",
+      "info_img": "images/heroes_info/인페르노/피오나.jpg"
+    },
+    {
+      "id": 50,
+      "name": "라쉬카",
+      "town": "인페르노",
+      "class": "악마숭배자",
+      "tier": "B",
+      "stats": {
+        "attack": 2,
+        "defense": 2,
+        "power": 1,
+        "knowledge": 1
+      },
+      "desc": "라쉬카는 가장 강력한 영웅들 중 한사람입니다. 그는 휘하 부대를 윽박질러 동기를 유발하는 지휘방식을 사용하며, 이 방식은 곧잘 먹혀듭니다.",
+      "specialty": "이프리트",
+      "specialty_desc": "이프리트과 이프리트 술탄의 공격력, 방어력, 속도가 증가합니다.",
+      "skills": [
+        "초급 지휘력",
+        "초급 지혜"
+      ],
+      "troops": [
+        {
+          "name": "임프",
+          "count": "15-25"
+        },
+        {
+          "name": "고그",
+          "count": "4-7"
+        },
+        {
+          "name": "지옥의 개",
+          "count": "3-4"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": false,
+      "spells": [],
+      "portrait": "images/heroes_portrait/인페르노/라쉬카.jpg",
+      "info_img": "images/heroes_info/인페르노/라쉬카.jpg"
+    },
+    {
+      "id": 51,
+      "name": "마리우스",
+      "town": "인페르노",
+      "class": "악마숭배자",
+      "tier": "B",
+      "stats": {
+        "attack": 2,
+        "defense": 2,
+        "power": 1,
+        "knowledge": 1
+      },
+      "desc": "마리우스는 칼의 절친한 동료였습니다만, 서로의 뜻이 어긋난다는 것을 확인하고는 서로 각자의 갈길을 찾아 헤어졌습니다.",
+      "specialty": "데몬",
+      "specialty_desc": "데몬과 혼드 데몬의 공격력, 방어력, 속도가 증가합니다.",
+      "skills": [
+        "중급 방어술"
+      ],
+      "troops": [
+        {
+          "name": "임프",
+          "count": "15-25"
+        },
+        {
+          "name": "고그",
+          "count": "4-7"
+        },
+        {
+          "name": "데몬",
+          "count": "3-4"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": false,
+      "spells": [],
+      "portrait": "images/heroes_portrait/인페르노/마리우스.jpg",
+      "info_img": "images/heroes_info/인페르노/마리우스.jpg"
+    },
+    {
+      "id": 52,
+      "name": "이그나티어스",
+      "town": "인페르노",
+      "class": "악마숭배자",
+      "tier": "A",
+      "stats": {
+        "attack": 2,
+        "defense": 2,
+        "power": 1,
+        "knowledge": 1
+      },
+      "desc": "악마의 군대가 에라시아를 침공했을 때, 이그나티어스는 그들에게 협력해야만 목숨을 보존할 수 있다는 걸 깨달았습니다. 그는 악마들을 설득하여 그들에게 협력하기로 했지만, 언젠가는 악마들이 자신을 져버리지 않을지에 대한 두려움을 가지고 있습니다.",
+      "specialty": "임프",
+      "specialty_desc": "임프와 패밀리어의 공격력, 방어력, 속도가 증가합니다.",
+      "skills": [
+        "초급 전술",
+        "초급 마법 저항"
+      ],
+      "troops": [
+        {
+          "name": "임프",
+          "count": "15-25"
+        },
+        {
+          "name": "임프",
+          "count": "15-25"
+        },
+        {
+          "name": "임프",
+          "count": "15-25"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": false,
+      "spells": [],
+      "portrait": "images/heroes_portrait/인페르노/이그나티어스.jpg",
+      "info_img": "images/heroes_info/인페르노/이그나티어스.jpg"
+    },
+    {
+      "id": 53,
+      "name": "옥타비아",
+      "town": "인페르노",
+      "class": "악마숭배자",
+      "tier": "A",
+      "stats": {
+        "attack": 2,
+        "defense": 2,
+        "power": 1,
+        "knowledge": 1
+      },
+      "desc": "옥타비아는 잠자는 용으로부터 금을 훔쳐낼 수 있다고 합니다. 하지만 그녀는 자신의 기호에 맞는 일에는 무엇이든지 돈을 쓰기 때문에, 금이 필요한 것입니다.",
+      "specialty": "금 +350",
+      "specialty_desc": "매일 왕국의 금수입이 350 증가하고 자원을 생산합니다.",
+      "skills": [
+        "초급 외교술",
+        "초급 재산술"
+      ],
+      "troops": [
+        {
+          "name": "임프",
+          "count": "15-25"
+        },
+        {
+          "name": "고그",
+          "count": "4-7"
+        },
+        {
+          "name": "지옥의 개",
+          "count": "3-4"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": false,
+      "spells": [],
+      "portrait": "images/heroes_portrait/인페르노/옥타비아.jpg",
+      "info_img": "images/heroes_info/인페르노/옥타비아.jpg"
+    },
+    {
+      "id": 54,
+      "name": "칼",
+      "town": "인페르노",
+      "class": "악마숭배자",
+      "tier": "A",
+      "stats": {
+        "attack": 2,
+        "defense": 2,
+        "power": 1,
+        "knowledge": 1
+      },
+      "desc": "칼은 마리우스와 절친한 친구였지만, 둘의 뜻이 일치하지 않았으므로 서로 갈라서고 말았습니다.",
+      "specialty": "헬 마고그",
+      "specialty_desc": "아군 부대의 고그, 마고그, 아베넘 마고그를 헬 마고그로 업그레이드 할 수 있으며 영웅부대의 헬 마고그를 강화시킵니다.",
+      "skills": [
+        "초급 궁술",
+        "초급 정찰"
+      ],
+      "troops": [
+        {
+          "name": "고그",
+          "count": "4-7"
+        },
+        {
+          "name": "고그",
+          "count": "4-7"
+        },
+        {
+          "name": "고그",
+          "count": "4-7"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": false,
+      "spells": [],
+      "portrait": "images/heroes_portrait/인페르노/칼.jpg",
+      "info_img": "images/heroes_info/인페르노/칼.jpg"
+    },
+    {
+      "id": 55,
+      "name": "파이어",
+      "town": "인페르노",
+      "class": "악마숭배자",
+      "tier": "B",
+      "stats": {
+        "attack": 2,
+        "defense": 2,
+        "power": 1,
+        "knowledge": 1
+      },
+      "desc": "어느 누구도 파이어의 진짜 이름을 모르지만, 소문에 의하면 그녀는 에라시아에서 인간 이외의 생물들을 말살하려는 인간주의의 멤버였다고 합니다. 그녀가 왜 에오폴의 악마들을 위해 일하는지는 그녀 자신만이 알고있겠죠.",
+      "specialty": "쇠뇌",
+      "specialty_desc": "쇠뇌의 발사 횟수가 늘어나고, 쇠뇌의 공격력, 방어력이 증가합니다.",
+      "skills": [
+        "초급 병참술",
+        "초급 포술"
+      ],
+      "troops": [
+        {
+          "name": "임프",
+          "count": "15-25"
+        },
+        {
+          "name": "지옥의 개",
+          "count": "3-4"
+        }
+      ],
+      "war_machines": [
+        "쇠뇌"
+      ],
+      "spellbook": false,
+      "spells": [],
+      "portrait": "images/heroes_portrait/인페르노/파이어.jpg",
+      "info_img": "images/heroes_info/인페르노/파이어.jpg"
+    },
+    {
+      "id": 56,
+      "name": "니무스",
+      "town": "인페르노",
+      "class": "악마숭배자",
+      "tier": "B",
+      "stats": {
+        "attack": 2,
+        "defense": 2,
+        "power": 1,
+        "knowledge": 1
+      },
+      "desc": "니무스는 에라시아 침공 병력 중 심연의 마귀와 심연의 군주를 훈련시키는 책임자였습니다. 그녀의 전투능력 덕분에 에오폴은 거의 완벽한 승리를 거두었습니다만, 크리건과 던전 오버로드들간의 거래로 말미암아 초기의 캠페인은 조기에 종료되고 말았습니다.",
+      "specialty": "핏 핀드",
+      "specialty_desc": "핏 핀드와 핏 로드의 공격력, 방어력, 속도가 증가합니다.",
+      "skills": [
+        "중급 공격술"
+      ],
+      "troops": [
+        {
+          "name": "임프",
+          "count": "15-25"
+        },
+        {
+          "name": "고그",
+          "count": "4-7"
+        },
+        {
+          "name": "핏 핀드",
+          "count": "2"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": false,
+      "spells": [],
+      "portrait": "images/heroes_portrait/인페르노/니무스.jpg",
+      "info_img": "images/heroes_info/인페르노/니무스.jpg"
+    },
+    {
+      "id": 57,
+      "name": "에이든",
+      "town": "인페르노",
+      "class": "이교도",
+      "tier": "B",
+      "stats": {
+        "attack": 1,
+        "defense": 1,
+        "power": 2,
+        "knowledge": 1
+      },
+      "desc": "원래 무당이었던 에이든은 크리건을 위해 일하고 있지만, 언젠가 자신만의 왕국을 건설하려는 검은 야심을 간직하고 있습니다.",
+      "specialty": "지식",
+      "specialty_desc": "레벨당 지식에 3% 보너스가 추가됩니다.",
+      "skills": [
+        "초급 지혜",
+        "초급 지식"
+      ],
+      "troops": [
+        {
+          "name": "임프",
+          "count": "15-25"
+        },
+        {
+          "name": "고그",
+          "count": "4-7"
+        },
+        {
+          "name": "지옥의 개",
+          "count": "3-4"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": true,
+      "spells": [
+        "대지 조망"
+      ],
+      "portrait": "images/heroes_portrait/인페르노/에이든.jpg",
+      "info_img": "images/heroes_info/인페르노/에이든.jpg"
+    },
+    {
+      "id": 58,
+      "name": "크시론",
+      "town": "인페르노",
+      "class": "이교도",
+      "tier": "B",
+      "stats": {
+        "attack": 1,
+        "defense": 1,
+        "power": 2,
+        "knowledge": 1
+      },
+      "desc": "크시론은 악의 이프리트 만큼이나 불을 매우 좋아하는 것 같습니다. 하지만 그는 불이나 용암에 관한 것들 자체만을 낙으로 삼고 있습니다.",
+      "specialty": "블리자드",
+      "specialty_desc": "블리자드의 효과가 강화되며 전투마다 블리자드를 여러번 사용할 수 있습니다.",
+      "skills": [
+        "초급 지혜",
+        "초급 교육"
+      ],
+      "troops": [
+        {
+          "name": "임프",
+          "count": "15-25"
+        },
+        {
+          "name": "고그",
+          "count": "4-7"
+        },
+        {
+          "name": "지옥의 개",
+          "count": "3-4"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": true,
+      "spells": [
+        "블리자드"
+      ],
+      "portrait": "images/heroes_portrait/인페르노/크시론.jpg",
+      "info_img": "images/heroes_info/인페르노/크시론.jpg"
+    },
+    {
+      "id": 59,
+      "name": "액시스",
+      "town": "인페르노",
+      "class": "이교도",
+      "tier": "B",
+      "stats": {
+        "attack": 1,
+        "defense": 1,
+        "power": 2,
+        "knowledge": 1
+      },
+      "desc": "액시스는 어렸을 때부터 사물들을 이상하게 만드는 마법에 대한 재능을 지니고 있었습니다.",
+      "specialty": "명상",
+      "specialty_desc": "레벨당 명상에 3% 보너스가 추가됩니다.",
+      "skills": [
+        "초급 지혜",
+        "초급 명상"
+      ],
+      "troops": [
+        {
+          "name": "임프",
+          "count": "15-25"
+        },
+        {
+          "name": "고그",
+          "count": "4-7"
+        },
+        {
+          "name": "지옥의 개",
+          "count": "3-4"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": true,
+      "spells": [
+        "대기의 저항"
+      ],
+      "portrait": "images/heroes_portrait/인페르노/액시스.jpg",
+      "info_img": "images/heroes_info/인페르노/액시스.jpg"
+    },
+    {
+      "id": 60,
+      "name": "올레마",
+      "town": "인페르노",
+      "class": "이교도",
+      "tier": "B",
+      "stats": {
+        "attack": 1,
+        "defense": 1,
+        "power": 2,
+        "knowledge": 1
+      },
+      "desc": "올레마는 에오폴에서 전 생애를 보냈습니다. 그러나 크리건이 도착했을 때, 그녀는 그들의 길을 안내하겠다고 제의했고 안내자로서 그녀의 능력을 발휘하고 있습니다.",
+      "specialty": "약화",
+      "specialty_desc": "약화의 효과가 강화되며 전투마다 약화를 여러번 사용할 수 있습니다.",
+      "skills": [
+        "초급 물 마법",
+        "초급 마법학"
+      ],
+      "troops": [
+        {
+          "name": "임프",
+          "count": "15-25"
+        },
+        {
+          "name": "고그",
+          "count": "4-7"
+        },
+        {
+          "name": "지옥의 개",
+          "count": "3-4"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": true,
+      "spells": [
+        "약화"
+      ],
+      "portrait": "images/heroes_portrait/인페르노/올레마.jpg",
+      "info_img": "images/heroes_info/인페르노/올레마.jpg"
+    },
+    {
+      "id": 61,
+      "name": "칼리드",
+      "town": "인페르노",
+      "class": "이교도",
+      "tier": "A",
+      "stats": {
+        "attack": 1,
+        "defense": 1,
+        "power": 2,
+        "knowledge": 1
+      },
+      "desc": "칼리드는 숨겨진 유황 냄새를 맡을 수 있는 희한한 재능을 가지고 있습니다. 던전 오버로드는 드래곤을 고용하기 위해서 유황이 필요할 때면 그녀의 능력에 의존하곤 했습니다.",
+      "specialty": "탐험술",
+      "specialty_desc": "탐험술의 효과가 강화됩니다.",
+      "skills": [
+        "초급 탐험술",
+        "초급 외교술"
+      ],
+      "troops": [
+        {
+          "name": "임프",
+          "count": "15-25"
+        },
+        {
+          "name": "고그",
+          "count": "4-7"
+        },
+        {
+          "name": "지옥의 개",
+          "count": "3-4"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": true,
+      "spells": [
+        "가속"
+      ],
+      "portrait": "images/heroes_portrait/인페르노/칼리드.jpg",
+      "info_img": "images/heroes_info/인페르노/칼리드.jpg"
+    },
+    {
+      "id": 62,
+      "name": "애쉬",
+      "town": "인페르노",
+      "class": "이교도",
+      "tier": "B",
+      "stats": {
+        "attack": 1,
+        "defense": 1,
+        "power": 2,
+        "knowledge": 1
+      },
+      "desc": "애쉬는 에라시아에 대한 초기의 공세때 자신의 이름을 얻었습니다. 그녀의 부대는 드워프와 엘프들을 거대한 나무 요새로 밀어넣고는 마법을 사용하여 모든 것을 불태워 잿더미로 만들어 버렸던 것입니다.",
+      "specialty": "피의 굶주림",
+      "specialty_desc": "피의 굶주림 효과가 강화되며 전투마다 피의 굶주림을 여러번 사용할 수 있습니다.",
+      "skills": [
+        "초급 불 마법",
+        "초급 전술"
+      ],
+      "troops": [
+        {
+          "name": "임프",
+          "count": "15-25"
+        },
+        {
+          "name": "고그",
+          "count": "4-7"
+        },
+        {
+          "name": "지옥의 개",
+          "count": "3-4"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": true,
+      "spells": [
+        "피의 굶주림"
+      ],
+      "portrait": "images/heroes_portrait/인페르노/애쉬.jpg",
+      "info_img": "images/heroes_info/인페르노/애쉬.jpg"
+    },
+    {
+      "id": 63,
+      "name": "지다르",
+      "town": "인페르노",
+      "class": "이교도",
+      "tier": "S",
+      "stats": {
+        "attack": 1,
+        "defense": 1,
+        "power": 2,
+        "knowledge": 1
+      },
+      "desc": "자이다는 군대를 이끌기 전에는 자신의 마법 능력을 증가시키는 연구를 했습니다. 비록 지금은 가장 위대한 마법사는 아니지만, 그는 장래가 촉망되는 인재입니다.",
+      "specialty": "마법학",
+      "specialty_desc": "레벨당 마법학에 3% 보너스가 추가됩니다.",
+      "skills": [
+        "초급 지혜",
+        "초급 마법학"
+      ],
+      "troops": [
+        {
+          "name": "임프",
+          "count": "15-25"
+        },
+        {
+          "name": "고그",
+          "count": "4-7"
+        },
+        {
+          "name": "지옥의 개",
+          "count": "3-4"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": true,
+      "spells": [
+        "마법 화살"
+      ],
+      "portrait": "images/heroes_portrait/인페르노/지다르.jpg",
+      "info_img": "images/heroes_info/인페르노/지다르.jpg"
+    },
+    {
+      "id": 64,
+      "name": "크사르팍스",
+      "town": "인페르노",
+      "class": "이교도",
+      "tier": "B",
+      "stats": {
+        "attack": 1,
+        "defense": 1,
+        "power": 2,
+        "knowledge": 1
+      },
+      "desc": "크사르팍스는 크리건에 사로잡히기 전까지는 에라시아 군에서 활동했습니다. 크리건은 그의 잠재력을 알아채고는, 그를 개조하여 자신들의 충성스런 부하로 만들어 버렸습니다.",
+      "specialty": "크리티컬데미지",
+      "specialty_desc": "마법 크리티컬 데미지가 증가합니다.",
+      "skills": [
+        "초급 명상",
+        "초급 불 마법법"
+      ],
+      "troops": [
+        {
+          "name": "임프",
+          "count": "15-25"
+        },
+        {
+          "name": "고그",
+          "count": "4-7"
+        },
+        {
+          "name": "지옥의 개",
+          "count": "3-4"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": true,
+      "spells": [
+        "파이어볼"
+      ],
+      "portrait": "images/heroes_portrait/인페르노/크사르팍스.jpg",
+      "info_img": "images/heroes_info/인페르노/크사르팍스.jpg"
+    },
+    {
+      "id": 65,
+      "name": "스트레이커",
+      "town": "네크로폴리스",
+      "class": "죽음의기사",
+      "tier": "A",
+      "stats": {
+        "attack": 1,
+        "defense": 2,
+        "power": 2,
+        "knowledge": 1
+      },
+      "desc": "스트레이커는 어둠의 네크로맨서 였지만, 그는 마법 능력보다는 전사로서의 능력이 더 탁월하다는 것을 발견했습니다. 그는 지금 데이쟈의 언데드 군대를 지휘하고 있으며, 언젠가는 위대한 네크로맨서가 되는 꿈을 가지고 있습니다.",
+      "specialty": "걸어다니는 시체",
+      "specialty_desc": "워킹데드와 좀비의 공격력, 방어력, 속도가 증가합니다.",
+      "skills": [
+        "초급 심령술",
+        "초급 마법 저항"
+      ],
+      "troops": [
+        {
+          "name": "좀비",
+          "count": "3-5"
+        },
+        {
+          "name": "좀비",
+          "count": "3-5"
+        },
+        {
+          "name": "좀비",
+          "count": "3-5"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": true,
+      "spells": [
+        "가속"
+      ],
+      "portrait": "images/heroes_portrait/네크로폴리스/스트레이커.jpg",
+      "info_img": "images/heroes_info/네크로폴리스/스트레이커.jpg"
+    },
+    {
+      "id": 66,
+      "name": "보키얼",
+      "town": "네크로폴리스",
+      "class": "죽음의기사",
+      "tier": "B",
+      "stats": {
+        "attack": 1,
+        "defense": 2,
+        "power": 2,
+        "knowledge": 1
+      },
+      "desc": "약 400년쯤 전에 보키얼은 자신의 왕국을 다스리고 있었습니다. 하지만 시간이 지남에 따라서 그는 모든 것에 싫증을 느끼게 되었죠. 결국 그는 자신이 좋아했던 모험가로서의 삶을 선택했습니다. 현존하는 뱀파이어들 중에서 그가 가장 오래 살았을 겁니다.",
+      "specialty": "뱀파이어",
+      "specialty_desc": "뱀파이어와 뱀파이어로드의 공격력, 방어력, 속도가 증가합니다.",
+      "skills": [
+        "초급 심령술",
+        "초급 포술"
+      ],
+      "troops": [
+        {
+          "name": "해골",
+          "count": "15-25"
+        },
+        {
+          "name": "좀비",
+          "count": "3-5"
+        },
+        {
+          "name": "뱀파이어",
+          "count": "2-3"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": true,
+      "spells": [
+        "석갑"
+      ],
+      "portrait": "images/heroes_portrait/네크로폴리스/보키얼.jpg",
+      "info_img": "images/heroes_info/네크로폴리스/보키얼.jpg"
+    },
+    {
+      "id": 67,
+      "name": "모운더",
+      "town": "네크로폴리스",
+      "class": "죽음의기사",
+      "tier": "A",
+      "stats": {
+        "attack": 1,
+        "defense": 2,
+        "power": 2,
+        "knowledge": 1
+      },
+      "desc": "모운더의 카리스마는 그가 리치로 되살아났을 때에도 그에게 남아있었습니다. 그는 다른 리치들을 양성하고 그들을 이끄는 데 있어서 탁월한 능력을 보유하고 있습니다.",
+      "specialty": "리치 미스트리스",
+      "specialty_desc": "아군 부대의 리치, 파워 리치, 에이션트 리치를 리치 미스트리스로 업그레이드 할 수 있으며 영웅 부대의 리치 미스트리스를 강화시킵니다",
+      "skills": [
+        "초급 심령술",
+        "초급 학습"
+      ],
+      "troops": [
+        {
+          "name": "해골",
+          "count": "15-25"
+        },
+        {
+          "name": "좀비",
+          "count": "3-5"
+        },
+        {
+          "name": "리치",
+          "count": "1-2"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": true,
+      "spells": [
+        "둔화"
+      ],
+      "portrait": "images/heroes_portrait/네크로폴리스/모운더.jpg",
+      "info_img": "images/heroes_info/네크로폴리스/모운더.jpg"
+    },
+    {
+      "id": 68,
+      "name": "차르나",
+      "town": "네크로폴리스",
+      "class": "죽음의기사",
+      "tier": "A",
+      "stats": {
+        "attack": 1,
+        "defense": 2,
+        "power": 2,
+        "knowledge": 1
+      },
+      "desc": "차르나는 악의 힘의 유혹에 이끌렸습니다. 그녀의 마법 능력으로 인해 그녀는 진정한 심령술사가 될 수는 없지만, 그녀는 전사들 이상의 몫을 해내고 있습니다.",
+      "specialty": "와이트",
+      "specialty_desc": "와이트와 레이스의 공격력, 방어력, 속도가 증가합니다.",
+      "skills": [
+        "초급 심령술",
+        "초급 전술"
+      ],
+      "troops": [
+        {
+          "name": "해골",
+          "count": "15-25"
+        },
+        {
+          "name": "와이트",
+          "count": "3-5"
+        },
+        {
+          "name": "와이트",
+          "count": "3-5"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": true,
+      "spells": [
+        "마법 화살"
+      ],
+      "portrait": "images/heroes_portrait/네크로폴리스/차르나.jpg",
+      "info_img": "images/heroes_info/네크로폴리스/차르나.jpg"
+    },
+    {
+      "id": 69,
+      "name": "타미카",
+      "town": "네크로폴리스",
+      "class": "죽음의기사",
+      "tier": "B",
+      "stats": {
+        "attack": 1,
+        "defense": 2,
+        "power": 2,
+        "knowledge": 1
+      },
+      "desc": "타미카는 뛰어난 전투능력을 보유했기 때문에 데이쟈 군부에서 힘있는 인물이 되었습니다. 그녀는 군대를 지휘하는 것 이외에도 흑기사와 공포의 기사를 양성하는 일을 맡고 있습니다.",
+      "specialty": "흑기사",
+      "specialty_desc": "흑기사와 공포의기사의 공격력, 방어력, 속도가 증가합니다.",
+      "skills": [
+        "초급 심령술",
+        "초급 공격술"
+      ],
+      "troops": [
+        {
+          "name": "해골",
+          "count": "15-25"
+        },
+        {
+          "name": "좀비",
+          "count": "3-5"
+        },
+        {
+          "name": "와이트",
+          "count": "3-5"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": true,
+      "spells": [
+        "마법 화살"
+      ],
+      "portrait": "images/heroes_portrait/네크로폴리스/타미카.jpg",
+      "info_img": "images/heroes_info/네크로폴리스/타미카.jpg"
+    },
+    {
+      "id": 70,
+      "name": "이스라",
+      "town": "네크로폴리스",
+      "class": "죽음의기사",
+      "tier": "A",
+      "stats": {
+        "attack": 1,
+        "defense": 2,
+        "power": 2,
+        "knowledge": 1
+      },
+      "desc": "이스라는 데이쟈에서 가장 위대한 마법사는 아닙니다. 하지만 그녀가 이끄는 군단은 다른 군단에 비해서 매우 많은 해골병사를 보유하고 있습니다.",
+      "specialty": "심령술",
+      "specialty_desc": "레벨당 심령술에 3% 보너스가 추가됩니다.",
+      "skills": [
+        "중급 심령술"
+      ],
+      "troops": [
+        {
+          "name": "해골",
+          "count": "15-25"
+        },
+        {
+          "name": "좀비",
+          "count": "3-5"
+        },
+        {
+          "name": "와이트",
+          "count": "3-5"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": true,
+      "spells": [
+        "마법 화살"
+      ],
+      "portrait": "images/heroes_portrait/네크로폴리스/이스라.jpg",
+      "info_img": "images/heroes_info/네크로폴리스/이스라.jpg"
+    },
+    {
+      "id": 71,
+      "name": "클라비어스",
+      "town": "네크로폴리스",
+      "class": "죽음의기사",
+      "tier": "B",
+      "stats": {
+        "attack": 1,
+        "defense": 2,
+        "power": 2,
+        "knowledge": 1
+      },
+      "desc": "클라비어스의 가문은 광활한 영지와 강력한 정치적 힘을 보유한 데이쟈 왕국에서 두드러진 명문 집안입니다. 가문의 장자로서 그는 가문의 전통에 따라 조국의 군대에 입대했습니다. 그는 기꺼이 조국을 위해 헌신하고 있습니다.",
+      "specialty": "공격술",
+      "specialty_desc": "레벨당 공격술에 3% 보너스가 추가됩니다.",
+      "skills": [
+        "초급 심령술",
+        "초급 공격술"
+      ],
+      "troops": [
+        {
+          "name": "해골",
+          "count": "15-25"
+        },
+        {
+          "name": "좀비",
+          "count": "3-5"
+        },
+        {
+          "name": "와이트",
+          "count": "3-5"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": true,
+      "spells": [
+        "마법 화살"
+      ],
+      "portrait": "images/heroes_portrait/네크로폴리스/클라비어스.jpg",
+      "info_img": "images/heroes_info/네크로폴리스/클라비어스.jpg"
+    },
+    {
+      "id": 72,
+      "name": "갈스란",
+      "town": "네크로폴리스",
+      "class": "죽음의기사",
+      "tier": "S",
+      "stats": {
+        "attack": 1,
+        "defense": 2,
+        "power": 2,
+        "knowledge": 1
+      },
+      "desc": "몇 년의 세월동안 갈스란은 해골병사를 양성하고 그들을 통솔하는 새로운 방법을 개발했고, 그의 이러한 능력때문에 그는 전투에서 유리한 위치를 차지합니다.",
+      "specialty": "해골",
+      "specialty_desc": "해골과 해골전사의 공격력, 방어력, 속도가 증가합니다.",
+      "skills": [
+        "초급 심령술",
+        "초급 방어술"
+      ],
+      "troops": [
+        {
+          "name": "해골",
+          "count": "15-25"
+        },
+        {
+          "name": "해골",
+          "count": "15-25"
+        },
+        {
+          "name": "해골",
+          "count": "15-25"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": true,
+      "spells": [
+        "방패"
+      ],
+      "portrait": "images/heroes_portrait/네크로폴리스/갈스란.jpg",
+      "info_img": "images/heroes_info/네크로폴리스/갈스란.jpg"
+    },
+    {
+      "id": 73,
+      "name": "셉티나",
+      "town": "네크로폴리스",
+      "class": "네크로맨서",
+      "tier": "B",
+      "stats": {
+        "attack": 1,
+        "defense": 0,
+        "power": 2,
+        "knowledge": 2
+      },
+      "desc": "셉티나는 소위 '쓰레기 마법'에 의해 부상을 당했습니다. 아마 그녀는 적군에게서 과도한 생명력을 흡수하여 아군에게 불어넣은 것 같습니다. 어떤 사람들은 남은 에너지를 그녀 자신이 흡수했다고도 말합니다. 아마 그래서 오랜 세월동안 그녀를 볼 수 없었겠지요.",
+      "specialty": "죽음의 물결",
+      "specialty_desc": "죽음의 물결의 효과가 강화되며 전투마다 죽음의 물결을 여러번 사용할 수 있습니다.",
+      "skills": [
+        "초급 심령술",
+        "초급 교육"
+      ],
+      "troops": [
+        {
+          "name": "해골",
+          "count": "15-25"
+        },
+        {
+          "name": "좀비",
+          "count": "3-5"
+        },
+        {
+          "name": "와이트",
+          "count": "3-5"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": true,
+      "spells": [
+        "죽음의 물결"
+      ],
+      "portrait": "images/heroes_portrait/네크로폴리스/셉티나.jpg",
+      "info_img": "images/heroes_info/네크로폴리스/셉티나.jpg"
+    },
+    {
+      "id": 74,
+      "name": "아이슬린",
+      "town": "네크로폴리스",
+      "class": "네크로맨서",
+      "tier": "A",
+      "stats": {
+        "attack": 1,
+        "defense": 0,
+        "power": 2,
+        "knowledge": 2
+      },
+      "desc": "아이슬린은 항상 땅의 느낌을 좋아했습니다. 그녀는 땅을 만지기만 해도 땅에서 생명력을 뽑아낼 수 있다고 합니다.",
+      "specialty": "유성 폭풍",
+      "specialty_desc": "유성 폭풍의 효과가 강화되며 전투마다 유성 폭풍을 여러번 사용할 수 있습니다.",
+      "skills": [
+        "초급 심령술",
+        "초급 지혜"
+      ],
+      "troops": [
+        {
+          "name": "해골",
+          "count": "15-25"
+        },
+        {
+          "name": "좀비",
+          "count": "3-5"
+        },
+        {
+          "name": "와이트",
+          "count": "3-5"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": true,
+      "spells": [
+        "유성 폭풍"
+      ],
+      "portrait": "images/heroes_portrait/네크로폴리스/아이슬린.jpg",
+      "info_img": "images/heroes_info/네크로폴리스/아이슬린.jpg"
+    },
+    {
+      "id": 75,
+      "name": "산드로",
+      "town": "네크로폴리스",
+      "class": "네크로맨서",
+      "tier": "A",
+      "stats": {
+        "attack": 1,
+        "defense": 0,
+        "power": 2,
+        "knowledge": 2
+      },
+      "desc": "산드로는 처음에는 네크로만시를 공부했습니다. 그는 앙로스와 에라시아의 거의 모든 것을 알고 있으며, 지금은 데이쟈의 네크로맨서들의 지도자인 피니어스 빌마를 위해 일하고 있습니다.",
+      "specialty": "마법학",
+      "specialty_desc": "레벨당 마법학에 3% 보너스가 추가됩니다.",
+      "skills": [
+        "초급 심령술",
+        "초급 마법학"
+      ],
+      "troops": [
+        {
+          "name": "해골",
+          "count": "15-25"
+        },
+        {
+          "name": "좀비",
+          "count": "3-5"
+        },
+        {
+          "name": "와이트",
+          "count": "3-5"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": true,
+      "spells": [
+        "마법 화살"
+      ],
+      "portrait": "images/heroes_portrait/네크로폴리스/산드로.jpg",
+      "info_img": "images/heroes_info/네크로폴리스/산드로.jpg"
+    },
+    {
+      "id": 76,
+      "name": "님부스",
+      "town": "네크로폴리스",
+      "class": "네크로맨서",
+      "tier": "B",
+      "stats": {
+        "attack": 1,
+        "defense": 0,
+        "power": 2,
+        "knowledge": 2
+      },
+      "desc": "님부스가 어린아이 시절에, 그가 기르던 개가 나이를 먹어서 죽었습니다. 그는 작은 새나 다른 생명체를 희생시키면 죽은 강아지를 되살릴 수 있다는 것을 알아냈고, 강아지가 죽을 때마다 이 방법을 사용했습니다. 그 자신은 미처 깨닫지 못했지만, 이미 그때부터 그는 심령술사의 길로 접어들었던 것입니다.",
+      "specialty": "대지 마법",
+      "specialty_desc": "대지마법의 데미지가 15% 증가하고 전투마다 대지마법을 추가로 사용할 수 있습니다.",
+      "skills": [
+        "초급 심령술",
+        "초급 대지 마법"
+      ],
+      "troops": [
+        {
+          "name": "해골",
+          "count": "15-25"
+        },
+        {
+          "name": "좀비",
+          "count": "3-5"
+        },
+        {
+          "name": "와이트",
+          "count": "3-5"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": true,
+      "spells": [
+        "방패"
+      ],
+      "portrait": "images/heroes_portrait/네크로폴리스/님부스.jpg",
+      "info_img": "images/heroes_info/네크로폴리스/님부스.jpg"
+    },
+    {
+      "id": 77,
+      "name": "산트",
+      "town": "네크로폴리스",
+      "class": "네크로맨서",
+      "tier": "B",
+      "stats": {
+        "attack": 1,
+        "defense": 0,
+        "power": 2,
+        "knowledge": 2
+      },
+      "desc": "어느 누구도 산트의 나이를 모릅니다. 그는 목재 전쟁시에 에라시아를 위해 싸웠지만, 피낙시아를 통과하던 중 뱀파이어에게 희생되었다고 합니다.",
+      "specialty": "시체 조종",
+      "specialty_desc": "시체 조종의 효과가 강화되며 전투마다 시체 조종을 여러번 사용할 수 있습니다.",
+      "skills": [
+        "초급 심령술",
+        "초급 명상"
+      ],
+      "troops": [
+        {
+          "name": "해골",
+          "count": "15-25"
+        },
+        {
+          "name": "좀비",
+          "count": "3-5"
+        },
+        {
+          "name": "와이트",
+          "count": "3-5"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": true,
+      "spells": [
+        "시체 조종"
+      ],
+      "portrait": "images/heroes_portrait/네크로폴리스/산트.jpg",
+      "info_img": "images/heroes_info/네크로폴리스/산트.jpg"
+    },
+    {
+      "id": 78,
+      "name": "크사이",
+      "town": "네크로폴리스",
+      "class": "네크로맨서",
+      "tier": "B",
+      "stats": {
+        "attack": 1,
+        "defense": 0,
+        "power": 2,
+        "knowledge": 2
+      },
+      "desc": "크사이는 육체적인 피해에 견디는 능력이 있었기 때문에 리치로 부활되었으며, 이 능력 덕분에 그녀는 여러 번 목숨을 보존했습니다.",
+      "specialty": "석갑",
+      "specialty_desc": "석갑의 효과가 강화되며 전투마다 석갑을 여러번 사용할 수 있습니다.",
+      "skills": [
+        "초급 심령술",
+        "초급 대지 마법"
+      ],
+      "troops": [
+        {
+          "name": "해골",
+          "count": "15-25"
+        },
+        {
+          "name": "좀비",
+          "count": "3-5"
+        },
+        {
+          "name": "와이트",
+          "count": "3-5"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": true,
+      "spells": [
+        "석갑"
+      ],
+      "portrait": "images/heroes_portrait/네크로폴리스/크사이.jpg",
+      "info_img": "images/heroes_info/네크로폴리스/크사이.jpg"
+    },
+    {
+      "id": 79,
+      "name": "비도미나",
+      "town": "네크로폴리스",
+      "class": "네크로맨서",
+      "tier": "A",
+      "stats": {
+        "attack": 1,
+        "defense": 0,
+        "power": 2,
+        "knowledge": 2
+      },
+      "desc": "어렸을 적에, 비도미나는 위대한 연금술사가 될 가능성을 보여주었습니다. 그러나 그녀의 관심은 항상 시체를 소생시키는 것에 쏠려 있었습니다. 죽은 자의 육체를 다시 살려내는 데 탁월한 그녀의 능력에 불안을 느낀 사람들에 의해 그녀는 브라카다에서 추방당했습니다.",
+      "specialty": "학습",
+      "specialty_desc": "학습의 효과가 강화됩니다.",
+      "skills": [
+        "초급 심령술",
+        "초급 학습"
+      ],
+      "troops": [
+        {
+          "name": "해골",
+          "count": "15-25"
+        },
+        {
+          "name": "좀비",
+          "count": "3-5"
+        },
+        {
+          "name": "와이트",
+          "count": "3-5"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": true,
+      "spells": [
+        "저주"
+      ],
+      "portrait": "images/heroes_portrait/네크로폴리스/비도미나.jpg",
+      "info_img": "images/heroes_info/네크로폴리스/비도미나.jpg"
+    },
+    {
+      "id": 80,
+      "name": "나가쉬",
+      "town": "네크로폴리스",
+      "class": "네크로맨서",
+      "tier": "B",
+      "stats": {
+        "attack": 1,
+        "defense": 0,
+        "power": 2,
+        "knowledge": 2
+      },
+      "desc": "나가쉬는 강력한 마법사였지만, 영원한 생명을 얻기 위해 스스로 리치가 되었습니다. 대부분 데이쟈 변경지역의 황무지이기는 하지만, 그는 넓은 영지를 소유하고 있습니다.",
+      "specialty": "금 +350",
+      "specialty_desc": "매일 왕국의 금수입이 350 증가하고 자원을 생산합니다.",
+      "skills": [
+        "초급 병참술",
+        "초급 심령술"
+      ],
+      "troops": [
+        {
+          "name": "해골",
+          "count": "15-25"
+        },
+        {
+          "name": "좀비",
+          "count": "3-5"
+        },
+        {
+          "name": "와이트",
+          "count": "3-5"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": true,
+      "spells": [
+        "드래곤 스트렝스"
+      ],
+      "portrait": "images/heroes_portrait/네크로폴리스/나가쉬.jpg",
+      "info_img": "images/heroes_info/네크로폴리스/나가쉬.jpg"
+    },
+    {
+      "id": 81,
+      "name": "로렐라이",
+      "town": "던전",
+      "class": "오버로드",
+      "tier": "B",
+      "stats": {
+        "attack": 2,
+        "defense": 2,
+        "power": 1,
+        "knowledge": 1
+      },
+      "desc": "로렐라이는 어린아이 시절에 집을 떠나 지하 동굴로 사라진 후 방황했습니다. 마녀 하피가 그녀를 발견하고 그녀를 양육했고, 결국 그녀는 에라시아 침공이 개시되기 직전에 던전 오버로드를 위해 일하겠다고 자원했습니다. 그녀는 자신의 부모가 누군지 전혀 기억하지 못합니다.",
+      "specialty": "하피",
+      "specialty_desc": "하피와 하피핵의 공격력, 방어력, 속도가 증가합니다.",
+      "skills": [
+        "초급 지휘력",
+        "초급 정찰"
+      ],
+      "troops": [
+        {
+          "name": "하피",
+          "count": "3-5"
+        },
+        {
+          "name": "하피",
+          "count": "3-5"
+        },
+        {
+          "name": "하피",
+          "count": "3-5"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": false,
+      "spells": [],
+      "portrait": "images/heroes_portrait/던전/로렐라이.jpg",
+      "info_img": "images/heroes_info/던전/로렐라이.jpg"
+    },
+    {
+      "id": 82,
+      "name": "알라크",
+      "town": "던전",
+      "class": "오버로드",
+      "tier": "B",
+      "stats": {
+        "attack": 2,
+        "defense": 2,
+        "power": 1,
+        "knowledge": 1
+      },
+      "desc": "알라크는 나이혼의 선봉부대를 신뢰하는 몇 안되는 동굴인들중 한명입니다. 그는 쇠뇌를 매우 능숙하게 다루는 능력을 가지고 있으며, 적군의 요새를 공격하는 임무에 자주 투입되었습니다.",
+      "specialty": "쇠뇌",
+      "specialty_desc": "쇠뇌의 발사 횟수가 늘어나고, 쇠뇌의 공격력, 방어력이 증가합니다.",
+      "skills": [
+        "초급 공격술",
+        "초급 포술"
+      ],
+      "troops": [
+        {
+          "name": "동굴인",
+          "count": "30-40"
+        },
+        {
+          "name": "주시자",
+          "count": "3-4"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": false,
+      "spells": [],
+      "portrait": "images/heroes_portrait/던전/알라크.jpg",
+      "info_img": "images/heroes_info/던전/알라크.jpg"
+    },
+    {
+      "id": 83,
+      "name": "데이스",
+      "town": "던전",
+      "class": "오버로드",
+      "tier": "B",
+      "stats": {
+        "attack": 2,
+        "defense": 2,
+        "power": 1,
+        "knowledge": 1
+      },
+      "desc": "데이스는 전사의 가문에서 태어나서 어려서부터 전투기술을 배웠습니다. 그는 나이혼에서 지도력이 뛰어난 영웅이며, 특히 미노타우르스를 통솔할 때는 더욱 그러합니다.",
+      "specialty": "미노타우루스",
+      "specialty_desc": "미노타우루스와 미노타우루스 킹의 속도가 1 증가하고 5레벨마다 공격력과 방어력이 5% 상승합니다.",
+      "skills": [
+        "초급 전술",
+        "초급 공격술"
+      ],
+      "troops": [
+        {
+          "name": "동굴인",
+          "count": "30-40"
+        },
+        {
+          "name": "하피",
+          "count": "3-5"
+        },
+        {
+          "name": "미노타우르스",
+          "count": "1"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": false,
+      "spells": [],
+      "portrait": "images/heroes_portrait/던전/데이스.jpg",
+      "info_img": "images/heroes_info/던전/데이스.jpg"
+    },
+    {
+      "id": 84,
+      "name": "아지트",
+      "town": "던전",
+      "class": "오버로드",
+      "tier": "B",
+      "stats": {
+        "attack": 2,
+        "defense": 2,
+        "power": 1,
+        "knowledge": 1
+      },
+      "desc": "아지트는 실수로 주시자와 악마의 눈을 만들어낸 앙로스의 멍청이 마법사 아갈의 업적을 주의깊게 연구하여, 그가 지금 지휘하고 있는 주시자와 악마의 눈을 보다 강하게 훈련시키고 있습니다.",
+      "specialty": "주시자",
+      "specialty_desc": "주시자와 악마눈의 공격력, 방어력, 속도가 증가합니다.",
+      "skills": [
+        "초급 지휘력",
+        "초급 마법 저항"
+      ],
+      "troops": [
+        {
+          "name": "동굴인",
+          "count": "30-40"
+        },
+        {
+          "name": "주시자",
+          "count": "3-4"
+        },
+        {
+          "name": "주시자",
+          "count": "3-5"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": false,
+      "spells": [],
+      "portrait": "images/heroes_portrait/던전/아지트.jpg",
+      "info_img": "images/heroes_info/던전/아지트.jpg"
+    },
+    {
+      "id": 85,
+      "name": "다마콘",
+      "town": "던전",
+      "class": "오버로드",
+      "tier": "B",
+      "stats": {
+        "attack": 2,
+        "defense": 2,
+        "power": 1,
+        "knowledge": 1
+      },
+      "desc": "다마콘은 손쉽게 금의 냄새를 맡을 수 있습니다. 그는 마음이 내키는 목적이라면 돈을 투자하는 것을 아끼지 않습니다.",
+      "specialty": "메두사 매트리아크",
+      "specialty_desc": "아군 부대의 메두사, 메두사 퀸, 메두사 엠프레스를 메두사 매트리아크로 업그레이드 할 수 있으며 영웅 부대의 메두사 매트리아크를 강화시킵니다.",
+      "skills": [
+        "초급 궁술",
+        "초급 재산술"
+      ],
+      "troops": [
+        {
+          "name": "동굴인",
+          "count": "30-40"
+        },
+        {
+          "name": "하피",
+          "count": "3-5"
+        },
+        {
+          "name": "메두사",
+          "count": "2-3"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": false,
+      "spells": [],
+      "portrait": "images/heroes_portrait/던전/다마콘.jpg",
+      "info_img": "images/heroes_info/던전/다마콘.jpg"
+    },
+    {
+      "id": 86,
+      "name": "거너",
+      "town": "던전",
+      "class": "오버로드",
+      "tier": "S",
+      "stats": {
+        "attack": 2,
+        "defense": 2,
+        "power": 1,
+        "knowledge": 1
+      },
+      "desc": "거너는 처음에는 던전 오버로드의 정찰대원과 고위 장군들의 경호원으로 일했습니다. 지금 그는 나이혼 변경지역의 수비대를 지휘하고 있습니다. 비록 지혜가 모자라지만, 그의 뛰어난 직감은 이러한 단점을 보충하고도 남습니다.",
+      "specialty": "병참술",
+      "specialty_desc": "레벨당 병참술에 3% 보너스가 추가됩니다.",
+      "skills": [
+        "초급 병참술",
+        "초급 재산술"
+      ],
+      "troops": [
+        {
+          "name": "동굴인",
+          "count": "30-40"
+        },
+        {
+          "name": "하피",
+          "count": "3-5"
+        },
+        {
+          "name": "주시자",
+          "count": "3-4"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": false,
+      "spells": [],
+      "portrait": "images/heroes_portrait/던전/거너.jpg",
+      "info_img": "images/heroes_info/던전/거너.jpg"
+    },
+    {
+      "id": 87,
+      "name": "싱카",
+      "town": "던전",
+      "class": "오버로드",
+      "tier": "B",
+      "stats": {
+        "attack": 2,
+        "defense": 2,
+        "power": 1,
+        "knowledge": 1
+      },
+      "desc": "싱카는 원래 이 세계의 사람이 아니었습니다. 던전 오버로드를 위해 일하고는 있지만, 그녀는 좁고 습기찬 나이혼의 동굴을 더 좋아합니다.",
+      "specialty": "만티코어",
+      "specialty_desc": "만티코어와 스콜피코어의 공격력, 방어력, 속도가 증가합니다.",
+      "skills": [
+        "초급 지휘력",
+        "초급 교육"
+      ],
+      "troops": [
+        {
+          "name": "동굴인",
+          "count": "30-40"
+        },
+        {
+          "name": "하피",
+          "count": "3-5"
+        },
+        {
+          "name": "주시자",
+          "count": "3-4"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": false,
+      "spells": [],
+      "portrait": "images/heroes_portrait/던전/싱카.jpg",
+      "info_img": "images/heroes_info/던전/싱카.jpg"
+    },
+    {
+      "id": 88,
+      "name": "샤크티",
+      "town": "던전",
+      "class": "오버로드",
+      "tier": "S",
+      "stats": {
+        "attack": 2,
+        "defense": 2,
+        "power": 1,
+        "knowledge": 1
+      },
+      "desc": "비록 눈이 없기는 하지만, 샤크티는 전투에 임하면 예민한 시각을 사용합니다. 그의 동굴인 부대는 나이혼의 어두운 터널을 경외하고 있습니다.",
+      "specialty": "동굴인",
+      "specialty_desc": "동굴인과 지옥의 동굴인의 공격력, 방어력, 속도가 증가합니다.",
+      "skills": [
+        "초급 공격술",
+        "초급 전술"
+      ],
+      "troops": [
+        {
+          "name": "동굴인",
+          "count": "30-40"
+        },
+        {
+          "name": "동굴인",
+          "count": "30-40"
+        },
+        {
+          "name": "동굴인",
+          "count": "30-40"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": false,
+      "spells": [],
+      "portrait": "images/heroes_portrait/던전/샤크티.jpg",
+      "info_img": "images/heroes_info/던전/샤크티.jpg"
+    },
+    {
+      "id": 89,
+      "name": "알라마",
+      "town": "던전",
+      "class": "워락",
+      "tier": "B",
+      "stats": {
+        "attack": 0,
+        "defense": 0,
+        "power": 3,
+        "knowledge": 2
+      },
+      "desc": "알라마는 왕위 계승전쟁에서 아치발드 아이언피스트를 위해 싸웠고, 아치발드의 패전 직후 간신히 앙로스를 탈출했습니다. 그후에 그는 나이혼에서 던전 오버로드를 위해 일하고 있습니다.",
+      "specialty": "부활",
+      "specialty_desc": "부활의 효과가 강화되며 전투마다 부활을 여러번 사용할 수 있습니다.",
+      "skills": [
+        "초급 지혜",
+        "초급 대기 마법"
+      ],
+      "troops": [
+        {
+          "name": "동굴인",
+          "count": "30-40"
+        },
+        {
+          "name": "하피",
+          "count": "3-5"
+        },
+        {
+          "name": "주시자",
+          "count": "3-4"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": true,
+      "spells": [
+        "부활"
+      ],
+      "portrait": "images/heroes_portrait/던전/알라마.jpg",
+      "info_img": "images/heroes_info/던전/알라마.jpg"
+    },
+    {
+      "id": 90,
+      "name": "재가",
+      "town": "던전",
+      "class": "워락",
+      "tier": "B",
+      "stats": {
+        "attack": 0,
+        "defense": 0,
+        "power": 3,
+        "knowledge": 2
+      },
+      "desc": "재가는 숙련된 마법사로서의 능력을 입증했습니다. 매일매일의 사색이 승리의 비결이라고 그는 주장합니다.",
+      "specialty": "명상",
+      "specialty_desc": "레벨당 명상에 3% 보너스가 추가됩니다.",
+      "skills": [
+        "초급 지혜",
+        "초급 명상"
+      ],
+      "troops": [
+        {
+          "name": "동굴인",
+          "count": "30-40"
+        },
+        {
+          "name": "하피",
+          "count": "3-5"
+        },
+        {
+          "name": "주시자",
+          "count": "3-4"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": true,
+      "spells": [
+        "방패"
+      ],
+      "portrait": "images/heroes_portrait/던전/재가.jpg",
+      "info_img": "images/heroes_info/던전/재가.jpg"
+    },
+    {
+      "id": 91,
+      "name": "말레키스",
+      "town": "던전",
+      "class": "워락",
+      "tier": "S",
+      "stats": {
+        "attack": 0,
+        "defense": 0,
+        "power": 3,
+        "knowledge": 2
+      },
+      "desc": "말레키스는 최강의 마법사에 맞먹는 분노의 마법을 사용합니다.",
+      "specialty": "마법학",
+      "specialty_desc": "레벨당 마법학에 3% 보너스가 추가됩니다.",
+      "skills": [
+        "초급 지혜",
+        "초급 마법학"
+      ],
+      "troops": [
+        {
+          "name": "동굴인",
+          "count": "30-40"
+        },
+        {
+          "name": "하피",
+          "count": "3-5"
+        },
+        {
+          "name": "주시자",
+          "count": "3-4"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": true,
+      "spells": [
+        "마법 화살"
+      ],
+      "portrait": "images/heroes_portrait/던전/말레키스.jpg",
+      "info_img": "images/heroes_info/던전/말레키스.jpg"
+    },
+    {
+      "id": 92,
+      "name": "재다이트",
+      "town": "던전",
+      "class": "워락",
+      "tier": "B",
+      "stats": {
+        "attack": 0,
+        "defense": 0,
+        "power": 3,
+        "knowledge": 2
+      },
+      "desc": "재다이트는 살아있다고 합니다. 재다이트는 그에 관한 소문들을 긍정도, 부정도 하지 않습니다.",
+      "specialty": "부활",
+      "specialty_desc": "부활의 효과가 강화되며 전투마다 부활을 여러번 사용할 수 있습니다.",
+      "skills": [
+        "초급 지혜",
+        "초급 대지 마법"
+      ],
+      "troops": [
+        {
+          "name": "동굴인",
+          "count": "30-40"
+        },
+        {
+          "name": "하피",
+          "count": "3-5"
+        },
+        {
+          "name": "주시자",
+          "count": "3-4"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": true,
+      "spells": [
+        "부활"
+      ],
+      "portrait": "images/heroes_portrait/던전/재다이트.jpg",
+      "info_img": "images/heroes_info/던전/재다이트.jpg"
+    },
+    {
+      "id": 93,
+      "name": "게온",
+      "town": "던전",
+      "class": "워락",
+      "tier": "A",
+      "stats": {
+        "attack": 0,
+        "defense": 0,
+        "power": 3,
+        "knowledge": 2
+      },
+      "desc": "게온의 마법 기술은 다른 마술사들의 마음을 읽어들이는 능력에서 온다고 합니다. 다른 마술사들이 마법을 사용할 때, 그는 그들의 생각을 읽어내고, 그 마법을 자신의 것으로 만들어 버립니다.",
+      "specialty": "대지 마법",
+      "specialty_desc": "대지마법의 데미지가 15% 증가하고 전투마다 대지마법을 추가로 사용할 수 있습니다.",
+      "skills": [
+        "초급 지혜",
+        "초급 대지 마법"
+      ],
+      "troops": [
+        {
+          "name": "동굴인",
+          "count": "30-40"
+        },
+        {
+          "name": "하피",
+          "count": "3-5"
+        },
+        {
+          "name": "주시자",
+          "count": "3-4"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": true,
+      "spells": [
+        "둔화"
+      ],
+      "portrait": "images/heroes_portrait/던전/게온.jpg",
+      "info_img": "images/heroes_info/던전/게온.jpg"
+    },
+    {
+      "id": 94,
+      "name": "데머",
+      "town": "던전",
+      "class": "워락",
+      "tier": "A",
+      "stats": {
+        "attack": 0,
+        "defense": 0,
+        "power": 3,
+        "knowledge": 2
+      },
+      "desc": "데머는 젊었을 때 마법 능력을 통제하지 못해서 거의 죽을뻔 했습니다. 그후로 그는 자신의 마력을 통제하는 법을 공부하여 보다 강력한 능력을 보유하게 되었습니다.",
+      "specialty": "유성 폭풍",
+      "specialty_desc": "유성 폭풍의 효과가 강화되며 전투마다 유성 폭풍을 여러번 사용할 수 있습니다.",
+      "skills": [
+        "초급 대지 마법",
+        "초급 지식"
+      ],
+      "troops": [
+        {
+          "name": "동굴인",
+          "count": "30-40"
+        },
+        {
+          "name": "하피",
+          "count": "3-5"
+        },
+        {
+          "name": "주시자",
+          "count": "3-4"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": true,
+      "spells": [
+        "유성 폭풍"
+      ],
+      "portrait": "images/heroes_portrait/던전/데머.jpg",
+      "info_img": "images/heroes_info/던전/데머.jpg"
+    },
+    {
+      "id": 95,
+      "name": "세핀로스",
+      "town": "던전",
+      "class": "워락",
+      "tier": "A",
+      "stats": {
+        "attack": 0,
+        "defense": 0,
+        "power": 3,
+        "knowledge": 2
+      },
+      "desc": "세핀로스는 그리폰하트 왕의 사생아라고 합니다. 그리폰하트 왕은 그녀가 자신의 딸이라는 것을 인정하지 않았기 때문에, 그녀는 에라시아의 왕좌에 대한 깊은 증오심을 가지게 되었습니다. 그녀는 유일한 여자 워락입니다.",
+      "specialty": "재산관리",
+      "specialty_desc": "재산관리 스킬에 레벨당 3%의 보너스를 받으며 추가 자원도 생산합니다.",
+      "skills": [
+        "중급 재산술"
+      ],
+      "troops": [
+        {
+          "name": "동굴인",
+          "count": "30-40"
+        },
+        {
+          "name": "하피",
+          "count": "3-5"
+        },
+        {
+          "name": "주시자",
+          "count": "3-4"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": true,
+      "spells": [
+        "피의 굶주림"
+      ],
+      "portrait": "images/heroes_portrait/던전/세핀로스.jpg",
+      "info_img": "images/heroes_info/던전/세핀로스.jpg"
+    },
+    {
+      "id": 96,
+      "name": "다크스톤",
+      "town": "던전",
+      "class": "워락",
+      "tier": "B",
+      "stats": {
+        "attack": 0,
+        "defense": 0,
+        "power": 3,
+        "knowledge": 2
+      },
+      "desc": "다크스톤은 나이혼의 전사로서 전쟁에 뛰어들었고, 전투에서 승리하기 위해 남몰래 마법을 사용했습니다. 그는 자신의 진정한 힘을 발견했고, 그 후로 그에게 아무도 도전하지 않았습니다.",
+      "specialty": "석갑",
+      "specialty_desc": "석갑의 효과가 강화되며 전투마다 석갑을 여러번 사용할 수 있습니다.",
+      "skills": [
+        "초급 대지 마법",
+        "초급 전술"
+      ],
+      "troops": [
+        {
+          "name": "동굴인",
+          "count": "30-40"
+        },
+        {
+          "name": "하피",
+          "count": "3-5"
+        },
+        {
+          "name": "주시자",
+          "count": "3-4"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": true,
+      "spells": [
+        "석갑"
+      ],
+      "portrait": "images/heroes_portrait/던전/다크스톤.jpg",
+      "info_img": "images/heroes_info/던전/다크스톤.jpg"
+    },
+    {
+      "id": 97,
+      "name": "요그",
+      "town": "스트롱홀드",
+      "class": "바바리안",
+      "tier": "B",
+      "stats": {
+        "attack": 4,
+        "defense": 0,
+        "power": 1,
+        "knowledge": 1
+      },
+      "desc": "요그는 몇 년 동안 브라카다의 마법사들과 함께 공부했지만, 마법 보다는 전쟁에 관한 것들에 더 관심을 보였습니다. 크룰로드의 공작은 지휘관의 자리를 그에게 제안했고, 그는 이 기회를 통해 자신이 공부했던 군사 지식을 사용하고자 합니다.",
+      "specialty": "싸이클롭스",
+      "specialty_desc": "싸이클롭스와 싸이클롭스 킹의 공격력, 방어력, 속도가 증가합니다.",
+      "skills": [
+        "초급 궁술",
+        "초급 공격술"
+      ],
+      "troops": [
+        {
+          "name": "고블린",
+          "count": "15-25"
+        },
+        {
+          "name": "늑대 기병대",
+          "count": "5-7"
+        },
+        {
+          "name": "오크",
+          "count": "3-5"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": false,
+      "spells": [],
+      "portrait": "images/heroes_portrait/스트롱홀드/요그.jpg",
+      "info_img": "images/heroes_info/스트롱홀드/요그.jpg"
+    },
+    {
+      "id": 98,
+      "name": "거니슨",
+      "town": "스트롱홀드",
+      "class": "바바리안",
+      "tier": "A",
+      "stats": {
+        "attack": 4,
+        "defense": 0,
+        "power": 1,
+        "knowledge": 1
+      },
+      "desc": "거니슨은 쇠뇌를 다루는 천부적 재능으로 말미암아 유명한 영웅이 되었습니다.",
+      "specialty": "쇠뇌",
+      "specialty_desc": "쇠뇌의 발사 횟수가 늘어나고, 쇠뇌의 공격력, 방어력이 증가합니다.",
+      "skills": [
+        "초급 포술",
+        "초급 공격술"
+      ],
+      "troops": [
+        {
+          "name": "고블린",
+          "count": "15-25"
+        },
+        {
+          "name": "오크",
+          "count": "3-5"
+        }
+      ],
+      "war_machines": [
+        "쇠뇌"
+      ],
+      "spellbook": false,
+      "spells": [],
+      "portrait": "images/heroes_portrait/스트롱홀드/거니슨.jpg",
+      "info_img": "images/heroes_info/스트롱홀드/거니슨.jpg"
+    },
+    {
+      "id": 99,
+      "name": "자바카스",
+      "town": "스트롱홀드",
+      "class": "바바리안",
+      "tier": "B",
+      "stats": {
+        "attack": 4,
+        "defense": 0,
+        "power": 1,
+        "knowledge": 1
+      },
+      "desc": "보라거스 공작의 장남으로서, 자바카스는 자신이 언젠가는 크룰로드의 지배자가 될 것이라는 사실을 알고 있습니다. 아버지와 마찬가지로, 그역시 목표를 달성하는 최선의 방법은 정복이라고 알고 있습니다.",
+      "specialty": "오크",
+      "specialty_desc": "아군 부대의 오크, 오크 대장의 공격력, 방어력, 속도가 증가합니다.",
+      "skills": [
+        "초급 공격술",
+        "초급 궁술"
+      ],
+      "troops": [
+        {
+          "name": "고블린",
+          "count": "15-25"
+        },
+        {
+          "name": "오크",
+          "count": "3-5"
+        },
+        {
+          "name": "오크",
+          "count": "3-5"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": false,
+      "spells": [],
+      "portrait": "images/heroes_portrait/스트롱홀드/자바카스.jpg",
+      "info_img": "images/heroes_info/스트롱홀드/자바카스.jpg"
+    },
+    {
+      "id": 100,
+      "name": "시바",
+      "town": "스트롱홀드",
+      "class": "바바리안",
+      "tier": "S",
+      "stats": {
+        "attack": 4,
+        "defense": 0,
+        "power": 1,
+        "knowledge": 1
+      },
+      "desc": "시바는 곡예단의 동물조련사 집안의 막내딸입니다. 가업이 마음에 안들었기 때문에 그녀는 집을 떠나서 크룰로드의 군대에 용병으로 입대했습니다.",
+      "specialty": "템페스트 버드",
+      "specialty_desc": "로크와 썬더버드, 리미트닝 버드를 템페스트 버드로 업그레이드 할 수 있으며 영웅 부대의 팀페스트 버드를 강화시킵니다.",
+      "skills": [
+        "초급 공격술",
+        "초급 정찰"
+      ],
+      "troops": [
+        {
+          "name": "고블린",
+          "count": "15-25"
+        },
+        {
+          "name": "늑대 기병대",
+          "count": "5-7"
+        },
+        {
+          "name": "로크",
+          "count": "1"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": false,
+      "spells": [],
+      "portrait": "images/heroes_portrait/스트롱홀드/시바.jpg",
+      "info_img": "images/heroes_info/스트롱홀드/시바.jpg"
+    },
+    {
+      "id": 101,
+      "name": "그레친",
+      "town": "스트롱홀드",
+      "class": "바바리안",
+      "tier": "A",
+      "stats": {
+        "attack": 4,
+        "defense": 0,
+        "power": 1,
+        "knowledge": 1
+      },
+      "desc": "그레친은 뛰어난 지휘관일 뿐만 아니라 병사들의 깊은 신뢰를 한몸에 받고 있습니다.",
+      "specialty": "고블린",
+      "specialty_desc": "고블린과 홉고블린의 공격력, 방어력, 속도가 증가합니다.",
+      "skills": [
+        "초급 공격술",
+        "초급 탐험술"
+      ],
+      "troops": [
+        {
+          "name": "고블린",
+          "count": "15-25"
+        },
+        {
+          "name": "고블린",
+          "count": "15-25"
+        },
+        {
+          "name": "고블린",
+          "count": "15-25"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": false,
+      "spells": [],
+      "portrait": "images/heroes_portrait/스트롱홀드/그레친.jpg",
+      "info_img": "images/heroes_info/스트롱홀드/그레친.jpg"
+    },
+    {
+      "id": 102,
+      "name": "크렐리온",
+      "town": "스트롱홀드",
+      "class": "바바리안",
+      "tier": "B",
+      "stats": {
+        "attack": 4,
+        "defense": 0,
+        "power": 1,
+        "knowledge": 1
+      },
+      "desc": "크렐리온은 본래 용병으로 참전했고, 그를 따르고자 하는 병사들이 줄을 이을 만큼 유명합니다. 최선의 결정은 아닐지라도, 그는 뛰어난 지휘관으로 인정받았고, 특히 오우거들 사이에서 인정받고 있습니다.",
+      "specialty": "오우거",
+      "specialty_desc": "오우거과 오우거 마법사의 공격력, 방어력, 속도가 증가합니다.",
+      "skills": [
+        "초급 공격술",
+        "초급 마법 저항"
+      ],
+      "troops": [
+        {
+          "name": "고블린",
+          "count": "15-25"
+        },
+        {
+          "name": "늑대 기병대",
+          "count": "5-7"
+        },
+        {
+          "name": "오우거",
+          "count": "2-3"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": false,
+      "spells": [],
+      "portrait": "images/heroes_portrait/스트롱홀드/크렐리온.jpg",
+      "info_img": "images/heroes_info/스트롱홀드/크렐리온.jpg"
+    },
+    {
+      "id": 103,
+      "name": "크랙핵",
+      "town": "스트롱홀드",
+      "class": "바바리안",
+      "tier": "B",
+      "stats": {
+        "attack": 4,
+        "defense": 0,
+        "power": 1,
+        "knowledge": 1
+      },
+      "desc": "앙로스에서 훈장까지 받았지만, 크랙 핵은 점점 지루함을 느끼게 되었습니다. 그는 결국 에라시아에서 새로운 삶을 찾기로 결정했습니다. 그는 이곳 변경지역으로 왔으며, 그의 능력을 발휘할 전장을 보고 기뻐했습니다.",
+      "specialty": "공격술",
+      "specialty_desc": "레벨당 공격술에 3% 보너스가 추가됩니다.",
+      "skills": [
+        "중급 공격술"
+      ],
+      "troops": [
+        {
+          "name": "고블린",
+          "count": "15-25"
+        },
+        {
+          "name": "늑대 기병대",
+          "count": "5-7"
+        },
+        {
+          "name": "오크",
+          "count": "3-5"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": false,
+      "spells": [],
+      "portrait": "images/heroes_portrait/스트롱홀드/크랙핵.jpg",
+      "info_img": "images/heroes_info/스트롱홀드/크랙핵.jpg"
+    },
+    {
+      "id": 104,
+      "name": "타이락소",
+      "town": "스트롱홀드",
+      "class": "바바리안",
+      "tier": "B",
+      "stats": {
+        "attack": 4,
+        "defense": 0,
+        "power": 1,
+        "knowledge": 1
+      },
+      "desc": "타이락소는 늑대 기병대장 이었고, 타탈리아의 매복을 알아낸 이후 크룰로드의 영웅 반열에 올랐습니다.",
+      "specialty": "늑대 기병대",
+      "specialty_desc": "늑대기병대와 늑대돌격대의 공격력, 방어력, 속도가 증가합니다.",
+      "skills": [
+        "초급 공격술",
+        "초급 전술"
+      ],
+      "troops": [
+        {
+          "name": "늑대 기병대",
+          "count": "5-7"
+        },
+        {
+          "name": "늑대 기병대",
+          "count": "5-7"
+        },
+        {
+          "name": "늑대 기병대",
+          "count": "5-7"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": false,
+      "spells": [],
+      "portrait": "images/heroes_portrait/스트롱홀드/타이락소.jpg",
+      "info_img": "images/heroes_info/스트롱홀드/타이락소.jpg"
+    },
+    {
+      "id": 105,
+      "name": "거드",
+      "town": "스트롱홀드",
+      "class": "배틀메이지",
+      "tier": "S",
+      "stats": {
+        "attack": 2,
+        "defense": 1,
+        "power": 1,
+        "knowledge": 1
+      },
+      "desc": "거드는 고향에서 무당으로서의 거의 모든 것을 배웠습니다. 크룰로드의 마법사가 마법을 전수할 어린아이를 찾아 그녀의 마을에 왔을때, 그녀가 선택되었습니다.",
+      "specialty": "마법학",
+      "specialty_desc": "레벨당 마법학에 3% 보너스가 추가됩니다.",
+      "skills": [
+        "초급 지혜",
+        "초급 마법학"
+      ],
+      "troops": [
+        {
+          "name": "고블린",
+          "count": "15-25"
+        },
+        {
+          "name": "늑대 기병대",
+          "count": "5-7"
+        },
+        {
+          "name": "오크",
+          "count": "3-5"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": true,
+      "spells": [
+        "얼음 화살"
+      ],
+      "portrait": "images/heroes_portrait/스트롱홀드/거드.jpg",
+      "info_img": "images/heroes_info/스트롱홀드/거드.jpg"
+    },
+    {
+      "id": 106,
+      "name": "베이",
+      "town": "스트롱홀드",
+      "class": "배틀메이지",
+      "tier": "B",
+      "stats": {
+        "attack": 2,
+        "defense": 1,
+        "power": 1,
+        "knowledge": 1
+      },
+      "desc": "오우거 마법사인 베이는 자신의 뛰어난 지휘 능력을 입증했습니다. 그는 크룰로드의 왕좌를 차지할 강력한 후보중 한명입니다.",
+      "specialty": "부관",
+      "specialty_desc": "부관이 강화됩니다.",
+      "skills": [
+        "초급 지휘력",
+        "초급 전술"
+      ],
+      "troops": [
+        {
+          "name": "고블린",
+          "count": "15-25"
+        },
+        {
+          "name": "늑대 기병대",
+          "count": "5-7"
+        },
+        {
+          "name": "오크",
+          "count": "3-5"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": true,
+      "spells": [
+        "마법 화살"
+      ],
+      "portrait": "images/heroes_portrait/스트롱홀드/베이.jpg",
+      "info_img": "images/heroes_info/스트롱홀드/베이.jpg"
+    },
+    {
+      "id": 107,
+      "name": "데싸",
+      "town": "스트롱홀드",
+      "class": "배틀메이지",
+      "tier": "S",
+      "stats": {
+        "attack": 2,
+        "defense": 1,
+        "power": 1,
+        "knowledge": 1
+      },
+      "desc": "약 50여년 전, 데싸의 마을은 인간 약탈자들에 의해 초토화 되었습니다. 데싸는 당시에 살아남은 여섯 명의 아이들 중 한명입니다. 그날 이후로 그는 인간들에게 복수할 순간만을 꿈꾸고 있습니다.",
+      "specialty": "병참술",
+      "specialty_desc": "레벨당 병참술에 3% 보너스가 추가됩니다.",
+      "skills": [
+        "초급 병참술",
+        "초급 정찰"
+      ],
+      "troops": [
+        {
+          "name": "고블린",
+          "count": "15-25"
+        },
+        {
+          "name": "늑대 기병대",
+          "count": "5-7"
+        },
+        {
+          "name": "오크",
+          "count": "3-5"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": true,
+      "spells": [
+        "석갑"
+      ],
+      "portrait": "images/heroes_portrait/스트롱홀드/데싸.jpg",
+      "info_img": "images/heroes_info/스트롱홀드/데싸.jpg"
+    },
+    {
+      "id": 108,
+      "name": "테렉",
+      "town": "스트롱홀드",
+      "class": "배틀메이지",
+      "tier": "B",
+      "stats": {
+        "attack": 2,
+        "defense": 1,
+        "power": 1,
+        "knowledge": 1
+      },
+      "desc": "테렉은 곡예단에서 돌을 멀리 던지는 내기를 담당하는 사람으로 몇 년 동안 일했습니다. 어느 순간 그는 곡예단에 싫증을 느껴 뛰쳐나왔지만, 그를 굴복시킨 사람이 그를 크룰로드의 군대로 편입시켰습니다.",
+      "specialty": "가속",
+      "specialty_desc": "기속의 효과가 강화되며 전투마다 기속을 여러번 사용할 수 있습니다.",
+      "skills": [
+        "초급 대기 마법",
+        "초급 공격술"
+      ],
+      "troops": [
+        {
+          "name": "고블린",
+          "count": "15-25"
+        },
+        {
+          "name": "늑대 기병대",
+          "count": "5-7"
+        },
+        {
+          "name": "오크",
+          "count": "3-5"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": true,
+      "spells": [
+        "가속"
+      ],
+      "portrait": "images/heroes_portrait/스트롱홀드/테렉.jpg",
+      "info_img": "images/heroes_info/스트롱홀드/테렉.jpg"
+    },
+    {
+      "id": 109,
+      "name": "쥬빈",
+      "town": "스트롱홀드",
+      "class": "배틀메이지",
+      "tier": "B",
+      "stats": {
+        "attack": 2,
+        "defense": 1,
+        "power": 1,
+        "knowledge": 1
+      },
+      "desc": "쥬빈은 한때 보라거스 공작과 맞서 싸우던 부족의 추장이었습니다. 결국 평화가 찾아왔을 때, 그는 크룰로드의 지휘관으로 초빙 받았습니다.",
+      "specialty": "정확성",
+      "specialty_desc": "정확성의 효과가 강화되며 전투마다 정확성을 여러번 사용할 수 있습니다.",
+      "skills": [
+        "초급 대기 마법",
+        "초급 포술"
+      ],
+      "troops": [
+        {
+          "name": "고블린",
+          "count": "15-25"
+        },
+        {
+          "name": "늑대 기병대",
+          "count": "5-7"
+        },
+        {
+          "name": "오크",
+          "count": "3-5"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": true,
+      "spells": [
+        "정확성"
+      ],
+      "portrait": "images/heroes_portrait/스트롱홀드/쥬빈.jpg",
+      "info_img": "images/heroes_info/스트롱홀드/쥬빈.jpg"
+    },
+    {
+      "id": 110,
+      "name": "군둘라",
+      "town": "스트롱홀드",
+      "class": "배틀메이지",
+      "tier": "S",
+      "stats": {
+        "attack": 2,
+        "defense": 1,
+        "power": 1,
+        "knowledge": 1
+      },
+      "desc": "어릴적에 고아가 된 군둘라는 보라거스 공작의 양녀로 자라났습니다. 공작이 친아버지가 아니라는 것을 알고 나서, 그녀는 군에 입대했습니다. 그녀는 자신이 전쟁터에서 명예롭게 전사하길 바라고 있습니다. 하지만 그녀는 계속 살아있고, 지금은 유능한 군대 지휘관이 되었습니다.",
+      "specialty": "정찰",
+      "specialty_desc": "정찰의 효과가 강화됩니다.",
+      "skills": [
+        "초급 정찰",
+        "초급 탐험술"
+      ],
+      "troops": [
+        {
+          "name": "고블린",
+          "count": "15-25"
+        },
+        {
+          "name": "늑대 기병대",
+          "count": "5-7"
+        },
+        {
+          "name": "오크",
+          "count": "3-5"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": true,
+      "spells": [
+        "둔화"
+      ],
+      "portrait": "images/heroes_portrait/스트롱홀드/군둘라.jpg",
+      "info_img": "images/heroes_info/스트롱홀드/군둘라.jpg"
+    },
+    {
+      "id": 111,
+      "name": "오리스",
+      "town": "스트롱홀드",
+      "class": "배틀메이지",
+      "tier": "B",
+      "stats": {
+        "attack": 2,
+        "defense": 1,
+        "power": 1,
+        "knowledge": 1
+      },
+      "desc": "오리스는 마법사로서의 능력은 그리 뛰어나진 않지만, 눈으로 본 모든 마법을 자신의 것으로 만들어 버리는 무시무시한 능력을 지니고 있습니다.",
+      "specialty": "불 마법",
+      "specialty_desc": "불 마법의 데미지가 15% 증가하고 전투마다 불 마법을 추가로 사용할 수 있습니다.",
+      "skills": [
+        "초급 지혜",
+        "초급 불 마법"
+      ],
+      "troops": [
+        {
+          "name": "고블린",
+          "count": "15-25"
+        },
+        {
+          "name": "늑대 기병대",
+          "count": "5-7"
+        },
+        {
+          "name": "오크",
+          "count": "3-5"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": true,
+      "spells": [
+        "광분"
+      ],
+      "portrait": "images/heroes_portrait/스트롱홀드/오리스.jpg",
+      "info_img": "images/heroes_info/스트롱홀드/오리스.jpg"
+    },
+    {
+      "id": 112,
+      "name": "사우럭",
+      "town": "스트롱홀드",
+      "class": "배틀메이지",
+      "tier": "B",
+      "stats": {
+        "attack": 2,
+        "defense": 1,
+        "power": 1,
+        "knowledge": 1
+      },
+      "desc": "사우럭은 부자가 되기 위해 한때 연금술을 공부했다고 합니다. 비록 부자가 되지는 못했지만, 그의 마법 능력으로 말미암아 그는 크룰로드에 있어서 소중한 인재가 되었습니다.",
+      "specialty": "번개",
+      "specialty_desc": "번개의 효과가 강화되며 전투마다 번개를 여러번 사용할 수 있습니다.",
+      "skills": [
+        "초급 대기 마법",
+        "초급 마법학"
+      ],
+      "troops": [
+        {
+          "name": "고블린",
+          "count": "15-25"
+        },
+        {
+          "name": "늑대 기병대",
+          "count": "5-7"
+        },
+        {
+          "name": "오크",
+          "count": "3-5"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": true,
+      "spells": [
+        "번개"
+      ],
+      "portrait": "images/heroes_portrait/스트롱홀드/사우럭.jpg",
+      "info_img": "images/heroes_info/스트롱홀드/사우럭.jpg"
+    },
+    {
+      "id": 113,
+      "name": "브론",
+      "town": "포트리스",
+      "class": "비스트마스터",
+      "tier": "B",
+      "stats": {
+        "attack": 0,
+        "defense": 4,
+        "power": 1,
+        "knowledge": 1
+      },
+      "desc": "비록 인간이지만, 브론은 바실리스크의 석화 마법에 대한 저항력을 가지고 있으며, 바실리스크에 대해 많은 것을 알고 있습니다.",
+      "specialty": "바실리스크",
+      "specialty_desc": "바실리스크과 거대한 바실리스크의 공격력, 방어력, 속도가 증가합니다.",
+      "skills": [
+        "초급 방어술",
+        "초급 마법 저항"
+      ],
+      "troops": [
+        {
+          "name": "놀",
+          "count": "15-25"
+        },
+        {
+          "name": "바실리스크",
+          "count": "4-7"
+        },
+        {
+          "name": "바실리스크",
+          "count": "2-3"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": false,
+      "spells": [],
+      "portrait": "images/heroes_portrait/포트리스/브론.jpg",
+      "info_img": "images/heroes_info/포트리스/브론.jpg"
+    },
+    {
+      "id": 114,
+      "name": "드라콘",
+      "town": "포트리스",
+      "class": "비스트마스터",
+      "tier": "B",
+      "stats": {
+        "attack": 0,
+        "defense": 3,
+        "power": 1,
+        "knowledge": 1
+      },
+      "desc": "트랄로스크 왕의 수하로 들어가기 전에, 드라콘은 위대한 전사였습니다. 그의 카리스마로 인해서 많은 병사들이 그의 막하로 모여들고 있습니다.",
+      "specialty": "놀",
+      "specialty_desc": "놀과 놀 약탈자의 공격력, 방어력, 속도가 증가합니다.",
+      "skills": [
+        "초급 방어술",
+        "초급 지휘력"
+      ],
+      "troops": [
+        {
+          "name": "놀",
+          "count": "15-25"
+        },
+        {
+          "name": "놀",
+          "count": "15-25"
+        },
+        {
+          "name": "놀",
+          "count": "15-25"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": false,
+      "spells": [],
+      "portrait": "images/heroes_portrait/포트리스/드라콘.jpg",
+      "info_img": "images/heroes_info/포트리스/드라콘.jpg"
+    },
+    {
+      "id": 115,
+      "name": "와이스탄",
+      "town": "포트리스",
+      "class": "비스트마스터",
+      "tier": "A",
+      "stats": {
+        "attack": 0,
+        "defense": 4,
+        "power": 1,
+        "knowledge": 1
+      },
+      "desc": "트랄로스크 왕의 장녀와 결혼한 와이스탄은 타탈리아 왕국의 왕위 계승권자 입니다. 왕좌에 오르기 전에, 그는 왕을 위해 봉사하고 더 많은 것들을 배우겠지만, 때가 되면 왕을 죽이고 왕좌를 차지할 것입니다.",
+      "specialty": "도마뱀 광전사",
+      "specialty_desc": "아군 부대의 도마뱀, 도마뱀 전사, 엘리트 도마뱀을 도마뱀 굉전사로 업그레이드 할 수 있으며 영웅 부대의 도마뱀 광전사를 강화시킵니다.",
+      "skills": [
+        "초급 방어술",
+        "초급 공격술"
+      ],
+      "troops": [
+        {
+          "name": "도마뱀 인간",
+          "count": "4-7"
+        },
+        {
+          "name": "도마뱀 인간",
+          "count": "4-7"
+        },
+        {
+          "name": "도마뱀 인간",
+          "count": "5-8"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": false,
+      "spells": [],
+      "portrait": "images/heroes_portrait/포트리스/와이스탄.jpg",
+      "info_img": "images/heroes_info/포트리스/와이스탄.jpg"
+    },
+    {
+      "id": 116,
+      "name": "타자르",
+      "town": "포트리스",
+      "class": "비스트마스터",
+      "tier": "A",
+      "stats": {
+        "attack": 0,
+        "defense": 4,
+        "power": 1,
+        "knowledge": 1
+      },
+      "desc": "크룰로드와 6개월 동안의 국경분쟁 기간동안, 타자르가 지휘하는 소규모의 부대는 타탈리아의 전진기지를 구축하고, 5배나 많은 크룰로드의 군대를 지원군이 도착할 때까지 붙잡아 둘 수 있었다.",
+      "specialty": "방어술",
+      "specialty_desc": "레벨당 방어술에 3% 보너스가 추가됩니다.",
+      "skills": [
+        "중급 방어술"
+      ],
+      "troops": [
+        {
+          "name": "놀",
+          "count": "15-25"
+        },
+        {
+          "name": "도마뱀 인간",
+          "count": "4-7"
+        },
+        {
+          "name": "서펀트 플라이",
+          "count": "2-4"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": false,
+      "spells": [],
+      "portrait": "images/heroes_portrait/포트리스/타자르.jpg",
+      "info_img": "images/heroes_info/포트리스/타자르.jpg"
+    },
+    {
+      "id": 117,
+      "name": "알킨",
+      "town": "포트리스",
+      "class": "비스트마스터",
+      "tier": "B",
+      "stats": {
+        "attack": 0,
+        "defense": 4,
+        "power": 1,
+        "knowledge": 1
+      },
+      "desc": "트랄로스크 왕은 알킨을 좋아하지 않지만, 언젠가는 자멸하리라 믿고 군대의 지휘관으로 임명했습니다. 그는 아직 살아있으며, 왕의 기대와는 반대로 눈부신 전공을 세우고 있습니다.",
+      "specialty": "고르곤",
+      "specialty_desc": "고르곤과 강력한 고르곤의 공격력, 방어력, 속도가 증가합니다.",
+      "skills": [
+        "초급 방어술",
+        "초급 공격술"
+      ],
+      "troops": [
+        {
+          "name": "놀",
+          "count": "15-25"
+        },
+        {
+          "name": "도마뱀 인간",
+          "count": "4-7"
+        },
+        {
+          "name": "고르곤",
+          "count": "1"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": false,
+      "spells": [],
+      "portrait": "images/heroes_portrait/포트리스/알킨.jpg",
+      "info_img": "images/heroes_info/포트리스/알킨.jpg"
+    },
+    {
+      "id": 118,
+      "name": "코백",
+      "town": "포트리스",
+      "class": "비스트마스터",
+      "tier": "B",
+      "stats": {
+        "attack": 0,
+        "defense": 4,
+        "power": 1,
+        "knowledge": 1
+      },
+      "desc": "코백은 크산토 라는 학자를 구한 영웅으로 에라시아 백성들에게 알려져 있습니다. 그는 타탈리아를 위해 일하면서 그의 용맹을 입증했습니다.",
+      "specialty": "서펀트 플라이",
+      "specialty_desc": "서펀트 플라이과 드래곤 플라이의 공격력, 방어력, 속도가 증가합니다.",
+      "skills": [
+        "초급 방어술",
+        "초급 탐험술"
+      ],
+      "troops": [
+        {
+          "name": "놀",
+          "count": "15-25"
+        },
+        {
+          "name": "서펀트 플라이",
+          "count": "2-4"
+        },
+        {
+          "name": "서펀트 플라이",
+          "count": "3-5"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": false,
+      "spells": [],
+      "portrait": "images/heroes_portrait/포트리스/코백.jpg",
+      "info_img": "images/heroes_info/포트리스/코백.jpg"
+    },
+    {
+      "id": 119,
+      "name": "거울프",
+      "town": "포트리스",
+      "class": "비스트마스터",
+      "tier": "B",
+      "stats": {
+        "attack": 0,
+        "defense": 4,
+        "power": 1,
+        "knowledge": 1
+      },
+      "desc": "거울프는 변경지역의 바바리안 요새에서 노획한 투석기를 타탈리아에 처음 도입한 사람으로 알려져 있습니다. 그는 북서쪽 해안 전선에서 타탈리아의 군대를 이끄는 선봉대장이 되었습니다.",
+      "specialty": "전술",
+      "specialty_desc": "전술의 효과가 강화됩니다.",
+      "skills": [
+        "초급 전술",
+        "초급 포술"
+      ],
+      "troops": [
+        {
+          "name": "놀",
+          "count": "15-25"
+        },
+        {
+          "name": "서펀트 플라이",
+          "count": "2-4"
+        }
+      ],
+      "war_machines": [
+        "쇠뇌"
+      ],
+      "spellbook": false,
+      "spells": [],
+      "portrait": "images/heroes_portrait/포트리스/거울프.jpg",
+      "info_img": "images/heroes_info/포트리스/거울프.jpg"
+    },
+    {
+      "id": 120,
+      "name": "브로길드",
+      "town": "포트리스",
+      "class": "비스트마스터",
+      "tier": "B",
+      "stats": {
+        "attack": 0,
+        "defense": 4,
+        "power": 1,
+        "knowledge": 1
+      },
+      "desc": "브로길드의 할아버지는 타탈리아 남쪽 지역을 정찰하기 위해 야생 와이번을 훈련시킨 것으로 알려져 있습니다. 와이번을 다루는 비법은 아버지를 거쳐 그에게 전수되었다고 합니다.",
+      "specialty": "와이번",
+      "specialty_desc": "와이번과 와이번 군주의 공격력, 방어력, 속도가 증가합니다.",
+      "skills": [
+        "초급 방어술",
+        "초급 정찰"
+      ],
+      "troops": [
+        {
+          "name": "놀",
+          "count": "15-25"
+        },
+        {
+          "name": "도마뱀 인간",
+          "count": "4-7"
+        },
+        {
+          "name": "서펀트 플라이",
+          "count": "2-4"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": false,
+      "spells": [],
+      "portrait": "images/heroes_portrait/포트리스/브로길드.jpg",
+      "info_img": "images/heroes_info/포트리스/브로길드.jpg"
+    },
+    {
+      "id": 121,
+      "name": "머란다",
+      "town": "포트리스",
+      "class": "마녀",
+      "tier": "B",
+      "stats": {
+        "attack": 0,
+        "defense": 1,
+        "power": 2,
+        "knowledge": 2
+      },
+      "desc": "머란다는 선과 악의 사이에서 중도입장을 견지하는 비법을 터득했으며, 선과 악 두 세력은 항상 균형을 이뤄야 한다고 확신하고 있습니다.",
+      "specialty": "약화",
+      "specialty_desc": "약화의 효과가 강화되며 전투마다 약화를 여러번 사용할 수 있습니다.",
+      "skills": [
+        "초급 불 마법",
+        "초급 물 마법"
+      ],
+      "troops": [
+        {
+          "name": "놀",
+          "count": "15-25"
+        },
+        {
+          "name": "도마뱀 인간",
+          "count": "4-7"
+        },
+        {
+          "name": "서펀트 플라이",
+          "count": "2-4"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": true,
+      "spells": [
+        "불의 방패"
+      ],
+      "portrait": "images/heroes_portrait/포트리스/머란다.jpg",
+      "info_img": "images/heroes_info/포트리스/머란다.jpg"
+    },
+    {
+      "id": 122,
+      "name": "로식",
+      "town": "포트리스",
+      "class": "마녀",
+      "tier": "B",
+      "stats": {
+        "attack": 0,
+        "defense": 1,
+        "power": 2,
+        "knowledge": 2
+      },
+      "desc": "어린 시절, 로식은 열병에 걸렸고, 모든 사람들은 그녀가 살아나지 못할 거라 믿었지만, 그녀는 병을 이기고 살아났습니다. 오늘날 그녀는 그때의 열병이 자신에게 마법의 힘을 주었다고 주장합니다.",
+      "specialty": "명상",
+      "specialty_desc": "레벨당 명상에 3% 보너스가 추가됩니다.",
+      "skills": [
+        "초급 지혜",
+        "초급 명상"
+      ],
+      "troops": [
+        {
+          "name": "놀",
+          "count": "15-25"
+        },
+        {
+          "name": "도마뱀 인간",
+          "count": "4-7"
+        },
+        {
+          "name": "서펀트 플라이",
+          "count": "2-4"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": true,
+      "spells": [
+        "마법 화살"
+      ],
+      "portrait": "images/heroes_portrait/포트리스/로식.jpg",
+      "info_img": "images/heroes_info/포트리스/로식.jpg"
+    },
+    {
+      "id": 123,
+      "name": "보이",
+      "town": "포트리스",
+      "class": "마녀",
+      "tier": "S",
+      "stats": {
+        "attack": 0,
+        "defense": 1,
+        "power": 2,
+        "knowledge": 2
+      },
+      "desc": "보이는 항해하는 선단을 안내하는 안내인으로 자주 고용되었습니다. 그녀는 자신이 태어난 늪지대의 공기보다 바다의 짭짤한 공기를 더 좋아합니다.",
+      "specialty": "통치술",
+      "specialty_desc": "레벨당 통치술에 3% 보너스가 추가됩니다.",
+      "skills": [
+        "초급 탐험술",
+        "초급 통치술"
+      ],
+      "troops": [
+        {
+          "name": "놀",
+          "count": "15-25"
+        },
+        {
+          "name": "도마뱀 인간",
+          "count": "4-7"
+        },
+        {
+          "name": "서펀트 플라이",
+          "count": "2-4"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": true,
+      "spells": [
+        "둔화"
+      ],
+      "portrait": "images/heroes_portrait/포트리스/보이.jpg",
+      "info_img": "images/heroes_info/포트리스/보이.jpg"
+    },
+    {
+      "id": 124,
+      "name": "버디쉬",
+      "town": "포트리스",
+      "class": "마녀",
+      "tier": "S",
+      "stats": {
+        "attack": 0,
+        "defense": 1,
+        "power": 2,
+        "knowledge": 2
+      },
+      "desc": "버디쉬는 던전 오버로드의 침공당시 거의 죽을뻔 했습니다. 다행히 그녀는 치료기술을 익히고 있었기 때문에 살아날 수 있었습니다.",
+      "specialty": "응급처치",
+      "specialty_desc": "레벨당 응급처치에 3% 보너스가 추가됩니다.",
+      "skills": [
+        "중급 응급 치료"
+      ],
+      "troops": [
+        {
+          "name": "놀",
+          "count": "15-25"
+        },
+        {
+          "name": "서펀트 플라이",
+          "count": "2-4"
+        }
+      ],
+      "war_machines": [
+        "응급처치 텐트"
+      ],
+      "spellbook": true,
+      "spells": [
+        "불의 저항력"
+      ],
+      "portrait": "images/heroes_portrait/포트리스/버디쉬.jpg",
+      "info_img": "images/heroes_info/포트리스/버디쉬.jpg"
+    },
+    {
+      "id": 125,
+      "name": "메리스트",
+      "town": "포트리스",
+      "class": "마녀",
+      "tier": "A",
+      "stats": {
+        "attack": 0,
+        "defense": 1,
+        "power": 2,
+        "knowledge": 2
+      },
+      "desc": "메리스트는 마을의 의사였지만, 그녀의 마법 능력이 치료 능력보다 더욱 뛰어나다는 것을 알았을 때, 그녀는 타탈리아를 위해 일하기 시작했습니다.",
+      "specialty": "탐험술",
+      "specialty_desc": "탐험술의 효과가 강화됩니다.",
+      "skills": [
+        "초급 탐험술",
+        "초급 병참술"
+      ],
+      "troops": [
+        {
+          "name": "놀",
+          "count": "15-25"
+        },
+        {
+          "name": "도마뱀 인간",
+          "count": "4-7"
+        },
+        {
+          "name": "서펀트 플라이",
+          "count": "2-4"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": true,
+      "spells": [
+        "석갑"
+      ],
+      "portrait": "images/heroes_portrait/포트리스/메리스트.jpg",
+      "info_img": "images/heroes_info/포트리스/메리스트.jpg"
+    },
+    {
+      "id": 126,
+      "name": "스티그",
+      "town": "포트리스",
+      "class": "마녀",
+      "tier": "S",
+      "stats": {
+        "attack": 0,
+        "defense": 1,
+        "power": 2,
+        "knowledge": 2
+      },
+      "desc": "타탈리아의 트랄로스크 왕의 11번째 딸인 스티그는 자신이 타탈리아의 왕위를 물려받을 수 없다는 것을 알고나서 마법사의 길을 선택했습니다.",
+      "specialty": "마법학",
+      "specialty_desc": "레벨당 마법학에 3% 보너스가 추가됩니다.",
+      "skills": [
+        "초급 물 마법",
+        "초급 마법학"
+      ],
+      "troops": [
+        {
+          "name": "놀",
+          "count": "15-25"
+        },
+        {
+          "name": "도마뱀 인간",
+          "count": "4-7"
+        },
+        {
+          "name": "서펀트 플라이",
+          "count": "2-4"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": true,
+      "spells": [
+        "방패"
+      ],
+      "portrait": "images/heroes_portrait/포트리스/스티그.jpg",
+      "info_img": "images/heroes_info/포트리스/스티그.jpg"
+    },
+    {
+      "id": 127,
+      "name": "안드라",
+      "town": "포트리스",
+      "class": "마녀",
+      "tier": "B",
+      "stats": {
+        "attack": 0,
+        "defense": 1,
+        "power": 2,
+        "knowledge": 2
+      },
+      "desc": "트랄로스크 왕은 평범한 인간에 불과한 안드라에게 군대의 지휘권을 부여하기 전에, 그녀의 지혜를 충분히 시험해 보았습니다. 그녀는 왕의 질문을 하나도 놓치지 않았으며, 왕은 의심의 여지 없이 그녀를 받아들였습니다.",
+      "specialty": "지식",
+      "specialty_desc": "레벨당 지식에 3% 보너스가 추가됩니다.",
+      "skills": [
+        "초급 지혜",
+        "초급 지식"
+      ],
+      "troops": [
+        {
+          "name": "놀",
+          "count": "15-25"
+        },
+        {
+          "name": "도마뱀 인간",
+          "count": "4-7"
+        },
+        {
+          "name": "서펀트 플라이",
+          "count": "2-4"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": true,
+      "spells": [
+        "해제"
+      ],
+      "portrait": "images/heroes_portrait/포트리스/안드라.jpg",
+      "info_img": "images/heroes_info/포트리스/안드라.jpg"
+    },
+    {
+      "id": 128,
+      "name": "티바",
+      "town": "포트리스",
+      "class": "마녀",
+      "tier": "B",
+      "stats": {
+        "attack": 0,
+        "defense": 1,
+        "power": 2,
+        "knowledge": 2
+      },
+      "desc": "티바는 동료들을 제치고 빠른 성장을 보였고, 상급자들과 지혜를 겨루어 영웅의 반열에 올랐습니다. 그녀는 많은 성공을 거두었습니다.",
+      "specialty": "대지마법",
+      "specialty_desc": "대지마법의 데미지가 15% 증가하고 전투마다 대지마법을 추가로 사용할 수 있습니다.",
+      "skills": [
+        "중급 행운"
+      ],
+      "troops": [
+        {
+          "name": "놀",
+          "count": "15-25"
+        },
+        {
+          "name": "도마뱀 인간",
+          "count": "4-7"
+        },
+        {
+          "name": "서펀트 플라이",
+          "count": "2-4"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": true,
+      "spells": [
+        "행운"
+      ],
+      "portrait": "images/heroes_portrait/포트리스/티바.jpg",
+      "info_img": "images/heroes_info/포트리스/티바.jpg"
+    },
+    {
+      "id": 129,
+      "name": "파시스",
+      "town": "컨플럭스",
+      "class": "플레인스워커",
+      "tier": "B",
+      "stats": {
+        "attack": 3,
+        "defense": 1,
+        "power": 1,
+        "knowledge": 1
+      },
+      "desc": "파시스는 항상 그들의 물리적인 형태에 매력을 느껴왔습니다. 그 존재들에 대한 광범위한 연구와 교류로 인해 그녀는 컨플럭스의 열렬한 지지자가 되었습니다.",
+      "specialty": "부관",
+      "specialty_desc": "부관이 강화됩니다.",
+      "skills": [
+        "초급 공격술",
+        "초급 포술"
+      ],
+      "troops": [
+        {
+          "name": "픽시",
+          "count": "15-25"
+        },
+        {
+          "name": "바람의 정령",
+          "count": "3-5"
+        },
+        {
+          "name": "바람의 정령",
+          "count": "2-3"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": false,
+      "spells": [],
+      "portrait": "images/heroes_portrait/컨플럭스/파시스.jpg",
+      "info_img": "images/heroes_info/컨플럭스/파시스.jpg"
+    },
+    {
+      "id": 130,
+      "name": "튜나",
+      "town": "컨플럭스",
+      "class": "플레인스워커",
+      "tier": "B",
+      "stats": {
+        "attack": 3,
+        "defense": 1,
+        "power": 1,
+        "knowledge": 1
+      },
+      "desc": "오랫동안 에라시아 수도 근처에 살았던 튜나는 전술과 재산 관리법에 대한 폭넓은 지식을 얻게 되었습니다. 생명에 대한 존경과 호기심 때문에 그녀는 컨플럭스에서 살게 되었습니다.",
+      "specialty": "대지정령 소환",
+      "specialty_desc": "대지정령 소환 마법 시용 시 전투 후 일부 대지정령이 부대에 힘류합니다.",
+      "skills": [
+        "중급 대지 마법"
+      ],
+      "troops": [
+        {
+          "name": "픽시",
+          "count": "15-25"
+        },
+        {
+          "name": "바람의 정령",
+          "count": "3-5"
+        },
+        {
+          "name": "물의 정령",
+          "count": "2-3"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": true,
+      "spells": [
+        "땅의 정령 소환"
+      ],
+      "portrait": "images/heroes_portrait/컨플럭스/튜나.jpg",
+      "info_img": "images/heroes_info/컨플럭스/튜나.jpg"
+    },
+    {
+      "id": 131,
+      "name": "이그니싸",
+      "town": "컨플럭스",
+      "class": "플레인스워커",
+      "tier": "B",
+      "stats": {
+        "attack": 3,
+        "defense": 1,
+        "power": 1,
+        "knowledge": 1
+      },
+      "desc": "이그니싸는 4년전 강력한 마법사에 의해 이 세계로 소환되었습니다. 돌아갈 수가 없어서 안타가릭에서 방황하던 중 컨플럭스에서 자신이 할 일을 찾게 되었습니다.",
+      "specialty": "불새",
+      "specialty_desc": "불새의 체력이 증가하고 매주 불새 1마리가 합류합니다.",
+      "skills": [
+        "초급 위압",
+        "초급 포술"
+      ],
+      "troops": [
+        {
+          "name": "픽시",
+          "count": "15-25"
+        },
+        {
+          "name": "바람의 정령",
+          "count": "3-5"
+        },
+        {
+          "name": "물의 정령",
+          "count": "2-3"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": false,
+      "spells": [],
+      "portrait": "images/heroes_portrait/컨플럭스/이그니싸.jpg",
+      "info_img": "images/heroes_info/컨플럭스/이그니싸.jpg"
+    },
+    {
+      "id": 132,
+      "name": "라쿠스",
+      "town": "컨플럭스",
+      "class": "플레인스워커",
+      "tier": "B",
+      "stats": {
+        "attack": 3,
+        "defense": 1,
+        "power": 1,
+        "knowledge": 1
+      },
+      "desc": "컨플럭스를 위해 일할 영예를 얻기 위해 물의 정령들 사이에 치열한 경쟁이 벌어졌습니다. 전술에 대해 진일보한 지식을 가졌던 라쿠스가 그 영광을 차지했습니다.",
+      "specialty": "전술",
+      "specialty_desc": "전술의 효과가 강화됩니다.",
+      "skills": [
+        "중급 전술"
+      ],
+      "troops": [
+        {
+          "name": "픽시",
+          "count": "15-25"
+        },
+        {
+          "name": "물의 정령",
+          "count": "3-5"
+        },
+        {
+          "name": "물의 정령",
+          "count": "1-2"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": false,
+      "spells": [],
+      "portrait": "images/heroes_portrait/컨플럭스/라쿠스.jpg",
+      "info_img": "images/heroes_info/컨플럭스/라쿠스.jpg"
+    },
+    {
+      "id": 133,
+      "name": "모니어",
+      "town": "컨플럭스",
+      "class": "플레인스워커",
+      "tier": "B",
+      "stats": {
+        "attack": 3,
+        "defense": 1,
+        "power": 1,
+        "knowledge": 1
+      },
+      "desc": "순수한 에너지 그 자체였던 모니어는 자유로움을 즐겨왔습니다. 그러나, 물리적인 형태에 대한 호기심 때문에 컨플럭스에 오게 되었습니다.",
+      "specialty": "정신의 정령",
+      "specialty_desc": "정신의 정령과 마법의 정령의 공격력, 방어력, 속도가 증가합니다.",
+      "skills": [
+        "초급 공격술",
+        "초급 병참술"
+      ],
+      "troops": [
+        {
+          "name": "픽시",
+          "count": "15-25"
+        },
+        {
+          "name": "바람의 정령",
+          "count": "3-5"
+        },
+        {
+          "name": "바람의 정령",
+          "count": "2-3"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": false,
+      "spells": [],
+      "portrait": "images/heroes_portrait/컨플럭스/모니어.jpg",
+      "info_img": "images/heroes_info/컨플럭스/모니어.jpg"
+    },
+    {
+      "id": 134,
+      "name": "에르다몬",
+      "town": "컨플럭스",
+      "class": "플레인스워커",
+      "tier": "B",
+      "stats": {
+        "attack": 3,
+        "defense": 1,
+        "power": 1,
+        "knowledge": 1
+      },
+      "desc": "고대의 마그마 군주 중 하나였던 에르다몬은 이오폴의 경계에 있는 산 속에서 수백년 동안 잠을 잤습니다. 컨플럭스를 돕기 위해 잠에서 깨어난 에르다몬은, 크리건을 이 세계에서 몰아내기 위해 기꺼이 싸울 것입니다.",
+      "specialty": "땅의 정령",
+      "specialty_desc": "땅의 정령과 마그마의 정령의 공격력, 방어력, 속도가 증가합니다.",
+      "skills": [
+        "초급 전술",
+        "초급 재산술"
+      ],
+      "troops": [
+        {
+          "name": "픽시",
+          "count": "15-25"
+        },
+        {
+          "name": "바람의 정령",
+          "count": "3-5"
+        },
+        {
+          "name": "땅의 정령",
+          "count": "1"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": false,
+      "spells": [],
+      "portrait": "images/heroes_portrait/컨플럭스/에르다몬.jpg",
+      "info_img": "images/heroes_info/컨플럭스/에르다몬.jpg"
+    },
+    {
+      "id": 135,
+      "name": "파이우",
+      "town": "컨플럭스",
+      "class": "플레인스워커",
+      "tier": "A",
+      "stats": {
+        "attack": 3,
+        "defense": 1,
+        "power": 1,
+        "knowledge": 1
+      },
+      "desc": "파이우는 젊어서 아직 그의 솜씨를 발휘할 기회를 얻지 못했지만, 용맹스러움은 누구에게도 뒤지지 않습니다. 그는 아마도 컨플럭스에서 가장 위대한 영웅 중에 하나가 될 것입니다.",
+      "specialty": "빛의 정령",
+      "specialty_desc": "아군 부대의 불의 정령, 에너지의 정령, 플리즈마의 정령을 빛의 정령으로 업그레이드 할 수 있으며 영웅 부대의 빛의 정령을 강화시킵니다.",
+      "skills": [
+        "중급 공격술"
+      ],
+      "troops": [
+        {
+          "name": "픽시",
+          "count": "15-25"
+        },
+        {
+          "name": "바람의 정령",
+          "count": "3-5"
+        },
+        {
+          "name": "불의정령",
+          "count": "2-3"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": false,
+      "spells": [],
+      "portrait": "images/heroes_portrait/컨플럭스/파이우.jpg",
+      "info_img": "images/heroes_info/컨플럭스/파이우.jpg"
+    },
+    {
+      "id": 136,
+      "name": "칼트",
+      "town": "컨플럭스",
+      "class": "플레인스워커",
+      "tier": "B",
+      "stats": {
+        "attack": 3,
+        "defense": 1,
+        "power": 1,
+        "knowledge": 1
+      },
+      "desc": "무엇이든지 빨리 배우는 칼트는 그의 지칠 줄 모르는 욕구를 채울 만한 새로움과 경이로움을 컨플럭스에서 발견했습니다.",
+      "specialty": "물의 정령",
+      "specialty_desc": "물의 정령과 얼음의 정령의 공격력, 방어력, 속도가 증가합니다.",
+      "skills": [
+        "초급 전술",
+        "초급 학습"
+      ],
+      "troops": [
+        {
+          "name": "픽시",
+          "count": "15-25"
+        },
+        {
+          "name": "물의 정령",
+          "count": "3-5"
+        },
+        {
+          "name": "물의 정령",
+          "count": "4-6"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": false,
+      "spells": [],
+      "portrait": "images/heroes_portrait/컨플럭스/칼트.jpg",
+      "info_img": "images/heroes_info/컨플럭스/칼트.jpg"
+    },
+    {
+      "id": 137,
+      "name": "루나",
+      "town": "컨플럭스",
+      "class": "정령술사",
+      "tier": "B",
+      "stats": {
+        "attack": 0,
+        "defense": 0,
+        "power": 3,
+        "knowledge": 3
+      },
+      "desc": "엔로스에서 소서리스였던 루나는 컨플럭스에 끌려 에라시아로 왔습니다. 루나는 에라시아에서 물에 대한 재능을 버리고 불 마법을 익히기 위해 노력해 왔습니다.",
+      "specialty": "화염 장벽",
+      "specialty_desc": "파이어 월 데미지가 두배가 됩니다.",
+      "skills": [
+        "초급 지혜",
+        "초급 불 마법"
+      ],
+      "troops": [
+        {
+          "name": "픽시",
+          "count": "15-25"
+        },
+        {
+          "name": "바람의 정령",
+          "count": "3-5"
+        },
+        {
+          "name": "물의 정령",
+          "count": "2-3"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": true,
+      "spells": [
+        "화염의 벽"
+      ],
+      "portrait": "images/heroes_portrait/컨플럭스/루나.jpg",
+      "info_img": "images/heroes_info/컨플럭스/루나.jpg"
+    },
+    {
+      "id": 138,
+      "name": "브리싸",
+      "town": "컨플럭스",
+      "class": "정령술사",
+      "tier": "B",
+      "stats": {
+        "attack": 0,
+        "defense": 0,
+        "power": 3,
+        "knowledge": 3
+      },
+      "desc": "젊은 지니인 브리싸는 훈련을 끝내기도 전에 부흥 전쟁에 참여하게 되었습니다. 그녀는 연습에서 익히지 못했던 것들을 실전에서 배웠습니다.",
+      "specialty": "가속",
+      "specialty_desc": "가속의 효과가 강화되며 전투마다 가속을 여러번 사용할 수 있습니다.",
+      "skills": [
+        "초급 행운",
+        "초급 대기 마법"
+      ],
+      "troops": [
+        {
+          "name": "픽시",
+          "count": "15-25"
+        },
+        {
+          "name": "바람의 정령",
+          "count": "3-5"
+        },
+        {
+          "name": "물의 정령",
+          "count": "2-3"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": true,
+      "spells": [
+        "가속"
+      ],
+      "portrait": "images/heroes_portrait/컨플럭스/브리싸.jpg",
+      "info_img": "images/heroes_info/컨플럭스/브리싸.jpg"
+    },
+    {
+      "id": 139,
+      "name": "씨엘레",
+      "town": "컨플럭스",
+      "class": "정령술사",
+      "tier": "S",
+      "stats": {
+        "attack": 0,
+        "defense": 0,
+        "power": 3,
+        "knowledge": 3
+      },
+      "desc": "에이블리 변경에 있는 바다 근처에서 자란 씨엘레는 항상 고대의 바다를 동경해 왔습니다. 천직을 찾아 방황하던 그녀는 지금 컨플럭스를 위해 일합니다.",
+      "specialty": "마법 화살",
+      "specialty_desc": "마법 화살의 데미지가 50% 증가합니다.",
+      "skills": [
+        "초급 물 마법",
+        "초급 마법학"
+      ],
+      "troops": [
+        {
+          "name": "픽시",
+          "count": "15-25"
+        },
+        {
+          "name": "바람의 정령",
+          "count": "3-5"
+        },
+        {
+          "name": "물의 정령",
+          "count": "2-3"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": true,
+      "spells": [
+        "마법 화살"
+      ],
+      "portrait": "images/heroes_portrait/컨플럭스/씨엘레.jpg",
+      "info_img": "images/heroes_info/컨플럭스/씨엘레.jpg"
+    },
+    {
+      "id": 140,
+      "name": "라벤타",
+      "town": "컨플럭스",
+      "class": "정령술사",
+      "tier": "B",
+      "stats": {
+        "attack": 0,
+        "defense": 0,
+        "power": 3,
+        "knowledge": 3
+      },
+      "desc": "가난한 농부의 딸이었던 라벤타는 부흥 전쟁 중에 부모를 잃었습니다. 덴드로이에 의해 키워져 에이블리를 위해 일하게 되면서, 대지에 대한 그녀의 능력은 눈부시게 발전했습니다. 컨플럭스가 부르는 것을 느꼈을 때, 그녀는 주저하지 않았습니다.",
+      "specialty": "석갑",
+      "specialty_desc": "석갑의 효과가 강화되며 전투마다 석갑을 여러번 사용할 수 있습니다.",
+      "skills": [
+        "초급 대지 마법",
+        "초급 응급 치료"
+      ],
+      "troops": [
+        {
+          "name": "픽시",
+          "count": "15-25"
+        },
+        {
+          "name": "바람의 정령",
+          "count": "3-5"
+        },
+        {
+          "name": "물의 정령",
+          "count": "2-3"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": true,
+      "spells": [
+        "석갑"
+      ],
+      "portrait": "images/heroes_portrait/컨플럭스/라벤타.jpg",
+      "info_img": "images/heroes_info/컨플럭스/라벤타.jpg"
+    },
+    {
+      "id": 141,
+      "name": "인테우스",
+      "town": "컨플럭스",
+      "class": "정령술사",
+      "tier": "A",
+      "stats": {
+        "attack": 0,
+        "defense": 0,
+        "power": 3,
+        "knowledge": 3
+      },
+      "desc": "인테우스는 어릴 적부터 불을 다루는 솜씨가 뛰어난 곡예사였습니다. 그가 불의 정령의 자식이라고 믿는 사람들도 있었습니다. 어느 날 밤 그는 자신을 부르는 소리를 들었고, 그의 동료들을 떠났습니다. 이제 그는 컨플럭스를 섬깁니다.",
+      "specialty": "파이어볼",
+      "specialty_desc": "파이어볼의 효과가 강화되며 전투마다 파이어볼을 여러번 시용할 수 있습니다.",
+      "skills": [
+        "초급 지혜",
+        "초급 불 마법"
+      ],
+      "troops": [
+        {
+          "name": "픽시",
+          "count": "15-25"
+        },
+        {
+          "name": "바람의 정령",
+          "count": "3-5"
+        },
+        {
+          "name": "물의 정령",
+          "count": "2-3"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": true,
+      "spells": [
+        "파이어볼"
+      ],
+      "portrait": "images/heroes_portrait/컨플럭스/인테우스.jpg",
+      "info_img": "images/heroes_info/컨플럭스/인테우스.jpg"
+    },
+    {
+      "id": 142,
+      "name": "에나인",
+      "town": "컨플럭스",
+      "class": "정령술사",
+      "tier": "B",
+      "stats": {
+        "attack": 0,
+        "defense": 0,
+        "power": 3,
+        "knowledge": 3
+      },
+      "desc": "지니들은 신비롭고도 강력한 힘에 의해 창조된 마법의 생명체들입니다. 에나인은 불완전하게 만들어졌고, 수백년 동안 자신의 불완전함을 극복하기 위해 열심히 노력을 해왔습니다. 바람 마법에 대한 그의 헌신 덕분에, 에나인은 컨플럭스의 부름을 받았습니다.",
+      "specialty": "바람의 정령",
+      "specialty_desc": "바람의 정령과 폭풍의 정령의 공격력, 방어력, 속도가 증가합니다.",
+      "skills": [
+        "초급 위압",
+        "초급 전술"
+      ],
+      "troops": [
+        {
+          "name": "픽시",
+          "count": "15-25"
+        },
+        {
+          "name": "바람의 정령",
+          "count": "3-5"
+        },
+        {
+          "name": "바람의 정령",
+          "count": "5-7"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": true,
+      "spells": [
+        "지뢰"
+      ],
+      "portrait": "images/heroes_portrait/컨플럭스/에나인.jpg",
+      "info_img": "images/heroes_info/컨플럭스/에나인.jpg"
+    },
+    {
+      "id": 143,
+      "name": "겔레어",
+      "town": "컨플럭스",
+      "class": "정령술사",
+      "tier": "S",
+      "stats": {
+        "attack": 0,
+        "defense": 0,
+        "power": 3,
+        "knowledge": 3
+      },
+      "desc": "겔레어에겐 그의 나이를 뛰어넘는 지혜가 있습니다. 사람들 앞에서 항상 조용하고, 사색적이며, 평온한 모습을 보였던 겔레어는 컨플럭스에 대한 그의 소명을 의심해 본 적이 없습니다.",
+      "specialty": "학습",
+      "specialty_desc": "학습의 효과가 강화됩니다.",
+      "skills": [
+        "고급 학습"
+      ],
+      "troops": [
+        {
+          "name": "픽시",
+          "count": "15-25"
+        },
+        {
+          "name": "바람의 정령",
+          "count": "3-5"
+        },
+        {
+          "name": "물의 정령",
+          "count": "2-3"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": true,
+      "spells": [
+        "해제"
+      ],
+      "portrait": "images/heroes_portrait/컨플럭스/겔레어.jpg",
+      "info_img": "images/heroes_info/컨플럭스/겔레어.jpg"
+    },
+    {
+      "id": 144,
+      "name": "그린단",
+      "town": "컨플럭스",
+      "class": "정령술사",
+      "tier": "A",
+      "stats": {
+        "attack": 0,
+        "defense": 0,
+        "power": 3,
+        "knowledge": 3
+      },
+      "desc": "드와프들은 황금을 좋아합니다. 황금을 찾아내는 대지와의 친화력에선 그린단을 따를 자가 없습니다.",
+      "specialty": "금 +350",
+      "specialty_desc": "매일 왕국의 금수입이 350 증가하고 자원을 생산합니다.",
+      "skills": [
+        "초급 외교술",
+        "초급 재산술"
+      ],
+      "troops": [
+        {
+          "name": "픽시",
+          "count": "15-25"
+        },
+        {
+          "name": "바람의 정령",
+          "count": "3-5"
+        },
+        {
+          "name": "물의 정령",
+          "count": "2-3"
+        }
+      ],
+      "war_machines": [],
+      "spellbook": true,
+      "spells": [
+        "둔화"
+      ],
+      "portrait": "images/heroes_portrait/컨플럭스/그린단.jpg",
+      "info_img": "images/heroes_info/컨플럭스/그린단.jpg"
+    }
+  ]
+}

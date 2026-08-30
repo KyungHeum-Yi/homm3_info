@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HOMM3 영웅 카드 도감</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800;900&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg-primary:#121316;
+  --bg-card:#1c1e24;
+  --border-gold:#c5a059;
+  --text-main:#f0f0f0;
+  --text-sub:#a0a5b5;
+  --gold-glow:rgba(197,160,89,.4);
+  
+  /* Tier Colors */
+  --tier-s-border:#ff4757;
+  --tier-s-glow:rgba(255,71,87,0.45);
+  --tier-a-border:#ffd700;
+  --tier-a-glow:rgba(255,215,0,0.4);
+  --tier-b-border:#4a5268;
+  --tier-b-glow:rgba(74,82,104,0.3);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Noto Sans KR',sans-serif;background:var(--bg-primary);color:var(--text-main);padding:25px 20px 60px;min-height:100vh}
+.container{max-width:1440px;margin:0 auto}
+
+header{text-align:center;margin-bottom:20px;padding-bottom:15px;border-bottom:2px solid #2e323d}
+header h1{font-family:'Cinzel','Noto Sans KR',serif;font-size:2.2rem;font-weight:900;color:#ffd700;text-shadow:0 0 15px rgba(255,215,0,.4);letter-spacing:1px;margin-bottom:6px}
+header p{color:var(--text-sub);font-size:0.98rem}
+
+/* ── Sticky / Floating Filter Controls ───────────────────── */
+.controls{
+  position:sticky;
+  top:12px;
+  z-index:900;
+  background:rgba(24, 26, 32, 0.94);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  border:1px solid #3d4254;
+  border-radius:12px;
+  padding:14px 20px;
+  margin-bottom:25px;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.7), 0 0 15px rgba(0,0,0,0.5);
+  transition:box-shadow 0.2s ease;
+}
+
+.control-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+.btn-group{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.filter-label{font-size:0.84rem;font-weight:800;color:#a0a5b5;margin-right:4px;user-select:none}
+
+/* ── Filter Buttons Base ───────────────────────────────── */
+.filter-btn{
+  background:#20232c;
+  color:#7e869e;
+  border:1px solid #383d4e;
+  padding:6px 13px;
+  border-radius:6px;
+  font-size:.86rem;
+  font-weight:700;
+  cursor:pointer;
+  transition:all .2s ease;
+  user-select:none;
+}
+.filter-btn:hover{
+  background:#2c313f;
+  color:#fff;
+  border-color:#ffd700;
+}
+.filter-btn.active{
+  background:linear-gradient(135deg,#c5a059,#9e7d3b);
+  color:#000;
+  border-color:#ffd700;
+  box-shadow:0 0 10px rgba(197,160,89,.5);
+}
+
+/* ── 등급 필터 버튼 색상 (범례 & 멀티 선택) ─────────────── */
+/* S급 */
+.filter-btn.tier-s{
+  border-color:rgba(255, 71, 87, 0.4);
+  color:#ff9aa2;
+  background:rgba(255, 71, 87, 0.08);
+}
+.filter-btn.tier-s:hover{
+  background:rgba(255, 71, 87, 0.22);
+  color:#fff;
+  border-color:#ff6b81;
+}
+.filter-btn.tier-s.active{
+  background:linear-gradient(135deg,#ff4757,#c0392b);
+  color:#fff;
+  border-color:#ff6b81;
+  box-shadow:0 0 12px rgba(255,71,87,.6);
+}
+
+/* A급 */
+.filter-btn.tier-a{
+  border-color:rgba(255, 215, 0, 0.4);
+  color:#ffeaa7;
+  background:rgba(255, 215, 0, 0.08);
+}
+.filter-btn.tier-a:hover{
+  background:rgba(255, 215, 0, 0.22);
+  color:#fff;
+  border-color:#f1c40f;
+}
+.filter-btn.tier-a.active{
+  background:linear-gradient(135deg,#ffd700,#d35400);
+  color:#000;
+  border-color:#f1c40f;
+  box-shadow:0 0 12px rgba(255,215,0,.6);
+}
+
+/* B급 */
+.filter-btn.tier-b{
+  border-color:rgba(90, 98, 122, 0.4);
+  color:#b2bec3;
+  background:rgba(90, 98, 122, 0.1);
+}
+.filter-btn.tier-b:hover{
+  background:rgba(90, 98, 122, 0.25);
+  color:#fff;
+  border-color:#8395a7;
+}
+.filter-btn.tier-b.active{
+  background:linear-gradient(135deg,#576574,#222f3e);
+  color:#fff;
+  border-color:#8395a7;
+  box-shadow:0 0 10px rgba(90,98,122,.5);
+}
+
+/* ── 종족 필터 버튼 활성화 스타일 ───────────────────────── */
+.filter-btn.town-btn.active{
+  color:#fff;
+  box-shadow:0 0 10px rgba(0,0,0,0.6);
+}
+
+.search-box{position:relative;min-width:240px}
+.search-box input{width:100%;padding:7px 14px 7px 34px;background:#252833;border:1px solid #3d4254;border-radius:6px;color:#fff;font-size:.88rem}
+.search-box input:focus{outline:none;border-color:#ffd700;box-shadow:0 0 8px rgba(255,215,0,.3)}
+.search-icon{position:absolute;left:10px;top:50%;transform:translateY(-50%);color:#7d859b}
+
+.sort-select{padding:7px 12px;background:#252833;border:1px solid #3d4254;border-radius:6px;color:#ffd700;font-weight:700;font-size:.88rem;cursor:pointer}
+.stats-badge{font-size:.88rem;color:#ffd700;background:#252833;padding:6px 12px;border-radius:6px;border:1px solid #3d4254;white-space:nowrap}
+
+.hero-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
+
+/* ── Hero Card (테두리 색상으로 등급 표현) ────────────────── */
+.hero-card{
+  background:#1c1e24;
+  border-radius:10px;
+  overflow:visible;
+  box-shadow:0 6px 15px rgba(0,0,0,.5);
+  transition:all .25s cubic-bezier(.175,.885,.32,1.275);
+  display:flex;
+  flex-direction:column;
+  position:relative;
+  cursor:pointer;
+  border-width:2px;
+  border-style:solid;
+}
+
+/* S급: 빨간색 테두리 */
+.hero-card.tier-card-S{
+  border-color:var(--tier-s-border);
+  box-shadow:0 6px 15px rgba(0,0,0,.5), 0 0 8px rgba(255,71,87,0.25);
+}
+.hero-card.tier-card-S:hover{
+  transform:translateY(-5px);
+  border-color:#ff6b81;
+  box-shadow:0 14px 28px rgba(0,0,0,.8), 0 0 20px var(--tier-s-glow);
+}
+
+/* A급: 황금색 테두리 */
+.hero-card.tier-card-A{
+  border-color:var(--tier-a-border);
+  box-shadow:0 6px 15px rgba(0,0,0,.5), 0 0 8px rgba(255,215,0,0.25);
+}
+.hero-card.tier-card-A:hover{
+  transform:translateY(-5px);
+  border-color:#ffeaa7;
+  box-shadow:0 14px 28px rgba(0,0,0,.8), 0 0 20px var(--tier-a-glow);
+}
+
+/* B급: 현재 기본 색깔 테두리 */
+.hero-card.tier-card-B,
+.hero-card.tier-card-other{
+  border-color:var(--tier-b-border);
+  box-shadow:0 6px 15px rgba(0,0,0,.5);
+}
+.hero-card.tier-card-B:hover,
+.hero-card.tier-card-other:hover{
+  transform:translateY(-5px);
+  border-color:#718093;
+  box-shadow:0 14px 28px rgba(0,0,0,.8), 0 0 15px var(--tier-b-glow);
+}
+
+/* ── Card Header: [진영] 이름 (직업) ───────────────────────── */
+.card-header{
+  display:flex;
+  align-items:center;
+  background:#242833;
+  padding:9px 13px;
+  border-top-left-radius:8px;
+  border-top-right-radius:8px;
+  border-bottom:1px solid #323746;
+}
+.header-left{
+  display:flex;
+  align-items:baseline;
+  gap:8px;
+  flex-wrap:nowrap;
+  overflow:hidden;
+  width:100%;
+}
+.town-badge{
+  display:inline-block;
+  padding:2px 7px;
+  border-radius:4px;
+  font-size:.78rem;
+  font-weight:800;
+  white-space:nowrap;
+  flex-shrink:0;
+}
+.hero-name{
+  color:#ffd700;
+  font-size:1.08rem;
+  font-weight:900;
+  letter-spacing:.3px;
+  white-space:nowrap;
+}
+.hero-class{
+  color:#a0a5b5;
+  font-size:0.82rem;
+  font-weight:500;
+  white-space:nowrap;
+}
+
+/* ── Card Body (초상화 | 특기 & 스킬) ──────────────────── */
+.card-body{
+  display:flex;
+  align-items:center;
+  padding:12px 14px;
+  gap:14px;
+  background:#181a20;
+  border-bottom-left-radius:8px;
+  border-bottom-right-radius:8px;
+}
+
+/* 초상화 & 연대기 팝업 Tooltip */
+.portrait-container{
+  position:relative;
+  flex-shrink:0;
+  width:76px;
+  height:76px;
+}
+.portrait-img{
+  width:76px;
+  height:76px;
+  object-fit:cover;
+  border-radius:6px;
+  border:2px solid #5a627a;
+  display:block;
+  box-shadow:0 4px 8px rgba(0,0,0,.5);
+  transition:border-color 0.2s;
+}
+.portrait-container:hover .portrait-img{
+  border-color:#ffd700;
+}
+.no-img{
+  width:76px;
+  height:76px;
+  background:#252833;
+  border-radius:6px;
+  border:2px solid #3d4254;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#666;
+  font-size:.7rem;
+  text-align:center;
+  line-height:1.3;
+}
+
+/* 연대기 팝업 툴팁 */
+.portrait-container:hover .bio-tooltip{
+  visibility:visible;
+  opacity:1;
+  transform:translateY(-8px);
+}
+.bio-tooltip{
+  visibility:hidden;
+  opacity:0;
+  position:absolute;
+  bottom:100%;
+  left:0;
+  width:280px;
+  background:#12141c;
+  color:#f0f3f8;
+  text-align:left;
+  padding:12px 14px;
+  border-radius:8px;
+  border:1px solid #c5a059;
+  box-shadow:0 8px 25px rgba(0,0,0,0.95), 0 0 15px rgba(197,160,89,0.35);
+  font-size:0.82rem;
+  font-weight:400;
+  line-height:1.55;
+  z-index:120;
+  pointer-events:none;
+  transition:opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+  white-space:normal;
+  word-break:keep-all;
+}
+.bio-tooltip-title{
+  color:#ffd700;
+  font-weight:800;
+  font-size:0.85rem;
+  margin-bottom:6px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+  border-bottom:1px solid rgba(197,160,89,0.3);
+  padding-bottom:4px;
+}
+.bio-tooltip::after{
+  content:"";
+  position:absolute;
+  top:100%;
+  left:28px;
+  border-width:7px;
+  border-style:solid;
+  border-color:#c5a059 transparent transparent transparent;
+}
+
+/* ── 우측 정보 (특기 & 스킬) ─────────────────────────── */
+.hero-details{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  gap:10px;
+  flex:1;
+  min-width:0;
+}
+
+/* 특기 행 */
+.spec-row{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  flex-wrap:wrap;
+}
+.spec-label{
+  font-size:0.84rem;
+  color:#ffd700;
+  font-weight:900;
+  letter-spacing:0.5px;
+  text-shadow:0 0 6px rgba(255,215,0,0.4);
+}
+
+/* 특기이름 배지 (황금색 배경) */
+.spec-badge{
+  display:inline-flex;
+  align-items:center;
+  background:linear-gradient(135deg, #ffd700, #e67e22);
+  color:#111;
+  padding:3px 10px;
+  border-radius:5px;
+  font-size:0.82rem;
+  font-weight:900;
+  border:1px solid #f1c40f;
+  box-shadow:0 2px 6px rgba(0,0,0,0.5), 0 0 6px rgba(255,215,0,0.3);
+  cursor:help;
+  position:relative;
+  transition:transform 0.15s ease;
+}
+.spec-badge:hover{
+  transform:scale(1.05);
+}
+
+/* 특기 설명 툴팁 */
+.spec-badge:hover .spec-tooltip{
+  visibility:visible;
+  opacity:1;
+  transform:translateY(-8px);
+}
+.spec-tooltip{
+  visibility:hidden;
+  opacity:0;
+  position:absolute;
+  bottom:100%;
+  right:-10px;
+  width:max-content;
+  max-width:240px;
+  background:#12141c;
+  color:#f0f3f8;
+  text-align:left;
+  padding:9px 13px;
+  border-radius:8px;
+  border:1px solid #c5a059;
+  box-shadow:0 8px 24px rgba(0,0,0,0.95), 0 0 12px rgba(197,160,89,0.35);
+  font-size:0.82rem;
+  font-weight:500;
+  line-height:1.45;
+  z-index:110;
+  pointer-events:none;
+  transition:opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+  white-space:normal;
+  word-break:keep-all;
+}
+.spec-tooltip::after{
+  content:"";
+  position:absolute;
+  top:100%;
+  right:25px;
+  border-width:6px;
+  border-style:solid;
+  border-color:#c5a059 transparent transparent transparent;
+}
+
+/* 스킬 이미지 행 */
+.skills-row{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+}
+.skill-item{
+  position:relative;
+  display:inline-flex;
+  align-items:center;
+  cursor:help;
+}
+.skill-icon-img{
+  width:38px;
+  height:38px;
+  object-fit:cover;
+  border-radius:6px;
+  border:1.5px solid #5a627a;
+  background:#14151a;
+  box-shadow:0 3px 6px rgba(0,0,0,0.5);
+  transition:transform 0.15s ease, border-color 0.15s ease;
+  display:block;
+}
+.skill-item:hover .skill-icon-img{
+  transform:scale(1.1);
+  border-color:#ffd700;
+  box-shadow:0 4px 10px rgba(255,215,0,0.3);
+}
+
+/* 스킬 이름 팝업 툴팁 */
+.skill-item:hover .skill-tooltip{
+  visibility:visible;
+  opacity:1;
+  transform:translateY(-6px);
+}
+.skill-tooltip{
+  visibility:hidden;
+  opacity:0;
+  position:absolute;
+  bottom:100%;
+  left:50%;
+  transform:translateX(-50%);
+  background:#12141c;
+  color:#f0f3f8;
+  text-align:center;
+  padding:6px 10px;
+  border-radius:6px;
+  border:1px solid #c5a059;
+  box-shadow:0 6px 18px rgba(0,0,0,0.9), 0 0 10px rgba(197,160,89,0.3);
+  font-size:0.8rem;
+  font-weight:700;
+  white-space:nowrap;
+  z-index:115;
+  pointer-events:none;
+  transition:opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+}
+.skill-tooltip::after{
+  content:"";
+  position:absolute;
+  top:100%;
+  left:50%;
+  transform:translateX(-50%);
+  border-width:5px;
+  border-style:solid;
+  border-color:#c5a059 transparent transparent transparent;
+}
+
+.town-section-header{grid-column:1/-1;background:linear-gradient(90deg,#252833,transparent);border-left:4px solid #ffd700;padding:10px 16px;margin:15px 0 5px;font-size:1.25rem;font-weight:800;color:#ffd700;display:flex;align-items:center;gap:10px}
+.empty-state{grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--text-sub);font-size:1.2rem}
+
+/* Modal Viewer */
+.modal-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.85);
+  backdrop-filter:blur(6px);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:1000;
+  padding:20px;
+  animation:fadeIn 0.2s ease;
+}
+.modal-overlay.active{
+  display:flex;
+}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+
+.modal-content{
+  background:#1a1c23;
+  border:2px solid var(--border-gold);
+  border-radius:12px;
+  box-shadow:0 0 35px rgba(0,0,0,0.9), 0 0 25px var(--gold-glow);
+  max-width:95vw;
+  max-height:92vh;
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+  position:relative;
+  animation:scaleUp 0.25s cubic-bezier(0.175,0.885,0.32,1.275);
+}
+@keyframes scaleUp{from{transform:scale(0.9);opacity:0}to{transform:scale(1);opacity:1}}
+
+.modal-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:12px 20px;
+  background:#222530;
+  border-bottom:1px solid #3d4254;
+}
+.modal-title{
+  font-size:1.2rem;
+  font-weight:900;
+  color:#ffd700;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.modal-close{
+  background:none;
+  border:none;
+  color:#a0a5b5;
+  font-size:1.8rem;
+  cursor:pointer;
+  line-height:1;
+  padding:0 5px;
+  transition:color 0.2s;
+}
+.modal-close:hover{
+  color:#ff4757;
+}
+.modal-body{
+  padding:15px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#0e1014;
+  overflow:auto;
+}
+.modal-hero-img{
+  max-width:100%;
+  max-height:76vh;
+  object-fit:contain;
+  border-radius:6px;
+  border:1px solid #3d4254;
+  box-shadow:0 8px 25px rgba(0,0,0,0.8);
+}
+
+#loading{position:fixed;inset:0;background:rgba(18,19,22,.92);display:flex;align-items:center;justify-content:center;z-index:999;flex-direction:column;gap:16px}
+#loading p{color:#ffd700;font-size:1.1rem}
+.spinner{width:48px;height:48px;border:5px solid #2d313d;border-top-color:#ffd700;border-radius:50%;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+</style>
+</head>
+<body>
+<div id="loading"><div class="spinner"></div><p>영웅 데이터 로딩 중...</p></div>
+
+<!-- Hero Info Modal -->
+<div class="modal-overlay" id="heroModal" onclick="handleModalOverlayClick(event)">
+  <div class="modal-content" onclick="event.stopPropagation()">
+    <div class="modal-header">
+      <div class="modal-title" id="modalHeroTitle">
+        <span id="modalTownBadge" class="town-badge">캐슬</span>
+        <span id="modalHeroName">발래스카</span>
+        <span id="modalHeroClass" style="font-size:0.9rem;color:#a0a5b5;font-weight:500;">(기사)</span>
+      </div>
+      <button class="modal-close" onclick="closeHeroModal()">&times;</button>
+    </div>
+    <div class="modal-body">
+      <img id="modalHeroImage" class="modal-hero-img" src="" alt="영웅 정보 창">
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <header>
+    <h1>HOMM III HERO CARDS DIRECTORY</h1>
+    <p>Heroes of Might and Magic III &bull; 영웅 카드 도감 &bull; 카드를 클릭하면 상세 영웅 정보창을 볼 수 있습니다</p>
+  </header>
+
+  <!-- Sticky / Floating Multi-Select Filter & Search Bar -->
+  <div class="controls">
+    <div class="control-row">
+      <div class="btn-group" id="tier-filters">
+        <span class="filter-label">티어:</span>
+        <button class="filter-btn active" data-tier="ALL">전체 티어</button>
+        <button class="filter-btn tier-s active" data-tier="S">S급</button>
+        <button class="filter-btn tier-a active" data-tier="A">A급</button>
+        <button class="filter-btn tier-b active" data-tier="B">B급</button>
+      </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;">
+        <div class="search-box">
+          <span class="search-icon">&#128269;</span>
+          <input type="text" id="searchInput" placeholder="영웅 이름, 특기, 스킬 검색..." oninput="filterAndRender()">
+        </div>
+        <select id="sortSelect" class="sort-select" onchange="filterAndRender()">
+          <option value="town">정렬: 종족별</option>
+          <option value="tier">정렬: 티어순 (S &rarr; A &rarr; B)</option>
+          <option value="name">정렬: 이름 가나다순</option>
+          <option value="class">정렬: 직업별</option>
+        </select>
+        <div class="stats-badge" id="heroCounter">표시 중: 0명</div>
+      </div>
+    </div>
+    <div class="control-row">
+      <div class="btn-group" id="town-filters">
+        <span class="filter-label">종족:</span>
+        <button class="filter-btn active" data-town="ALL">전체 종족</button>
+        <button class="filter-btn town-btn active" data-town="캐슬">캐슬</button>
+        <button class="filter-btn town-btn active" data-town="램파트">램파트</button>
+        <button class="filter-btn town-btn active" data-town="타워">타워</button>
+        <button class="filter-btn town-btn active" data-town="인페르노">인페르노</button>
+        <button class="filter-btn town-btn active" data-town="네크로폴리스">네크로폴리스</button>
+        <button class="filter-btn town-btn active" data-town="던전">던전</button>
+        <button class="filter-btn town-btn active" data-town="스트롱홀드">스트롱홀드</button>
+        <button class="filter-btn town-btn active" data-town="포트리스">포트리스</button>
+        <button class="filter-btn town-btn active" data-town="컨플럭스">컨플럭스</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-grid" id="heroGrid"></div>
+</div>
+
+<script>
+/* ── 진영 색상 및 설정 ─────────────────────────────────── */
+const TOWN_COLORS = {
+  '캐슬':       {bg:'#2a4a7f', text:'#9ac0ff', border:'#4a70a8'},
+  '램파트':     {bg:'#1e5c2e', text:'#7deb9d', border:'#2d8244'},
+  '타워':       {bg:'#4a3a7a', text:'#c7aaff', border:'#6d57ad'},
+  '인페르노':   {bg:'#7a1e1e', text:'#ff9090', border:'#a83232'},
+  '네크로폴리스':{bg:'#2a2a3a', text:'#b0b0d0', border:'#4d4d63'},
+  '던전':       {bg:'#3a1a4a', text:'#d790ff', border:'#683483'},
+  '스트롱홀드': {bg:'#5a3a1a', text:'#ffbb70', border:'#855b30'},
+  '포트리스':   {bg:'#1a4a4a', text:'#70ffee', border:'#2c7777'},
+  '컨플럭스':   {bg:'#1a3a5a', text:'#70c8ff', border:'#2c6396'},
+};
+const ALL_TOWNS = ['캐슬','램파트','타워','인페르노','네크로폴리스','던전','스트롱홀드','포트리스','컨플럭스'];
+const ALL_TIERS = ['S', 'A', 'B'];
+const TIER_ORDER = {S:0, A:1, B:2, '':9, '-':9};
+
+let allHeroes = [];
+// 멀티 선택 Set: 초기값은 전체 선택 상태
+let selectedTiers = new Set(ALL_TIERS);
+let selectedTowns = new Set(ALL_TOWNS);
+
+/* ── JSON 로드 ─────────────────────────────────────────── */
+async function loadData() {
+  try {
+    const res = await fetch('heroes_data.json');
+    if (!res.ok) throw new Error('heroes_data.json 파일을 읽을 수 없습니다.');
+    const data = await res.json();
+    allHeroes = data.heroes;
+    initFilters();
+    filterAndRender();
+  } catch(e) {
+    document.getElementById('loading').innerHTML =
+      '<p style="color:#ff6b6b">&#9888; ' + e.message + '</p>';
+    return;
+  }
+  document.getElementById('loading').style.display = 'none';
+}
+
+/* ── 멀티 필터 초기화 및 이벤트 바인딩 ──────────────────── */
+function initFilters() {
+  // 1. 티어 카운트
+  const tc = {S:0, A:0, B:0};
+  allHeroes.forEach(h => {
+    const t = h.tier || 'B';
+    if (tc[t] !== undefined) tc[t]++;
+  });
+
+  document.querySelectorAll('#tier-filters .filter-btn').forEach(btn => {
+    const t = btn.dataset.tier;
+    if (t === 'ALL') {
+      btn.textContent = '전체 티어 (' + allHeroes.length + ')';
+      btn.onclick = () => onAllTierClick();
+    } else {
+      btn.textContent = t + '급 (' + (tc[t] || 0) + ')';
+      btn.onclick = () => onTierClick(t);
+    }
+  });
+
+  // 2. 종족 카운트
+  const wc = {};
+  allHeroes.forEach(h => { wc[h.town] = (wc[h.town]||0) + 1; });
+
+  document.querySelectorAll('#town-filters .filter-btn').forEach(btn => {
+    const town = btn.dataset.town;
+    if (town === 'ALL') {
+      btn.textContent = '전체 종족 (' + allHeroes.length + ')';
+      btn.onclick = () => onAllTownClick();
+    } else {
+      btn.textContent = town + ' (' + (wc[town]||0) + ')';
+      btn.onclick = () => onTownClick(town);
+    }
+  });
+
+  updateFilterButtonUI();
+}
+
+/* ── 티어 버튼 클릭 핸들러 (전체 토글 & 0개 상태 허용) ────── */
+function onAllTierClick() {
+  if (selectedTiers.size === ALL_TIERS.length) {
+    // 전체가 이미 모두 켜져 있으면 -> 모두 해제 (0개 선택)
+    selectedTiers.clear();
+  } else {
+    // 그 외 상태에서는 -> 모두 선택 (전체 On)
+    selectedTiers = new Set(ALL_TIERS);
+  }
+  updateFilterButtonUI();
+  filterAndRender();
+}
+
+function onTierClick(tier) {
+  if (selectedTiers.has(tier)) {
+    selectedTiers.delete(tier); // 0개가 되어도 그대로 유지
+  } else {
+    selectedTiers.add(tier);
+  }
+  updateFilterButtonUI();
+  filterAndRender();
+}
+
+/* ── 종족 버튼 클릭 핸들러 (전체 토글 & 0개 상태 허용) ────── */
+function onAllTownClick() {
+  if (selectedTowns.size === ALL_TOWNS.length) {
+    // 전체가 이미 모두 켜져 있으면 -> 모두 해제 (0개 선택)
+    selectedTowns.clear();
+  } else {
+    // 그 외 상태에서는 -> 모두 선택 (전체 On)
+    selectedTowns = new Set(ALL_TOWNS);
+  }
+  updateFilterButtonUI();
+  filterAndRender();
+}
+
+function onTownClick(town) {
+  if (selectedTowns.has(town)) {
+    selectedTowns.delete(town); // 0개가 되어도 그대로 유지
+  } else {
+    selectedTowns.add(town);
+  }
+  updateFilterButtonUI();
+  filterAndRender();
+}
+
+/* ── 필터 버튼 active UI 동기화 ────────────────────────── */
+function updateFilterButtonUI() {
+  // 1. 티어 버튼 UI
+  const isAllTiers = selectedTiers.size === ALL_TIERS.length;
+  document.querySelectorAll('#tier-filters .filter-btn').forEach(btn => {
+    const t = btn.dataset.tier;
+    if (t === 'ALL') {
+      btn.classList.toggle('active', isAllTiers);
+    } else {
+      btn.classList.toggle('active', selectedTiers.has(t));
+    }
+  });
+
+  // 2. 종족 버튼 UI
+  const isAllTowns = selectedTowns.size === ALL_TOWNS.length;
+  document.querySelectorAll('#town-filters .filter-btn').forEach(btn => {
+    const town = btn.dataset.town;
+    if (town === 'ALL') {
+      btn.classList.toggle('active', isAllTowns);
+    } else {
+      const isSelected = selectedTowns.has(town);
+      btn.classList.toggle('active', isSelected);
+      
+      const col = TOWN_COLORS[town];
+      if (isSelected && col) {
+        btn.style.background = col.bg;
+        btn.style.borderColor = col.text;
+        btn.style.color = col.text;
+        btn.style.boxShadow = '0 0 8px ' + col.bg;
+      } else {
+        btn.style.background = '#20232c';
+        btn.style.borderColor = '#383d4e';
+        btn.style.color = '#7e869e';
+        btn.style.boxShadow = 'none';
+      }
+    }
+  });
+}
+
+/* ── 필터 & 렌더 (0개 선택 시 0명 표시) ─────────────────── */
+function filterAndRender() {
+  // 티어나 종족 중 어느 하나라도 0개 선택된 경우 바로 빈 목록 반환
+  if (selectedTiers.size === 0 || selectedTowns.size === 0) {
+    document.getElementById('heroCounter').textContent = '표시 중: 0명';
+    renderCards([], false);
+    return;
+  }
+
+  const query = document.getElementById('searchInput').value.toLowerCase().trim();
+  const sort  = document.getElementById('sortSelect').value;
+
+  let filtered = allHeroes.filter(h => {
+    // 티어 멀티 필터 검사
+    const ht = h.tier || 'B';
+    if (!selectedTiers.has(ht)) return false;
+
+    // 종족 멀티 필터 검사
+    if (!selectedTowns.has(h.town)) return false;
+
+    // 텍스트 검색
+    if (query) {
+      const hay = [h.name, h.town, h.class, h.specialty, h.specialty_desc||'', ...(h.skills||[]), h.desc].join(' ').toLowerCase();
+      if (!hay.includes(query)) return false;
+    }
+    return true;
+  });
+
+  if (sort === 'tier') {
+    filtered.sort((a,b) => {
+      const ta = TIER_ORDER[a.tier||'B'] ?? 9, tb = TIER_ORDER[b.tier||'B'] ?? 9;
+      return ta !== tb ? ta-tb : ALL_TOWNS.indexOf(a.town) - ALL_TOWNS.indexOf(b.town);
+    });
+  } else if (sort === 'name') {
+    filtered.sort((a,b) => a.name.localeCompare(b.name, 'ko'));
+  } else if (sort === 'class') {
+    filtered.sort((a,b) => a.class.localeCompare(b.class,'ko') || a.name.localeCompare(b.name,'ko'));
+  } else {
+    filtered.sort((a,b) => ALL_TOWNS.indexOf(a.town) - ALL_TOWNS.indexOf(b.town) || a.id - b.id);
+  }
+
+  document.getElementById('heroCounter').textContent = '표시 중: ' + filtered.length + '명';
+  renderCards(filtered, sort === 'town');
+}
+
+/* ── 카드 렌더 ─────────────────────────────────────────── */
+function renderCards(heroes, groupByTown) {
+  const grid = document.getElementById('heroGrid');
+  grid.innerHTML = '';
+  if (heroes.length === 0) {
+    grid.innerHTML = '<div class="empty-state">&#128269; 선택된 조건의 영웅이 없습니다.</div>';
+    return;
+  }
+  let lastTown = null;
+  heroes.forEach(h => {
+    if (groupByTown && h.town !== lastTown) {
+      const hdr = document.createElement('div');
+      hdr.className = 'town-section-header';
+      const col = TOWN_COLORS[h.town] || {bg:'#252833', text:'#ffd700'};
+      hdr.innerHTML = '<span style="background:' + col.bg + ';color:' + col.text + ';padding:3px 10px;border-radius:5px;">' + h.town + '</span>';
+      grid.appendChild(hdr);
+      lastTown = h.town;
+    }
+    grid.appendChild(buildCard(h));
+  });
+}
+
+/* ── 스킬 아이콘 이미지 생성 (마우스 호버 시 스킬 이름 툴팁) ── */
+function buildSkillItem(h, skillName, index) {
+  if (!skillName) return '';
+  const imgUrl = `images/heroes_skill/${encodeURIComponent(h.town)}/${encodeURIComponent(h.name)}_${index + 1}.jpg`;
+  
+  return `
+    <div class="skill-item" onclick="event.stopPropagation()">
+      <img class="skill-icon-img" src="${imgUrl}" alt="${skillName}" onerror="this.style.display='none'">
+      <div class="skill-tooltip">${skillName}</div>
+    </div>
+  `;
+}
+
+/* ── 영웅 카드 빌더 (테두리 색상으로 등급 표현) ───────────── */
+function buildCard(h) {
+  const col = TOWN_COLORS[h.town] || {bg:'#252833', text:'#ffd700'};
+  const card = document.createElement('div');
+  
+  // 등급(Tier)에 따른 카드 테두리 클래스 부여: S급(빨강), A급(황금), B급(기본)
+  const tierClass = h.tier ? `tier-card-${h.tier}` : 'tier-card-other';
+  card.className = `hero-card ${tierClass}`;
+  card.onclick = () => openHeroModal(h);
+
+  // 1. 헤더: [진영] 이름 (직업)
+  const headerHtml = `
+    <div class="card-header">
+      <div class="header-left">
+        <span class="town-badge" style="background:${col.bg};color:${col.text};">${h.town}</span>
+        <span class="hero-name">${h.name}</span>
+        <span class="hero-class">(${h.class})</span>
+      </div>
+    </div>
+  `;
+
+  // 2. 초상화 & 연대기 팝업 툴팁
+  const imgContent = h.portrait
+    ? `<img class="portrait-img" src="${h.portrait}" alt="${h.name}" onerror="this.outerHTML='<div class=&quot;no-img&quot;>NO<br>IMG</div>'">`
+    : `<div class="no-img">NO<br>IMG</div>`;
+
+  const bioTooltipHtml = h.desc ? `
+    <div class="bio-tooltip">
+      <div class="bio-tooltip-title">📜 ${h.name}의 연대기</div>
+      <div>${h.desc}</div>
+    </div>
+  ` : '';
+
+  const portraitHtml = `
+    <div class="portrait-container" onclick="event.stopPropagation()">
+      ${imgContent}
+      ${bioTooltipHtml}
+    </div>
+  `;
+
+  // 3. 특기 배지 (황금색 배경 + 툴팁)
+  let specBadgeHtml = '—';
+  if (h.specialty) {
+    if (h.specialty_desc) {
+      specBadgeHtml = `
+        <span class="spec-badge" onclick="event.stopPropagation()">
+          ${h.specialty}
+          <span class="spec-tooltip">${h.specialty_desc}</span>
+        </span>
+      `;
+    } else {
+      specBadgeHtml = `<span class="spec-badge">${h.specialty}</span>`;
+    }
+  }
+
+  // 4. 스킬 이미지 아이콘 목록
+  const skillsHtml = (h.skills && h.skills.length)
+    ? h.skills.map((s, idx) => buildSkillItem(h, s, idx)).join('')
+    : '<span style="color:#666;font-size:.8rem;">-</span>';
+
+  // 5. 카드 바디 조합
+  const bodyHtml = `
+    <div class="card-body">
+      ${portraitHtml}
+      <div class="hero-details">
+        <div class="spec-row">
+          <span class="spec-label">특기</span>
+          ${specBadgeHtml}
+        </div>
+        <div class="skills-row">
+          ${skillsHtml}
+        </div>
+      </div>
+    </div>
+  `;
+
+  card.innerHTML = headerHtml + bodyHtml;
+  return card;
+}
+
+/* ── Modal Functions ───────────────────────────────────── */
+function openHeroModal(hero) {
+  const modal = document.getElementById('heroModal');
+  const img = document.getElementById('modalHeroImage');
+  const titleName = document.getElementById('modalHeroName');
+  const titleTown = document.getElementById('modalTownBadge');
+  const titleClass = document.getElementById('modalHeroClass');
+
+  const col = TOWN_COLORS[hero.town] || {bg:'#252833', text:'#ffd700'};
+
+  titleName.textContent = hero.name;
+  titleTown.textContent = hero.town;
+  titleTown.style.background = col.bg;
+  titleTown.style.color = col.text;
+  titleClass.textContent = '(' + hero.class + (hero.tier ? ' · ' + hero.tier + '급' : '') + ')';
+
+  img.src = hero.info_img || ('images/heroes_info/' + hero.town + '/' + hero.name + '.jpg');
+  img.alt = hero.name + ' 영웅 정보';
+
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeHeroModal() {
+  const modal = document.getElementById('heroModal');
+  modal.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+function handleModalOverlayClick(e) {
+  if (e.target.id === 'heroModal') {
+    closeHeroModal();
+  }
+}
+
+// ESC 키로 모달 닫기
+window.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    closeHeroModal();
+  }
+});
+
+window.addEventListener('DOMContentLoaded', loadData);
+</script>
+</body>
+</html>
