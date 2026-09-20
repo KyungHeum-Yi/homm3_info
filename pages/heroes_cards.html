@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+<base href="../">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>HOMM3 영웅 카드 도감</title>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800;900&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
-<script src="heroes_data.js"></script>
+<script src="data/heroes_data.js"></script>
 <style>
 :root{
   --bg-primary:#121316;
@@ -704,7 +705,7 @@ async function loadData() {
     if (window.HEROES_DATA && window.HEROES_DATA.heroes) {
       allHeroes = window.HEROES_DATA.heroes;
     } else {
-      const res = await fetch('heroes_data.json');
+      const res = await fetch('data/heroes_data.json');
       if (!res.ok) throw new Error('heroes_data.json 파일을 읽을 수 없습니다.');
       const data = await res.json();
       allHeroes = data.heroes;

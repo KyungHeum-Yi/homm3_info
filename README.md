@@ -6,13 +6,15 @@ Heroes of Might and Magic III (HOMM3) 종합 도감 포털 웹 애플리케이�
 - [https://kyungheum-yi.github.io/homm3_info/](https://kyungheum-yi.github.io/homm3_info/)
 
 ## ❄️ 개발자 블로그
-- [패치로그, 콩순이냉장고 : 네이버 블로그](https://blog.naver.com/gigi905)
+- [직업, 부관, 콩순이냉장고 : 네이버 블로그](https://blog.naver.com/gigi905)
 
 ---
 
 ## 🏛️ 수록 도감 안내
 
-### 1. 👑 영웅 도감 (`homm3_hero_info.html`)
+메인 허브(`index.html`) 및 상단 공통 내비게이션 바를 통해 4대 도감을 편리하게 열람할 수 있습니다.
+
+### 1. 👑 영웅 도감 (`pages/homm3_hero_info.html`)
 - **144명 전 영웅 데이터 수록**: 9개 진영(캐슬, 램파트, 타워, 인페르노, 네크로폴리스, 던전, 스트롱홀드, 포트리스, 컨플럭스)
 - **카드 테두리 등급 표현**: S급(빨강), A급(황금), B급(기본)
 - **스마트 멀티 필터링**: 등급별 / 종족별 다중 선택 필터 및 실시간 텍스트 검색
@@ -20,7 +22,42 @@ Heroes of Might and Magic III (HOMM3) 종합 도감 포털 웹 애플리케이�
 - **연대기 팝업**: 초상화 마우스 호버 시 원본 연대기 팝업
 - **영웅 상세 정보 모달**: 카드 클릭 시 실제 게임 정보창 뷰어 제공
 
-### 2. 📜 마법 도감 (`homm3_magic_info.html`)
+### 2. 🏅 직업 도감 (`pages/homm3_job_info.html`)
+- **ACM 17개 고유 직업 수록**: 전사(Warrior), 탐험가(Adventurer), 마법사(Mage) 3대 계열 조합 직업 체계
+- **스티커 형태 조건 배지**: 마스터(Master), 그마(Grandmaster), 레전드(Legend) 테마 색상 스티커로 직업 달성 조건 시각화
+- **계열별 포인트 테이블 뷰어**: ACM 스킬 계열별 포인트 획득표 모달 제공
+- **남/여 인게임 스크린샷 뷰어**: 카드 클릭 시 남성 및 여성 영웅의 실제 인게임 직업 스크린샷 슬라이드 뷰어 제공
+- **상세 툴팁 & 고정 필터**: 마우스 호버 시 세부 스킬 설명 툴팁 및 상단 고정 필터 지원
+
+### 3. 🛡️ 부관 도감 (`pages/homm3_adjutant_info.html`)
+- **9대 진영 부관 & 17개 전직 직업 수록**: WoG ACM 부관 시스템 가이드
+- **스킬 시너지 매트릭스**: 직업별 추천 스킬 조합 및 효과 시뮬레이션
+- **부관 능력치 및 특성 상세 안내**: 인게임 부관 상세 정보 뷰어 지원
+
+### 4. 📜 마법 도감 (`pages/homm3_magic_info.html`)
 - **4대 원소 마법 체계**: 대기마법, 대지마법, 물마법, 불마법
 - **마법 분류별 분리 탭**: 모험마법 / 전투마법 필터링
-- **고화질 인게임 마법 스크린샷 수록**: 클릭 시 풀스크린 확대 뷰어 모달 제공
+- **고화질 인게임 마법 스크린샷 수록**: 대표이미지 및 개별 마법 클릭 시 풀스크린 확대 슬라이드 뷰어 모달 제공
+
+---
+
+## 📁 프로젝트 폴더 구조
+
+```text
+homm3_info/
+├── index.html                   # 포털 메인 허브 페이지 (루트)
+├── pages/                       # 서브 도감 페이지 모음
+│   ├── homm3_hero_info.html     # 1. 영웅 도감
+│   ├── homm3_job_info.html      # 2. 직업 도감
+│   ├── homm3_adjutant_info.html # 3. 부관 도감
+│   ├── homm3_magic_info.html    # 4. 마법 도감
+│   └── heroes_cards.html        # 영웅 카드 보조 뷰
+├── data/                        # 도감 데이터 모음 (JS / JSON)
+│   ├── heroes_data.js           # 144명 전 영웅 데이터 (JS)
+│   ├── heroes_data.json         # 144명 전 영웅 데이터 (JSON)
+│   ├── jobs_data.js             # 17개 전직 직업 데이터 (JS)
+│   ├── magic_data.js            # 마법 분류 및 등급 데이터 (JS)
+│   └── magic_data.json          # 마법 분류 및 등급 데이터 (JSON)
+├── images/                      # 도감 이미지 리소스 (영웅, 직업, 마법 등)
+└── works/                       # 데이터 가공 및 크롭 스크립트 모음
+```
