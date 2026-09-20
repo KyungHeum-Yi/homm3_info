@@ -16,14 +16,14 @@
   --gold-glow: rgba(197, 160, 89, 0.4);
 
   /* 마법 속성 색상 */
-  --air-color: #64b5f6;
-  --air-glow: rgba(100, 181, 246, 0.4);
-  --earth-color: #bcaaa4;
-  --earth-glow: rgba(188, 170, 164, 0.4);
-  --water-color: #4fc3f7;
-  --water-glow: rgba(79, 195, 247, 0.4);
-  --fire-color: #ff7043;
-  --fire-glow: rgba(255, 112, 67, 0.4);
+  --air-color: #f1f5f9;
+  --air-glow: rgba(241, 245, 249, 0.45);
+  --earth-color: #86efac;
+  --earth-glow: rgba(134, 239, 172, 0.45);
+  --water-color: #7b97e6;
+  --water-glow: rgba(123, 151, 230, 0.45);
+  --fire-color: #fca853;
+  --fire-glow: rgba(252, 168, 83, 0.45);
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -188,51 +188,64 @@ header p {
 
 /* 속성별 버튼 활성화 */
 .magic-btn.magic-air.active {
-  background: linear-gradient(135deg, #1e88e5, #0d47a1);
-  color: #fff;
-  border-color: var(--air-color);
-  box-shadow: 0 0 14px var(--air-glow);
+  background: linear-gradient(135deg, #e8edf5, #b8c4d8);
+  color: #121824;
+  border-color: #ffffff;
+  font-weight: 800;
+  box-shadow: 0 0 14px rgba(240, 245, 255, 0.55);
 }
 .magic-btn.magic-earth.active {
-  background: linear-gradient(135deg, #6d4c41, #3e2723);
-  color: #fff;
-  border-color: var(--earth-color);
-  box-shadow: 0 0 14px var(--earth-glow);
+  background: linear-gradient(135deg, #4d8234, #264e18);
+  color: #ffffff;
+  border-color: #6bbe43;
+  box-shadow: 0 0 14px rgba(107, 190, 67, 0.45);
 }
 .magic-btn.magic-water.active {
-  background: linear-gradient(135deg, #0288d1, #01579b);
-  color: #fff;
-  border-color: var(--water-color);
-  box-shadow: 0 0 14px var(--water-glow);
+  background: linear-gradient(135deg, #536cb5, #283770);
+  color: #ffffff;
+  border-color: #7b97e6;
+  box-shadow: 0 0 14px rgba(123, 151, 230, 0.5);
 }
 .magic-btn.magic-fire.active {
-  background: linear-gradient(135deg, #e64a19, #bf360c);
-  color: #fff;
-  border-color: var(--fire-color);
-  box-shadow: 0 0 14px var(--fire-glow);
+  background: linear-gradient(135deg, #e58226, #a84b0c);
+  color: #ffffff;
+  border-color: #f7a245;
+  box-shadow: 0 0 14px rgba(247, 162, 69, 0.5);
 }
 
-/* 타입(전체/모험/전투) 버튼 */
+/* 마법 분류 (모두보기/모험마법/전투마법) 라디오형 세그먼트 토글 */
+.type-toggle-group {
+  display: inline-flex;
+  background: #151821;
+  border: 1px solid #363d50;
+  border-radius: 8px;
+  padding: 3px;
+  gap: 4px;
+}
 .type-btn {
-  background: #20232c;
-  color: #8c94a9;
-  border: 1px solid #383d4e;
+  background: none;
+  border: none;
+  color: #94a3b8;
   padding: 6px 14px;
   border-radius: 6px;
-  font-size: 0.88rem;
-  font-weight: 700;
+  font-size: 0.86rem;
+  font-weight: 800;
   cursor: pointer;
   transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  user-select: none;
 }
 .type-btn:hover {
-  background: #2b3040;
   color: #fff;
+  background: rgba(255, 255, 255, 0.05);
 }
 .type-btn.active {
-  background: #ffd700;
+  background: linear-gradient(135deg, #ffd700, #d4af37);
   color: #121316;
-  border-color: #ffd700;
-  box-shadow: 0 0 10px rgba(255,215,0,0.4);
+  border-color: transparent;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
 }
 
 .stats-badge {
@@ -477,11 +490,41 @@ header p {
   border-color: #ffd700;
 }
 .level-btn.active {
-  background: linear-gradient(135deg, #c5a059, #9e7d3b);
+  background: linear-gradient(135deg, #ffd700, #d4af37);
   color: #121316;
   border-color: #ffd700;
   font-weight: 800;
-  box-shadow: 0 0 10px rgba(197, 160, 89, 0.4);
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
+}
+.level-btn[data-level="1"].active {
+  background: linear-gradient(135deg, #475569, #334155);
+  color: #f1f5f9;
+  border-color: #94a3b8;
+  box-shadow: 0 0 10px rgba(148, 163, 184, 0.45);
+}
+.level-btn[data-level="2"].active {
+  background: linear-gradient(135deg, #2563eb, #1e3a5f);
+  color: #ffffff;
+  border-color: #60a5fa;
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+}
+.level-btn[data-level="3"].active {
+  background: linear-gradient(135deg, #059669, #064e3b);
+  color: #ffffff;
+  border-color: #34d399;
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+}
+.level-btn[data-level="4"].active {
+  background: linear-gradient(135deg, #7c3aed, #4c1d95);
+  color: #ffffff;
+  border-color: #a78bfa;
+  box-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
+}
+.level-btn[data-level="5"].active {
+  background: linear-gradient(135deg, #ea580c, #7c2d12);
+  color: #ffffff;
+  border-color: #fb923c;
+  box-shadow: 0 0 12px rgba(249, 115, 22, 0.6);
 }
 
 .spell-name {
@@ -776,9 +819,11 @@ header p {
 
       <div class="tab-group" id="typeTabs">
         <span class="group-label">마법 분류:</span>
-        <button class="type-btn active" data-type="ALL">모두 보기</button>
-        <button class="type-btn" data-type="모험마법">모험마법</button>
-        <button class="type-btn" data-type="전투마법">전투마법</button>
+        <div class="type-toggle-group">
+          <button class="type-btn active" data-type="ALL"><span>📋</span> 모두 보기</button>
+          <button class="type-btn" data-type="모험마법"><span>🗺️</span> 모험마법</button>
+          <button class="type-btn" data-type="전투마법"><span>⚔️</span> 전투마법</button>
+        </div>
       </div>
 
       <div class="tab-group" id="levelTabs">
@@ -944,7 +989,7 @@ header p {
           </div>
           <div>
             <h2 class="element-name-text color-earth">대지마법 (Earth Magic)</h2>
-            <div style="font-size:0.84rem;color:#b0a498;margin-top:2px;">타운 포탈, 둔화, 부활, 내파 등 수비와 강력한 한 방의 마법</div>
+            <div style="font-size:0.84rem;color:#a3c99f;margin-top:2px;">타운 포탈, 둔화, 부활, 내파 등 수비와 강력한 한 방의 마법</div>
           </div>
         </div>
         </div>
@@ -1065,7 +1110,7 @@ header p {
           </div>
           <div>
             <h2 class="element-name-text color-water">물마법 (Water Magic)</h2>
-            <div style="font-size:0.84rem;color:#70b6d9;margin-top:2px;">축복, 기원, 순간이동, 해제, 복제 등 아군 지원 및 강화의 마법</div>
+            <div style="font-size:0.84rem;color:#9bb2ea;margin-top:2px;">축복, 기원, 순간이동, 해제, 복제 등 아군 지원 및 강화의 마법</div>
           </div>
         </div>
         </div>
@@ -1178,7 +1223,7 @@ header p {
           </div>
           <div>
             <h2 class="element-name-text color-fire">불마법 (Fire Magic)</h2>
-            <div style="font-size:0.84rem;color:#df7f66;margin-top:2px;">블러드러스트, 실명, 버서크, 아마겟돈 등 파괴와 군중 제어의 마법</div>
+            <div style="font-size:0.84rem;color:#f3b482;margin-top:2px;">블러드러스트, 실명, 버서크, 아마겟돈 등 파괴와 군중 제어의 마법</div>
           </div>
         </div>
         </div>
@@ -1369,22 +1414,14 @@ function bindFilterEvents() {
     });
   });
 
-  // 2. 마법 분류(모험/전투) 버튼
+  // 2. 마법 분류(모두 보기/모험마법/전투마법) 단일 선택 토글
   document.querySelectorAll("#typeTabs .type-btn").forEach(btn => {
     const type = btn.getAttribute("data-type");
     btn.addEventListener("click", () => {
       if (type === "ALL") {
-        if (selectedTypes.size === ALL_TYPES.length) {
-          selectedTypes.clear();
-        } else {
-          selectedTypes = new Set(ALL_TYPES);
-        }
+        selectedTypes = new Set(ALL_TYPES);
       } else {
-        if (selectedTypes.has(type)) {
-          selectedTypes.delete(type);
-        } else {
-          selectedTypes.add(type);
-        }
+        selectedTypes = new Set([type]);
       }
       updateFilterButtonUI();
       applyFilters();
@@ -1427,14 +1464,14 @@ function updateFilterButtonUI() {
     }
   });
 
-  // 2. 마법 분류 버튼 UI
+  // 2. 마법 분류 버튼 UI (모두보기 / 모험마법 / 전투마법 중 하나만 active)
   const isAllTypes = selectedTypes.size === ALL_TYPES.length;
   document.querySelectorAll("#typeTabs .type-btn").forEach(btn => {
     const type = btn.getAttribute("data-type");
     if (type === "ALL") {
       btn.classList.toggle("active", isAllTypes);
     } else {
-      btn.classList.toggle("active", selectedTypes.has(type));
+      btn.classList.toggle("active", !isAllTypes && selectedTypes.has(type));
     }
   });
 

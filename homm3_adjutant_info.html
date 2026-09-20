@@ -1332,7 +1332,7 @@ header p {
               <span>⚡</span> 스킬보기
             </button>
           </div>
-          <span id="jobFilterCountBadge" style="font-size:0.82rem;color:#ffd700;font-weight:700;">전체 17개 직업 &bull; 15개 시너지 표시 중</span>
+          <span id="jobFilterCountBadge" style="font-size:0.82rem;color:#ffd700;font-weight:700;">전체 17개 직업 • 15개 시너지 표시 중</span>
           <button class="job-filter-reset" onclick="resetUnifiedFilter()">🔄 필터 초기화</button>
         </div>
       </div>
@@ -1889,11 +1889,11 @@ function applyUnifiedFilter() {
 
   if (badgeEl) {
     if (selectedStats.length === 0) {
-      badgeEl.innerText = "전체 17개 직업 &bull; 15개 시너지 표시 중";
+      badgeEl.innerText = "전체 17개 직업 • 15개 시너지 표시 중";
     } else if (selectedStats.length === 1) {
       badgeEl.innerText = `[${selectedStats[0]}] 선택됨 (최소 2개 선택 필요)`;
     } else {
-      badgeEl.innerText = `전직 가능 ${eligibleJobCount}개 &bull; 시너지 ${eligibleSkillCount}개 (선택: ${selectedStats.join(", ")})`;
+      badgeEl.innerText = `전직 가능 ${eligibleJobCount}개 • 시너지 ${eligibleSkillCount}개`;
     }
   }
 
@@ -1929,17 +1929,6 @@ function renderSynergyMatrix() {
       <div class="matrix-name">${syn.name}</div>
       <div class="matrix-desc">${syn.desc}</div>
     `;
-    card.style.cursor = "pointer";
-    card.onclick = () => {
-      // 시너지 카드 클릭 시 상단 필터의 두 스킬 동기화
-      document.querySelectorAll("#jobStatFilterChips .job-stat-btn").forEach(b => b.classList.remove("active"));
-      selectedStats = [normalizeStat(syn.s1), normalizeStat(syn.s2)];
-      const btn1 = document.querySelector(`#jobStatFilterChips .job-stat-btn[data-stat="${selectedStats[0]}"]`);
-      const btn2 = document.querySelector(`#jobStatFilterChips .job-stat-btn[data-stat="${selectedStats[1]}"]`);
-      if (btn1) btn1.classList.add("active");
-      if (btn2) btn2.classList.add("active");
-      applyUnifiedFilter();
-    };
     grid.appendChild(card);
   });
 }
