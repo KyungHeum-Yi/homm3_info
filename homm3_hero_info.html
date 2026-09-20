@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HOMM3 영웅 카드 도감</title>
+<title>HoMM3 WoG info - 영웅 카드 도감</title>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800;900&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
 <script src="heroes_data.js"></script>
 <style>
@@ -26,6 +26,72 @@
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'Noto Sans KR',sans-serif;background:var(--bg-primary);color:var(--text-main);padding:25px 20px 60px;min-height:100vh}
 .container{max-width:1440px;margin:0 auto}
+
+/* ── Top Navigation Bar ────────────────────────── */
+.top-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 25px;
+  padding: 12px 20px;
+  background: rgba(24, 26, 32, 0.95);
+  border: 1px solid #3d4254;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+.nav-links {
+  display: flex;
+  gap: 12px;
+}
+.nav-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  background: #20232c;
+  color: #a0a5b5;
+  border: 1px solid #383d4e;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  transition: all 0.2s ease;
+}
+.nav-btn:hover {
+  background: #2c313f;
+  color: #ffd700;
+  border-color: #ffd700;
+}
+.nav-btn.active {
+  background: linear-gradient(135deg, #c5a059, #9e7d3b);
+  color: #121316;
+  border-color: #ffd700;
+  font-weight: 800;
+  box-shadow: 0 0 12px var(--gold-glow);
+}
+
+.dev-blog-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(32, 35, 44, 0.85);
+  color: #c5a059;
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 700;
+  padding: 5px 15px;
+  border-radius: 20px;
+  border: 1px solid #3d4254;
+  margin-bottom: 8px;
+  transition: all 0.25s ease;
+}
+.dev-blog-link:hover {
+  background: #2b3040;
+  color: #ffd700;
+  border-color: #ffd700;
+  box-shadow: 0 0 12px var(--gold-glow);
+  transform: translateY(-2px);
+}
 
 header{text-align:center;margin-bottom:20px;padding-bottom:15px;border-bottom:2px solid #2e323d}
 header h1{font-family:'Cinzel','Noto Sans KR',serif;font-size:2.2rem;font-weight:900;color:#ffd700;text-shadow:0 0 15px rgba(255,215,0,.4);letter-spacing:1px;margin-bottom:6px}
@@ -627,8 +693,33 @@ header p{color:var(--text-sub);font-size:0.98rem}
 </div>
 
 <div class="container">
+  <!-- 상단 네비게이션 바 -->
+  <nav class="top-nav">
+    <div style="display:flex;align-items:center;gap:12px;">
+      <a href="index.html" style="text-decoration:none;color:#ffd700;font-family:'Cinzel',serif;font-size:1.15rem;font-weight:900;letter-spacing:0.5px;">
+        ⚔️ HoMM3 WoG info
+      </a>
+    </div>
+    <div class="nav-links">
+      <a href="index.html" class="nav-btn">
+        <span>🏠</span> 메인 홈
+      </a>
+      <a href="homm3_hero_info.html" class="nav-btn active">
+        <span>👑</span> 영웅 도감
+      </a>
+      <a href="homm3_magic_info.html" class="nav-btn">
+        <span>📜</span> 마법 도감
+      </a>
+    </div>
+  </nav>
+
   <header>
-    <h1>HOMM III HERO CARDS DIRECTORY</h1>
+    <h1>HoMM3 WoG info - HERO DIRECTORY</h1>
+    <div style="margin-bottom: 8px;">
+      <a href="https://blog.naver.com/gigi905" target="_blank" rel="noopener noreferrer" class="dev-blog-link">
+        <span>❄️</span> 개발자 페이지 : 콩순이 냉장고 블로그 &rarr;
+      </a>
+    </div>
     <p>Heroes of Might and Magic III &bull; 영웅 카드 도감 &bull; 카드를 클릭하면 상세 영웅 정보창을 볼 수 있습니다</p>
   </header>
 
@@ -701,6 +792,7 @@ let selectedTowns = new Set(ALL_TOWNS);
 /* ── JSON 로드 ─────────────────────────────────────────── */
 async function loadData() {
   try {
+    // 1. window.HEROES_DATA가 미리 로드되어 있는 경우(file:// 로컬 파일 환경 등) 즉시 사용
     if (window.HEROES_DATA && window.HEROES_DATA.heroes) {
       allHeroes = window.HEROES_DATA.heroes;
     } else {

@@ -1,8 +1,18 @@
-# HOMM3 Hero Directory (영웅 카드 도감)
+# HoMM3 WoG info (히어로즈 오브 마이트 앤 매직 3 WoG 도감 포털)
 
-Heroes of Might and Magic III (HOMM3) 영웅 카드 도감 웹 애플리케이션입니다.
+Heroes of Might and Magic III (HOMM3) 종합 도감 포털 웹 애플리케이션입니다.
 
-## ✨ 주요 기능
+## 🌐 웹페이지 바로가기 (GitHub Pages)
+- [https://kyungheum-yi.github.io/homm3_info/](https://kyungheum-yi.github.io/homm3_info/)
+
+## ❄️ 개발자 블로그
+- [패치로그, 콩순이냉장고 : 네이버 블로그](https://blog.naver.com/gigi905)
+
+---
+
+## 🏛️ 수록 도감 안내
+
+### 1. 👑 영웅 도감 (`homm3_hero_info.html`)
 - **144명 전 영웅 데이터 수록**: 9개 진영(캐슬, 램파트, 타워, 인페르노, 네크로폴리스, 던전, 스트롱홀드, 포트리스, 컨플럭스)
 - **카드 테두리 등급 표현**: S급(빨강), A급(황금), B급(기본)
 - **스마트 멀티 필터링**: 등급별 / 종족별 다중 선택 필터 및 실시간 텍스트 검색
@@ -10,5 +20,7 @@ Heroes of Might and Magic III (HOMM3) 영웅 카드 도감 웹 애플리케이�
 - **연대기 팝업**: 초상화 마우스 호버 시 원본 연대기 팝업
 - **영웅 상세 정보 모달**: 카드 클릭 시 실제 게임 정보창 뷰어 제공
 
-## 🌐 웹페이지 바로가기 (GitHub Pages)
-- [https://kyungheum-yi.github.io/homm3_info/](https://kyungheum-yi.github.io/homm3_info/)
+### 2. 📜 마법 도감 (`homm3_magic_info.html`)
+- **4대 원소 마법 체계**: 대기마법, 대지마법, 물마법, 불마법
+- **마법 분류별 분리 탭**: 모험마법 / 전투마법 필터링
+- **고화질 인게임 마법 스크린샷 수록**: 클릭 시 풀스크린 확대 뷰어 모달 제공

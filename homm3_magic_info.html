@@ -1,0 +1,1379 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HoMM3 WoG info - 마법 도감</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800;900&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-primary: #121316;
+  --bg-card: #1c1e24;
+  --border-gold: #c5a059;
+  --text-main: #f0f0f0;
+  --text-sub: #a0a5b5;
+  --gold-glow: rgba(197, 160, 89, 0.4);
+
+  /* 마법 속성 색상 */
+  --air-color: #64b5f6;
+  --air-glow: rgba(100, 181, 246, 0.4);
+  --earth-color: #bcaaa4;
+  --earth-glow: rgba(188, 170, 164, 0.4);
+  --water-color: #4fc3f7;
+  --water-glow: rgba(79, 195, 247, 0.4);
+  --fire-color: #ff7043;
+  --fire-glow: rgba(255, 112, 67, 0.4);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-main);
+  padding: 25px 20px 60px;
+  min-height: 100vh;
+}
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+/* ── Top Navigation Bar ────────────────────────── */
+.top-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 25px;
+  padding: 12px 20px;
+  background: rgba(24, 26, 32, 0.95);
+  border: 1px solid #3d4254;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+.nav-links {
+  display: flex;
+  gap: 12px;
+}
+.nav-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  background: #20232c;
+  color: #a0a5b5;
+  border: 1px solid #383d4e;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  transition: all 0.2s ease;
+}
+.nav-btn:hover {
+  background: #2c313f;
+  color: #ffd700;
+  border-color: #ffd700;
+}
+.nav-btn.active {
+  background: linear-gradient(135deg, #c5a059, #9e7d3b);
+  color: #121316;
+  border-color: #ffd700;
+  font-weight: 800;
+  box-shadow: 0 0 12px var(--gold-glow);
+}
+
+.dev-blog-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(32, 35, 44, 0.85);
+  color: #c5a059;
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 700;
+  padding: 5px 15px;
+  border-radius: 20px;
+  border: 1px solid #3d4254;
+  margin-bottom: 8px;
+  transition: all 0.25s ease;
+}
+.dev-blog-link:hover {
+  background: #2b3040;
+  color: #ffd700;
+  border-color: #ffd700;
+  box-shadow: 0 0 12px var(--gold-glow);
+  transform: translateY(-2px);
+}
+
+/* ── Header ───────────────────────────────────── */
+header {
+  text-align: center;
+  margin-bottom: 25px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #2e323d;
+}
+header h1 {
+  font-family: 'Cinzel', 'Noto Sans KR', serif;
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: #ffd700;
+  text-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+  letter-spacing: 1px;
+  margin-bottom: 6px;
+}
+header p {
+  color: var(--text-sub);
+  font-size: 0.98rem;
+}
+
+/* ── Controls / Tabs ─────────────────────────── */
+.controls {
+  position: sticky;
+  top: 12px;
+  z-index: 900;
+  background: rgba(24, 26, 32, 0.94);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid #3d4254;
+  border-radius: 12px;
+  padding: 14px 20px;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+}
+.control-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+}
+.tab-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+.group-label {
+  font-size: 0.86rem;
+  font-weight: 800;
+  color: #a0a5b5;
+  margin-right: 6px;
+}
+.magic-btn {
+  background: #20232c;
+  color: #8c94a9;
+  border: 1px solid #383d4e;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+.magic-btn:hover {
+  background: #2b3040;
+  color: #fff;
+  border-color: #616a82;
+}
+
+/* 속성별 버튼 활성화 */
+.magic-btn.magic-air.active {
+  background: linear-gradient(135deg, #1e88e5, #0d47a1);
+  color: #fff;
+  border-color: var(--air-color);
+  box-shadow: 0 0 14px var(--air-glow);
+}
+.magic-btn.magic-earth.active {
+  background: linear-gradient(135deg, #6d4c41, #3e2723);
+  color: #fff;
+  border-color: var(--earth-color);
+  box-shadow: 0 0 14px var(--earth-glow);
+}
+.magic-btn.magic-water.active {
+  background: linear-gradient(135deg, #0288d1, #01579b);
+  color: #fff;
+  border-color: var(--water-color);
+  box-shadow: 0 0 14px var(--water-glow);
+}
+.magic-btn.magic-fire.active {
+  background: linear-gradient(135deg, #e64a19, #bf360c);
+  color: #fff;
+  border-color: var(--fire-color);
+  box-shadow: 0 0 14px var(--fire-glow);
+}
+
+/* 타입(전체/모험/전투) 버튼 */
+.type-btn {
+  background: #20232c;
+  color: #8c94a9;
+  border: 1px solid #383d4e;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.type-btn:hover {
+  background: #2b3040;
+  color: #fff;
+}
+.type-btn.active {
+  background: #ffd700;
+  color: #121316;
+  border-color: #ffd700;
+  box-shadow: 0 0 10px rgba(255,215,0,0.4);
+}
+
+/* ── Element Section Layout ──────────────────── */
+.element-section {
+  background: #16181f;
+  border: 1px solid #2e3343;
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 35px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  animation: fadeIn 0.3s ease;
+}
+@keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+.element-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 22px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #2b3040;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.element-title-group {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+/* 대표이미지 배너 (클릭 가능) */
+.title-banner-wrapper {
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 2px solid var(--border-gold);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+  transition: all 0.25s ease;
+}
+.title-banner-wrapper:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.8), 0 0 15px var(--gold-glow);
+  border-color: #ffd700;
+}
+.title-banner-img {
+  height: 58px;
+  width: auto;
+  display: block;
+}
+.banner-badge-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.75);
+  color: #ffd700;
+  font-size: 0.68rem;
+  font-weight: 800;
+  text-align: center;
+  padding: 2px 4px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.title-banner-wrapper:hover .banner-badge-overlay {
+  opacity: 1;
+}
+
+.element-name-text {
+  font-family: 'Cinzel', 'Noto Sans KR', serif;
+  font-size: 1.6rem;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+}
+.color-air { color: var(--air-color); text-shadow: 0 0 15px var(--air-glow); }
+.color-earth { color: var(--earth-color); text-shadow: 0 0 15px var(--earth-glow); }
+.color-water { color: var(--water-color); text-shadow: 0 0 15px var(--water-glow); }
+.color-fire { color: var(--fire-color); text-shadow: 0 0 15px var(--fire-glow); }
+
+.fullbook-shortcuts {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.book-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #202430;
+  color: #c5a059;
+  border: 1px solid #3d4254;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.book-btn:hover {
+  background: #2d3345;
+  color: #ffd700;
+  border-color: #ffd700;
+  box-shadow: 0 0 10px rgba(197, 160, 89, 0.3);
+}
+
+/* ── Category Block (모험마법 / 전투마법) ──────── */
+.category-block {
+  margin-top: 18px;
+  background: #12141a;
+  border: 1px solid #262a36;
+  border-radius: 12px;
+  padding: 16px 20px;
+}
+.category-block-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+  padding-bottom: 8px;
+  border-bottom: 1px dashed #2d3242;
+}
+.category-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #e2e8f0;
+}
+.category-count {
+  font-size: 0.8rem;
+  color: #a0a5b5;
+  background: #1f232e;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+/* ── Spells Grid ──────────────────────────────── */
+.spells-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 16px;
+}
+
+.spell-item {
+  background: #181a22;
+  border: 1px solid #303546;
+  border-radius: 10px;
+  padding: 10px 8px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+.spell-item:hover {
+  transform: translateY(-4px) scale(1.04);
+  border-color: #ffd700;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.8), 0 0 12px var(--gold-glow);
+  background: #202430;
+}
+.spell-thumb {
+  width: 107px;
+  height: 83px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid #222633;
+  margin-bottom: 8px;
+  background: #0b0c10;
+  display: block;
+}
+.spell-name {
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: #f1f5f9;
+  line-height: 1.3;
+  word-break: keep-all;
+  white-space: normal;
+}
+
+/* ── Search Input Box ────────────────────────── */
+.search-box {
+  position: relative;
+  min-width: 260px;
+}
+.search-box input {
+  width: 100%;
+  padding: 8px 14px 8px 34px;
+  background: #20232c;
+  border: 1px solid #3d4254;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 0.88rem;
+  transition: all 0.2s ease;
+}
+.search-box input:focus {
+  outline: none;
+  border-color: #ffd700;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.35);
+}
+.search-icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #7d859b;
+  font-size: 0.95rem;
+}
+
+/* ── Modal for Full Image View & Swipe Slider ──── */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.88);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+.modal-overlay.active {
+  display: flex;
+}
+.modal-content {
+  background: #1a1c23;
+  border: 2px solid var(--border-gold);
+  border-radius: 12px;
+  box-shadow: 0 0 35px rgba(0,0,0,0.9), 0 0 25px var(--gold-glow);
+  max-width: 95vw;
+  max-height: 94vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  width: 960px;
+}
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  background: #222530;
+  border-bottom: 1px solid #3d4254;
+}
+.modal-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #ffd700;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.modal-close {
+  background: none;
+  border: none;
+  color: #a0a5b5;
+  font-size: 1.8rem;
+  cursor: pointer;
+  line-height: 1;
+  transition: color 0.2s;
+}
+.modal-close:hover { color: #ff4757; }
+
+/* ── Swipe / Slider Styles ─────────────────────── */
+.slider-tabs {
+  display: flex;
+  background: #15171e;
+  border-bottom: 1px solid #2d313f;
+}
+.slider-tab-btn {
+  flex: 1;
+  padding: 10px 16px;
+  background: none;
+  border: none;
+  color: #8c94a9;
+  font-size: 0.92rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-bottom: 3px solid transparent;
+}
+.slider-tab-btn:hover {
+  color: #fff;
+  background: rgba(255,255,255,0.03);
+}
+.slider-tab-btn.active {
+  color: #ffd700;
+  border-bottom-color: #ffd700;
+  background: rgba(255, 215, 0, 0.05);
+}
+
+.slider-wrapper {
+  position: relative;
+  overflow: hidden;
+  background: #0e1014;
+  touch-action: pan-y;
+  user-select: none;
+}
+.slider-track {
+  display: flex;
+  width: 200%;
+  transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.slider-slide {
+  width: 50%;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+.modal-img {
+  max-width: 100%;
+  max-height: 72vh;
+  object-fit: contain;
+  border-radius: 6px;
+  border: 1px solid #33384a;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.8);
+}
+
+.slide-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(20, 22, 28, 0.75);
+  color: #ffd700;
+  border: 1px solid #3d4254;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+.slide-nav-btn:hover {
+  background: #ffd700;
+  color: #121316;
+  border-color: #ffd700;
+  box-shadow: 0 0 12px var(--gold-glow);
+}
+.slide-prev { left: 14px; }
+.slide-next { right: 14px; }
+
+.slider-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 10px;
+  background: #15171e;
+  border-top: 1px solid #262a36;
+}
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #383d4e;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.dot.active {
+  background: #ffd700;
+  transform: scale(1.25);
+  box-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
+}
+</style>
+</head>
+<body>
+
+<!-- Full View / Swipe Slider Modal -->
+<div class="modal-overlay" id="imageModal" onclick="closeModal()">
+  <div class="modal-content" onclick="event.stopPropagation()">
+    <div class="modal-header">
+      <div class="modal-title" id="modalTitle">마법 정보</div>
+      <button class="modal-close" onclick="closeModal()">&times;</button>
+    </div>
+    
+    <!-- 슬라이더 탭 (모험마법 / 전투마법) -->
+    <div class="slider-tabs" id="sliderTabs">
+      <button class="slider-tab-btn active" id="tabAdventure" onclick="goToSlide(0)">🗺️ 모험마법 책</button>
+      <button class="slider-tab-btn" id="tabCombat" onclick="goToSlide(1)">⚔️ 전투마법 책</button>
+    </div>
+
+    <!-- 스와이프 슬라이더 래퍼 -->
+    <div class="slider-wrapper" id="sliderWrapper">
+      <button class="slide-nav-btn slide-prev" onclick="prevSlide()">&lsaquo;</button>
+      <button class="slide-nav-btn slide-next" onclick="nextSlide()">&rsaquo;</button>
+
+      <div class="slider-track" id="sliderTrack">
+        <div class="slider-slide">
+          <img id="modalImgAdventure" class="modal-img" src="" alt="모험마법 책">
+        </div>
+        <div class="slider-slide">
+          <img id="modalImgCombat" class="modal-img" src="" alt="전투마법 책">
+        </div>
+      </div>
+    </div>
+
+    <!-- 슬라이더 도트 인디케이터 -->
+    <div class="slider-dots" id="sliderDots">
+      <span class="dot active" onclick="goToSlide(0)"></span>
+      <span class="dot" onclick="goToSlide(1)"></span>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <!-- 상단 네비게이션 바 -->
+  <nav class="top-nav">
+    <div style="display:flex;align-items:center;gap:12px;">
+      <a href="index.html" style="text-decoration:none;color:#ffd700;font-family:'Cinzel',serif;font-size:1.15rem;font-weight:900;letter-spacing:0.5px;">
+        ⚔️ HoMM3 WoG info
+      </a>
+    </div>
+    <div class="nav-links">
+      <a href="index.html" class="nav-btn">
+        <span>🏠</span> 메인 홈
+      </a>
+      <a href="homm3_hero_info.html" class="nav-btn">
+        <span>👑</span> 영웅 도감
+      </a>
+      <a href="homm3_magic_info.html" class="nav-btn active">
+        <span>📜</span> 마법 도감
+      </a>
+    </div>
+  </nav>
+
+  <header>
+    <h1>HoMM3 WoG info - MAGIC DIRECTORY</h1>
+    <div style="margin-bottom: 8px;">
+      <a href="https://blog.naver.com/gigi905" target="_blank" rel="noopener noreferrer" class="dev-blog-link">
+        <span>❄️</span> 개발자 페이지 : 콩순이 냉장고 블로그 &rarr;
+      </a>
+    </div>
+    <p>Heroes of Might and Magic III &bull; 4대 원소 마법 도감 &bull; 대표이미지 클릭 시 전체 마법책 스크린샷 팝업</p>
+  </header>
+
+  <!-- 필터 컨트롤 바 -->
+  <div class="controls">
+    <div class="control-row">
+      <div class="tab-group" id="magicTabs">
+        <span class="group-label">마법 계열:</span>
+        <button class="magic-btn active" data-magic="ALL">전체 계열</button>
+        <button class="magic-btn magic-air" data-magic="대기마법">대기마법 (Air)</button>
+        <button class="magic-btn magic-earth" data-magic="대지마법">대지마법 (Earth)</button>
+        <button class="magic-btn magic-water" data-magic="물마법">물마법 (Water)</button>
+        <button class="magic-btn magic-fire" data-magic="불마법">불마법 (Fire)</button>
+      </div>
+
+      <div class="tab-group" id="typeTabs">
+        <span class="group-label">마법 분류:</span>
+        <button class="type-btn active" data-type="ALL">모두 보기</button>
+        <button class="type-btn" data-type="모험마법">모험마법</button>
+        <button class="type-btn" data-type="전투마법">전투마법</button>
+      </div>
+
+      <div class="search-box">
+        <span class="search-icon">&#128269;</span>
+        <input type="text" id="magicSearchInput" placeholder="마법 이름 검색 (예: 가속, 부활, 축복)..." oninput="applyFilters()">
+      </div>
+    </div>
+  </div>
+
+  <!-- 마법 리스트 컨테이너 -->
+  <div id="magicSectionsContainer">
+
+    <!-- 1. 대기마법 -->
+    <section class="element-section" data-element="대기마법">
+      <div class="element-header">
+        <div class="element-title-group">
+          <!-- 대표이미지 (클릭 시 마법책 스크린샷 팝업) -->
+          <div class="title-banner-wrapper" onclick="openBookModal('대기마법')" title="클릭하여 대기마법 전체 마법책 스크린샷 보기">
+            <img class="title-banner-img" src="images/magic/대기마법/대표이미지.jpg" alt="대기마법 대표이미지">
+            <div class="banner-badge-overlay">📖 전체 스크린샷 보기</div>
+          </div>
+          <div>
+            <h2 class="element-name-text color-air">대기마법 (Air Magic)</h2>
+            <div style="font-size:0.84rem;color:#8ba4cf;margin-top:2px;">신속, 차원의 문, 체인 라이트닝, 비행 등 속도와 이동의 마법</div>
+          </div>
+        </div>
+        </div>
+
+      <!-- 모험마법 블록 -->
+      <div class="category-block" data-cat="모험마법">
+        <div class="category-block-header">
+          <div class="category-title">
+            <span>🗺️ 모험마법 (Adventure Magic)</span>
+            <span class="category-count">6개</span>
+          </div>
+        </div>
+        <div class="spells-grid">
+          <div class="spell-item" onclick="openModal('대기마법 - 대기 조망', 'images/magic/대기마법/모험마법/대기 조망.jpg')">
+            <img class="spell-thumb" src="images/magic/대기마법/모험마법/대기 조망.jpg" alt="대기 조망" loading="lazy">
+            <span class="spell-name">대기 조망</span>
+          </div>
+          <div class="spell-item" onclick="openModal('대기마법 - 대지 조망', 'images/magic/대기마법/모험마법/대지 조망.jpg')">
+            <img class="spell-thumb" src="images/magic/대기마법/모험마법/대지 조망.jpg" alt="대지 조망" loading="lazy">
+            <span class="spell-name">대지 조망</span>
+          </div>
+          <div class="spell-item" onclick="openModal('대기마법 - 예견', 'images/magic/대기마법/모험마법/예견.jpg')">
+            <img class="spell-thumb" src="images/magic/대기마법/모험마법/예견.jpg" alt="예견" loading="lazy">
+            <span class="spell-name">예견</span>
+          </div>
+          <div class="spell-item" onclick="openModal('대기마법 - 순풍', 'images/magic/대기마법/모험마법/순풍.jpg')">
+            <img class="spell-thumb" src="images/magic/대기마법/모험마법/순풍.jpg" alt="순풍" loading="lazy">
+            <span class="spell-name">순풍</span>
+          </div>
+          <div class="spell-item" onclick="openModal('대기마법 - 귀환', 'images/magic/대기마법/모험마법/귀환.jpg')">
+            <img class="spell-thumb" src="images/magic/대기마법/모험마법/귀환.jpg" alt="귀환" loading="lazy">
+            <span class="spell-name">귀환</span>
+          </div>
+          <div class="spell-item" onclick="openModal('대기마법 - 비행', 'images/magic/대기마법/모험마법/비행.jpg')">
+            <img class="spell-thumb" src="images/magic/대기마법/모험마법/비행.jpg" alt="비행" loading="lazy">
+            <span class="spell-name">비행</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 전투마법 블록 -->
+      <div class="category-block" data-cat="전투마법">
+        <div class="category-block-header">
+          <div class="category-title">
+            <span>⚔️ 전투마법 (Combat Magic)</span>
+            <span class="category-count">16개</span>
+          </div>
+        </div>
+        <div class="spells-grid">
+          <div class="spell-item" onclick="openModal('대기마법 - 대기의 저항력', 'images/magic/대기마법/전투마법/대기의 저항력.jpg')">
+            <img class="spell-thumb" src="images/magic/대기마법/전투마법/대기의 저항력.jpg" alt="대기의 저항력" loading="lazy">
+            <span class="spell-name">대기의 저항력</span>
+          </div>
+          <div class="spell-item" onclick="openModal('대기마법 - 마법 화살', 'images/magic/대기마법/전투마법/마법 화살.jpg')">
+            <img class="spell-thumb" src="images/magic/대기마법/전투마법/마법 화살.jpg" alt="마법 화살" loading="lazy">
+            <span class="spell-name">마법 화살</span>
+          </div>
+          <div class="spell-item" onclick="openModal('대기마법 - 정확성', 'images/magic/대기마법/전투마법/정확성.jpg')">
+            <img class="spell-thumb" src="images/magic/대기마법/전투마법/정확성.jpg" alt="정확성" loading="lazy">
+            <span class="spell-name">정확성</span>
+          </div>
+          <div class="spell-item" onclick="openModal('대기마법 - 행운', 'images/magic/대기마법/전투마법/행운.jpg')">
+            <img class="spell-thumb" src="images/magic/대기마법/전투마법/행운.jpg" alt="행운" loading="lazy">
+            <span class="spell-name">행운</span>
+          </div>
+          <div class="spell-item" onclick="openModal('대기마법 - 가속', 'images/magic/대기마법/전투마법/가속.jpg')">
+            <img class="spell-thumb" src="images/magic/대기마법/전투마법/가속.jpg" alt="가속" loading="lazy">
+            <span class="spell-name">가속</span>
+          </div>
+          <div class="spell-item" onclick="openModal('대기마법 - 마법 반사', 'images/magic/대기마법/전투마법/마법 반사.jpg')">
+            <img class="spell-thumb" src="images/magic/대기마법/전투마법/마법 반사.jpg" alt="마법 반사" loading="lazy">
+            <span class="spell-name">마법 반사</span>
+          </div>
+          <div class="spell-item" onclick="openModal('대기마법 - 반격', 'images/magic/대기마법/전투마법/반격.jpg')">
+            <img class="spell-thumb" src="images/magic/대기마법/전투마법/반격.jpg" alt="반격" loading="lazy">
+            <span class="spell-name">반격</span>
+          </div>
+          <div class="spell-item" onclick="openModal('대기마법 - 방어막', 'images/magic/대기마법/전투마법/방어막.jpg')">
+            <img class="spell-thumb" src="images/magic/대기마법/전투마법/방어막.jpg" alt="방어막" loading="lazy">
+            <span class="spell-name">방어막</span>
+          </div>
+          <div class="spell-item" onclick="openModal('대기마법 - 방해 광선', 'images/magic/대기마법/전투마법/방해 광선.jpg')">
+            <img class="spell-thumb" src="images/magic/대기마법/전투마법/방해 광선.jpg" alt="방해 광선" loading="lazy">
+            <span class="spell-name">방해 광선</span>
+          </div>
+          <div class="spell-item" onclick="openModal('대기마법 - 번개', 'images/magic/대기마법/전투마법/번개.jpg')">
+            <img class="spell-thumb" src="images/magic/대기마법/전투마법/번개.jpg" alt="번개" loading="lazy">
+            <span class="spell-name">번개</span>
+          </div>
+          <div class="spell-item" onclick="openModal('대기마법 - 언데드 파괴', 'images/magic/대기마법/전투마법/언데드 파괴.jpg')">
+            <img class="spell-thumb" src="images/magic/대기마법/전투마법/언데드 파괴.jpg" alt="언데드 파괴" loading="lazy">
+            <span class="spell-name">언데드 파괴</span>
+          </div>
+          <div class="spell-item" onclick="openModal('대기마법 - 헌신', 'images/magic/대기마법/전투마법/헌신.jpg')">
+            <img class="spell-thumb" src="images/magic/대기마법/전투마법/헌신.jpg" alt="헌신" loading="lazy">
+            <span class="spell-name">헌신</span>
+          </div>
+          <div class="spell-item" onclick="openModal('대기마법 - 뱀파이어릭 터치', 'images/magic/대기마법/전투마법/뱀파이어릭 터치.jpg')">
+            <img class="spell-thumb" src="images/magic/대기마법/전투마법/뱀파이어릭 터치.jpg" alt="뱀파이어릭 터치" loading="lazy">
+            <span class="spell-name">뱀파이어릭 터치</span>
+          </div>
+          <div class="spell-item" onclick="openModal('대기마법 - 연속 번개', 'images/magic/대기마법/전투마법/연속 번개.jpg')">
+            <img class="spell-thumb" src="images/magic/대기마법/전투마법/연속 번개.jpg" alt="연속 번개" loading="lazy">
+            <span class="spell-name">연속 번개</span>
+          </div>
+          <div class="spell-item" onclick="openModal('대기마법 - 최면', 'images/magic/대기마법/전투마법/최면.jpg')">
+            <img class="spell-thumb" src="images/magic/대기마법/전투마법/최면.jpg" alt="최면" loading="lazy">
+            <span class="spell-name">최면</span>
+          </div>
+          <div class="spell-item" onclick="openModal('대기마법 - 대천사 소환', 'images/magic/대기마법/전투마법/대천사 소환.jpg')">
+            <img class="spell-thumb" src="images/magic/대기마법/전투마법/대천사 소환.jpg" alt="대천사 소환" loading="lazy">
+            <span class="spell-name">대천사 소환</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. 대지마법 -->
+    <section class="element-section" data-element="대지마법">
+      <div class="element-header">
+        <div class="element-title-group">
+          <!-- 대표이미지 (클릭 시 마법책 스크린샷 팝업) -->
+          <div class="title-banner-wrapper" onclick="openBookModal('대지마법')" title="클릭하여 대지마법 전체 마법책 스크린샷 보기">
+            <img class="title-banner-img" src="images/magic/대지마법/대표이미지.jpg" alt="대지마법 대표이미지">
+            <div class="banner-badge-overlay">📖 전체 스크린샷 보기</div>
+          </div>
+          <div>
+            <h2 class="element-name-text color-earth">대지마법 (Earth Magic)</h2>
+            <div style="font-size:0.84rem;color:#b0a498;margin-top:2px;">타운 포탈, 둔화, 부활, 내파 등 수비와 강력한 한 방의 마법</div>
+          </div>
+        </div>
+        </div>
+
+      <!-- 모험마법 블록 -->
+      <div class="category-block" data-cat="모험마법">
+        <div class="category-block-header">
+          <div class="category-title">
+            <span>🗺️ 모험마법 (Adventure Magic)</span>
+            <span class="category-count">4개</span>
+          </div>
+        </div>
+        <div class="spells-grid">
+          <div class="spell-item" onclick="openModal('대지마법 - 대기 조망', 'images/magic/대지마법/모험마법/대기 조망.jpg')">
+            <img class="spell-thumb" src="images/magic/대지마법/모험마법/대기 조망.jpg" alt="대기 조망" loading="lazy">
+            <span class="spell-name">대기 조망</span>
+          </div>
+          <div class="spell-item" onclick="openModal('대지마법 - 대지 조망', 'images/magic/대지마법/모험마법/대지 조망.jpg')">
+            <img class="spell-thumb" src="images/magic/대지마법/모험마법/대지 조망.jpg" alt="대지 조망" loading="lazy">
+            <span class="spell-name">대지 조망</span>
+          </div>
+          <div class="spell-item" onclick="openModal('대지마법 - 귀환', 'images/magic/대지마법/모험마법/귀환.jpg')">
+            <img class="spell-thumb" src="images/magic/대지마법/모험마법/귀환.jpg" alt="귀환" loading="lazy">
+            <span class="spell-name">귀환</span>
+          </div>
+          <div class="spell-item" onclick="openModal('대지마법 - 역전', 'images/magic/대지마법/모험마법/역전.jpg')">
+            <img class="spell-thumb" src="images/magic/대지마법/모험마법/역전.jpg" alt="역전" loading="lazy">
+            <span class="spell-name">역전</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 전투마법 블록 -->
+      <div class="category-block" data-cat="전투마법">
+        <div class="category-block-header">
+          <div class="category-title">
+            <span>⚔️ 전투마법 (Combat Magic)</span>
+            <span class="category-count">16개</span>
+          </div>
+        </div>
+        <div class="spells-grid">
+          <div class="spell-item" onclick="openModal('대지마법 - 대지의 저항력', 'images/magic/대지마법/전투마법/대지의 저항력.jpg')">
+            <img class="spell-thumb" src="images/magic/대지마법/전투마법/대지의 저항력.jpg" alt="대지의 저항력" loading="lazy">
+            <span class="spell-name">대지의 저항력</span>
+          </div>
+          <div class="spell-item" onclick="openModal('대지마법 - 마법 화살', 'images/magic/대지마법/전투마법/마법 화살.jpg')">
+            <img class="spell-thumb" src="images/magic/대지마법/전투마법/마법 화살.jpg" alt="마법 화살" loading="lazy">
+            <span class="spell-name">마법 화살</span>
+          </div>
+          <div class="spell-item" onclick="openModal('대지마법 - 모래늪', 'images/magic/대지마법/전투마법/모래늪.jpg')">
+            <img class="spell-thumb" src="images/magic/대지마법/전투마법/모래늪.jpg" alt="모래늪" loading="lazy">
+            <span class="spell-name">모래늪</span>
+          </div>
+          <div class="spell-item" onclick="openModal('대지마법 - 석갑', 'images/magic/대지마법/전투마법/석갑.jpg')">
+            <img class="spell-thumb" src="images/magic/대지마법/전투마법/석갑.jpg" alt="석갑" loading="lazy">
+            <span class="spell-name">석갑</span>
+          </div>
+          <div class="spell-item" onclick="openModal('대지마법 - 둔화', 'images/magic/대지마법/전투마법/둔화.jpg')">
+            <img class="spell-thumb" src="images/magic/대지마법/전투마법/둔화.jpg" alt="둔화" loading="lazy">
+            <span class="spell-name">둔화</span>
+          </div>
+          <div class="spell-item" onclick="openModal('대지마법 - 방패', 'images/magic/대지마법/전투마법/방패.jpg')">
+            <img class="spell-thumb" src="images/magic/대지마법/전투마법/방패.jpg" alt="방패" loading="lazy">
+            <span class="spell-name">방패</span>
+          </div>
+          <div class="spell-item" onclick="openModal('대지마법 - 중력장', 'images/magic/대지마법/전투마법/중력장.jpg')">
+            <img class="spell-thumb" src="images/magic/대지마법/전투마법/중력장.jpg" alt="중력장" loading="lazy">
+            <span class="spell-name">중력장</span>
+          </div>
+          <div class="spell-item" onclick="openModal('대지마법 - 지진', 'images/magic/대지마법/전투마법/지진.jpg')">
+            <img class="spell-thumb" src="images/magic/대지마법/전투마법/지진.jpg" alt="지진" loading="lazy">
+            <span class="spell-name">지진</span>
+          </div>
+          <div class="spell-item" onclick="openModal('대지마법 - 마법 거부', 'images/magic/대지마법/전투마법/마법 거부.jpg')">
+            <img class="spell-thumb" src="images/magic/대지마법/전투마법/마법 거부.jpg" alt="마법 거부" loading="lazy">
+            <span class="spell-name">마법 거부</span>
+          </div>
+          <div class="spell-item" onclick="openModal('대지마법 - 시체 조종', 'images/magic/대지마법/전투마법/시체 조종.jpg')">
+            <img class="spell-thumb" src="images/magic/대지마법/전투마법/시체 조종.jpg" alt="시체 조종" loading="lazy">
+            <span class="spell-name">시체 조종</span>
+          </div>
+          <div class="spell-item" onclick="openModal('대지마법 - 죽음의 물결', 'images/magic/대지마법/전투마법/죽음의 물결.jpg')">
+            <img class="spell-thumb" src="images/magic/대지마법/전투마법/죽음의 물결.jpg" alt="죽음의 물결" loading="lazy">
+            <span class="spell-name">죽음의 물결</span>
+          </div>
+          <div class="spell-item" onclick="openModal('대지마법 - 땅의 정령 소환', 'images/magic/대지마법/전투마법/땅의 정령 소환.jpg')">
+            <img class="spell-thumb" src="images/magic/대지마법/전투마법/땅의 정령 소환.jpg" alt="땅의 정령 소환" loading="lazy">
+            <span class="spell-name">땅의 정령 소환</span>
+          </div>
+          <div class="spell-item" onclick="openModal('대지마법 - 부활', 'images/magic/대지마법/전투마법/부활.jpg')">
+            <img class="spell-thumb" src="images/magic/대지마법/전투마법/부활.jpg" alt="부활" loading="lazy">
+            <span class="spell-name">부활</span>
+          </div>
+          <div class="spell-item" onclick="openModal('대지마법 - 유성 폭풍', 'images/magic/대지마법/전투마법/유성 폭풍.jpg')">
+            <img class="spell-thumb" src="images/magic/대지마법/전투마법/유성 폭풍.jpg" alt="유성 폭풍" loading="lazy">
+            <span class="spell-name">유성 폭풍</span>
+          </div>
+          <div class="spell-item" onclick="openModal('대지마법 - 내파', 'images/magic/대지마법/전투마법/내파.jpg')">
+            <img class="spell-thumb" src="images/magic/대지마법/전투마법/내파.jpg" alt="내파" loading="lazy">
+            <span class="spell-name">내파</span>
+          </div>
+          <div class="spell-item" onclick="openModal('대지마법 - 유령 소환', 'images/magic/대지마법/전투마법/유령 소환.jpg')">
+            <img class="spell-thumb" src="images/magic/대지마법/전투마법/유령 소환.jpg" alt="유령 소환" loading="lazy">
+            <span class="spell-name">유령 소환</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. 물마법 -->
+    <section class="element-section" data-element="물마법">
+      <div class="element-header">
+        <div class="element-title-group">
+          <!-- 대표이미지 (클릭 시 마법책 스크린샷 팝업) -->
+          <div class="title-banner-wrapper" onclick="openBookModal('물마법')" title="클릭하여 물마법 전체 마법책 스크린샷 보기">
+            <img class="title-banner-img" src="images/magic/물마법/대표이미지.jpg" alt="물마법 대표이미지">
+            <div class="banner-badge-overlay">📖 전체 스크린샷 보기</div>
+          </div>
+          <div>
+            <h2 class="element-name-text color-water">물마법 (Water Magic)</h2>
+            <div style="font-size:0.84rem;color:#70b6d9;margin-top:2px;">축복, 기원, 순간이동, 해재, 복재 등 아군 지원 및 강화의 마법</div>
+          </div>
+        </div>
+        </div>
+
+      <!-- 모험마법 블록 -->
+      <div class="category-block" data-cat="모험마법">
+        <div class="category-block-header">
+          <div class="category-title">
+            <span>🗺️ 모험마법 (Adventure Magic)</span>
+            <span class="category-count">4개</span>
+          </div>
+        </div>
+        <div class="spells-grid">
+          <div class="spell-item" onclick="openModal('물마법 - 대기 조망', 'images/magic/물마법/모험마법/대기 조망.jpg')">
+            <img class="spell-thumb" src="images/magic/물마법/모험마법/대기 조망.jpg" alt="대기 조망" loading="lazy">
+            <span class="spell-name">대기 조망</span>
+          </div>
+          <div class="spell-item" onclick="openModal('물마법 - 대지 조망', 'images/magic/물마법/모험마법/대지 조망.jpg')">
+            <img class="spell-thumb" src="images/magic/물마법/모험마법/대지 조망.jpg" alt="대지 조망" loading="lazy">
+            <span class="spell-name">대지 조망</span>
+          </div>
+          <div class="spell-item" onclick="openModal('물마법 - 마법사의 눈', 'images/magic/물마법/모험마법/마법사의 눈.jpg')">
+            <img class="spell-thumb" src="images/magic/물마법/모험마법/마법사의 눈.jpg" alt="마법사의 눈" loading="lazy">
+            <span class="spell-name">마법사의 눈</span>
+          </div>
+          <div class="spell-item" onclick="openModal('물마법 - 차원의 문', 'images/magic/물마법/모험마법/차원의 문.jpg')">
+            <img class="spell-thumb" src="images/magic/물마법/모험마법/차원의 문.jpg" alt="차원의 문" loading="lazy">
+            <span class="spell-name">차원의 문</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 전투마법 블록 -->
+      <div class="category-block" data-cat="전투마법">
+        <div class="category-block-header">
+          <div class="category-title">
+            <span>⚔️ 전투마법 (Combat Magic)</span>
+            <span class="category-count">14개</span>
+          </div>
+        </div>
+        <div class="spells-grid">
+          <div class="spell-item" onclick="openModal('물마법 - 마법 화살', 'images/magic/물마법/전투마법/마법 화살.jpg')">
+            <img class="spell-thumb" src="images/magic/물마법/전투마법/마법 화살.jpg" alt="마법 화살" loading="lazy">
+            <span class="spell-name">마법 화살</span>
+          </div>
+          <div class="spell-item" onclick="openModal('물마법 - 물의 저항력', 'images/magic/물마법/전투마법/물의 저항력.jpg')">
+            <img class="spell-thumb" src="images/magic/물마법/전투마법/물의 저항력.jpg" alt="물의 저항력" loading="lazy">
+            <span class="spell-name">물의 저항력</span>
+          </div>
+          <div class="spell-item" onclick="openModal('물마법 - 치료', 'images/magic/물마법/전투마법/치료.jpg')">
+            <img class="spell-thumb" src="images/magic/물마법/전투마법/치료.jpg" alt="치료" loading="lazy">
+            <span class="spell-name">치료</span>
+          </div>
+          <div class="spell-item" onclick="openModal('물마법 - 환희', 'images/magic/물마법/전투마법/환희.jpg')">
+            <img class="spell-thumb" src="images/magic/물마법/전투마법/환희.jpg" alt="환희" loading="lazy">
+            <span class="spell-name">환희</span>
+          </div>
+          <div class="spell-item" onclick="openModal('물마법 - 약화', 'images/magic/물마법/전투마법/약화.jpg')">
+            <img class="spell-thumb" src="images/magic/물마법/전투마법/약화.jpg" alt="약화" loading="lazy">
+            <span class="spell-name">약화</span>
+          </div>
+          <div class="spell-item" onclick="openModal('물마법 - 얼음 화살', 'images/magic/물마법/전투마법/얼음 화살.jpg')">
+            <img class="spell-thumb" src="images/magic/물마법/전투마법/얼음 화살.jpg" alt="얼음 화살" loading="lazy">
+            <span class="spell-name">얼음 화살</span>
+          </div>
+          <div class="spell-item" onclick="openModal('물마법 - 축복', 'images/magic/물마법/전투마법/축복.jpg')">
+            <img class="spell-thumb" src="images/magic/물마법/전투마법/축복.jpg" alt="축복" loading="lazy">
+            <span class="spell-name">축복</span>
+          </div>
+          <div class="spell-item" onclick="openModal('물마법 - 해재', 'images/magic/물마법/전투마법/해재.jpg')">
+            <img class="spell-thumb" src="images/magic/물마법/전투마법/해재.jpg" alt="해재" loading="lazy">
+            <span class="spell-name">해재</span>
+          </div>
+          <div class="spell-item" onclick="openModal('물마법 - 망각', 'images/magic/물마법/전투마법/망각.jpg')">
+            <img class="spell-thumb" src="images/magic/물마법/전투마법/망각.jpg" alt="망각" loading="lazy">
+            <span class="spell-name">망각</span>
+          </div>
+          <div class="spell-item" onclick="openModal('물마법 - 순간이동', 'images/magic/물마법/전투마법/순간이동.jpg')">
+            <img class="spell-thumb" src="images/magic/물마법/전투마법/순간이동.jpg" alt="순간이동" loading="lazy">
+            <span class="spell-name">순간이동</span>
+          </div>
+          <div class="spell-item" onclick="openModal('물마법 - 얼음 고리', 'images/magic/물마법/전투마법/얼음 고리.jpg')">
+            <img class="spell-thumb" src="images/magic/물마법/전투마법/얼음 고리.jpg" alt="얼음 고리" loading="lazy">
+            <span class="spell-name">얼음 고리</span>
+          </div>
+          <div class="spell-item" onclick="openModal('물마법 - 기원', 'images/magic/물마법/전투마법/기원.jpg')">
+            <img class="spell-thumb" src="images/magic/물마법/전투마법/기원.jpg" alt="기원" loading="lazy">
+            <span class="spell-name">기원</span>
+          </div>
+          <div class="spell-item" onclick="openModal('물마법 - 복재', 'images/magic/물마법/전투마법/복재.jpg')">
+            <img class="spell-thumb" src="images/magic/물마법/전투마법/복재.jpg" alt="복재" loading="lazy">
+            <span class="spell-name">복재</span>
+          </div>
+          <div class="spell-item" onclick="openModal('물마법 - 블리자드', 'images/magic/물마법/전투마법/블리자드.jpg')">
+            <img class="spell-thumb" src="images/magic/물마법/전투마법/블리자드.jpg" alt="블리자드" loading="lazy">
+            <span class="spell-name">블리자드</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. 불마법 -->
+    <section class="element-section" data-element="불마법">
+      <div class="element-header">
+        <div class="element-title-group">
+          <!-- 대표이미지 (클릭 시 마법책 스크린샷 팝업) -->
+          <div class="title-banner-wrapper" onclick="openBookModal('불마법')" title="클릭하여 불마법 전체 마법책 스크린샷 보기">
+            <img class="title-banner-img" src="images/magic/불마법/대표이미지.jpg" alt="불마법 대표이미지">
+            <div class="banner-badge-overlay">📖 전체 스크린샷 보기</div>
+          </div>
+          <div>
+            <h2 class="element-name-text color-fire">불마법 (Fire Magic)</h2>
+            <div style="font-size:0.84rem;color:#df7f66;margin-top:2px;">블러드러스트, 실명, 버서크, 아마겟돈 등 파괴와 군중 제어의 마법</div>
+          </div>
+        </div>
+        </div>
+
+      <!-- 모험마법 블록 -->
+      <div class="category-block" data-cat="모험마법">
+        <div class="category-block-header">
+          <div class="category-title">
+            <span>🗺️ 모험마법 (Adventure Magic)</span>
+            <span class="category-count">5개</span>
+          </div>
+        </div>
+        <div class="spells-grid">
+          <div class="spell-item" onclick="openModal('불마법 - 대기 조망', 'images/magic/불마법/모험마법/대기 조망.jpg')">
+            <img class="spell-thumb" src="images/magic/불마법/모험마법/대기 조망.jpg" alt="대기 조망" loading="lazy">
+            <span class="spell-name">대기 조망</span>
+          </div>
+          <div class="spell-item" onclick="openModal('불마법 - 대지 조망', 'images/magic/불마법/모험마법/대지 조망.jpg')">
+            <img class="spell-thumb" src="images/magic/불마법/모험마법/대지 조망.jpg" alt="대지 조망" loading="lazy">
+            <span class="spell-name">대지 조망</span>
+          </div>
+          <div class="spell-item" onclick="openModal('불마법 - 마법사의 눈', 'images/magic/불마법/모험마법/마법사의 눈.jpg')">
+            <img class="spell-thumb" src="images/magic/불마법/모험마법/마법사의 눈.jpg" alt="마법사의 눈" loading="lazy">
+            <span class="spell-name">마법사의 눈</span>
+          </div>
+          <div class="spell-item" onclick="openModal('불마법 - 소망의 문', 'images/magic/불마법/모험마법/소망의 문.jpg')">
+            <img class="spell-thumb" src="images/magic/불마법/모험마법/소망의 문.jpg" alt="소망의 문" loading="lazy">
+            <span class="spell-name">소망의 문</span>
+          </div>
+          <div class="spell-item" onclick="openModal('불마법 - 차원의 문', 'images/magic/불마법/모험마법/차원의 문.jpg')">
+            <img class="spell-thumb" src="images/magic/불마법/모험마법/차원의 문.jpg" alt="차원의 문" loading="lazy">
+            <span class="spell-name">차원의 문</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 전투마법 블록 -->
+      <div class="category-block" data-cat="전투마법">
+        <div class="category-block-header">
+          <div class="category-title">
+            <span>⚔️ 전투마법 (Combat Magic)</span>
+            <span class="category-count">16개</span>
+          </div>
+        </div>
+        <div class="spells-grid">
+          <div class="spell-item" onclick="openModal('불마법 - 마법 화살', 'images/magic/불마법/전투마법/마법 화살.jpg')">
+            <img class="spell-thumb" src="images/magic/불마법/전투마법/마법 화살.jpg" alt="마법 화살" loading="lazy">
+            <span class="spell-name">마법 화살</span>
+          </div>
+          <div class="spell-item" onclick="openModal('불마법 - 불의 저항력', 'images/magic/불마법/전투마법/불의 저항력.jpg')">
+            <img class="spell-thumb" src="images/magic/불마법/전투마법/불의 저항력.jpg" alt="불의 저항력" loading="lazy">
+            <span class="spell-name">불의 저항력</span>
+          </div>
+          <div class="spell-item" onclick="openModal('불마법 - 지뢰', 'images/magic/불마법/전투마법/지뢰.jpg')">
+            <img class="spell-thumb" src="images/magic/불마법/전투마법/지뢰.jpg" alt="지뢰" loading="lazy">
+            <span class="spell-name">지뢰</span>
+          </div>
+          <div class="spell-item" onclick="openModal('불마법 - 피의 굶주림', 'images/magic/불마법/전투마법/피의 굶주림.jpg')">
+            <img class="spell-thumb" src="images/magic/불마법/전투마법/피의 굶주림.jpg" alt="피의 굶주림" loading="lazy">
+            <span class="spell-name">피의 굶주림</span>
+          </div>
+          <div class="spell-item" onclick="openModal('불마법 - 광분', 'images/magic/불마법/전투마법/광분.jpg')">
+            <img class="spell-thumb" src="images/magic/불마법/전투마법/광분.jpg" alt="광분" loading="lazy">
+            <span class="spell-name">광분</span>
+          </div>
+          <div class="spell-item" onclick="openModal('불마법 - 저주', 'images/magic/불마법/전투마법/저주.jpg')">
+            <img class="spell-thumb" src="images/magic/불마법/전투마법/저주.jpg" alt="저주" loading="lazy">
+            <span class="spell-name">저주</span>
+          </div>
+          <div class="spell-item" onclick="openModal('불마법 - 화염의 벽', 'images/magic/불마법/전투마법/화염의 벽.jpg')">
+            <img class="spell-thumb" src="images/magic/불마법/전투마법/화염의 벽.jpg" alt="화염의 벽" loading="lazy">
+            <span class="spell-name">화염의 벽</span>
+          </div>
+          <div class="spell-item" onclick="openModal('불마법 - 불의 방패', 'images/magic/불마법/전투마법/불의 방패.jpg')">
+            <img class="spell-thumb" src="images/magic/불마법/전투마법/불의 방패.jpg" alt="불의 방패" loading="lazy">
+            <span class="spell-name">불의 방패</span>
+          </div>
+          <div class="spell-item" onclick="openModal('불마법 - 불의 정령 소환', 'images/magic/불마법/전투마법/불의 정령 소환.jpg')">
+            <img class="spell-thumb" src="images/magic/불마법/전투마법/불의 정령 소환.jpg" alt="불의 정령 소환" loading="lazy">
+            <span class="spell-name">불의 정령 소환</span>
+          </div>
+          <div class="spell-item" onclick="openModal('불마법 - 인챈트', 'images/magic/불마법/전투마법/인챈트.jpg')">
+            <img class="spell-thumb" src="images/magic/불마법/전투마법/인챈트.jpg" alt="인챈트" loading="lazy">
+            <span class="spell-name">인챈트</span>
+          </div>
+          <div class="spell-item" onclick="openModal('불마법 - 장님', 'images/magic/불마법/전투마법/장님.jpg')">
+            <img class="spell-thumb" src="images/magic/불마법/전투마법/장님.jpg" alt="장님" loading="lazy">
+            <span class="spell-name">장님</span>
+          </div>
+          <div class="spell-item" onclick="openModal('불마법 - 파이어볼', 'images/magic/불마법/전투마법/파이어볼.jpg')">
+            <img class="spell-thumb" src="images/magic/불마법/전투마법/파이어볼.jpg" alt="파이어볼" loading="lazy">
+            <span class="spell-name">파이어볼</span>
+          </div>
+          <div class="spell-item" onclick="openModal('불마법 - 버서크', 'images/magic/불마법/전투마법/버서크.jpg')">
+            <img class="spell-thumb" src="images/magic/불마법/전투마법/버서크.jpg" alt="버서크" loading="lazy">
+            <span class="spell-name">버서크</span>
+          </div>
+          <div class="spell-item" onclick="openModal('불마법 - 아마겟돈', 'images/magic/불마법/전투마법/아마겟돈.jpg')">
+            <img class="spell-thumb" src="images/magic/불마법/전투마법/아마겟돈.jpg" alt="아마겟돈" loading="lazy">
+            <span class="spell-name">아마겟돈</span>
+          </div>
+          <div class="spell-item" onclick="openModal('불마법 - 희생', 'images/magic/불마법/전투마법/희생.jpg')">
+            <img class="spell-thumb" src="images/magic/불마법/전투마법/희생.jpg" alt="희생" loading="lazy">
+            <span class="spell-name">희생</span>
+          </div>
+          <div class="spell-item" onclick="openModal('불마법 - 드래곤 스트렝스', 'images/magic/불마법/전투마법/드래곤 스트렝스.jpg')">
+            <img class="spell-thumb" src="images/magic/불마법/전투마법/드래곤 스트렝스.jpg" alt="드래곤 스트렝스" loading="lazy">
+            <span class="spell-name">드래곤 스트렝스</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<script>
+let currentMagic = "ALL";
+let currentType = "ALL";
+let currentSlideIndex = 0;
+
+// 마법 계열 탭 필터
+document.querySelectorAll("#magicTabs .magic-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll("#magicTabs .magic-btn").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    currentMagic = btn.getAttribute("data-magic");
+    applyFilters();
+  });
+});
+
+// 마법 분류(모험/전투) 필터
+document.querySelectorAll("#typeTabs .type-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll("#typeTabs .type-btn").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    currentType = btn.getAttribute("data-type");
+    applyFilters();
+  });
+});
+
+// 검색 및 필터링 통합 함수
+function applyFilters() {
+  const searchTerm = (document.getElementById("magicSearchInput").value || "").trim().toLowerCase();
+  const sections = document.querySelectorAll(".element-section");
+
+  sections.forEach(sec => {
+    const secMagic = sec.getAttribute("data-element");
+    const matchesMagic = (currentMagic === "ALL" || currentMagic === secMagic);
+
+    const catBlocks = sec.querySelectorAll(".category-block");
+    let totalVisibleSpellsInSec = 0;
+
+    catBlocks.forEach(block => {
+      const cat = block.getAttribute("data-cat");
+      const matchesCat = (currentType === "ALL" || currentType === cat);
+
+      const spellItems = block.querySelectorAll(".spell-item");
+      let visibleSpellsInBlock = 0;
+
+      spellItems.forEach(item => {
+        const spellName = item.querySelector(".spell-name").innerText.toLowerCase();
+        const matchesSearch = !searchTerm || spellName.includes(searchTerm);
+
+        if (matchesCat && matchesSearch) {
+          item.style.display = "flex";
+          visibleSpellsInBlock++;
+        } else {
+          item.style.display = "none";
+        }
+      });
+
+      if (matchesCat && visibleSpellsInBlock > 0) {
+        block.style.display = "block";
+        totalVisibleSpellsInSec += visibleSpellsInBlock;
+      } else {
+        block.style.display = "none";
+      }
+    });
+
+    if (matchesMagic && totalVisibleSpellsInSec > 0) {
+      sec.style.display = "block";
+    } else {
+      sec.style.display = "none";
+    }
+  });
+}
+
+// ── 모달 & 2-Slice 스와이프 슬라이더 제어 ─────────
+function openBookModal(elementName, initialSlide = 0) {
+  document.getElementById("modalTitle").innerText = `${elementName} 전체 마법책`;
+  
+  document.getElementById("modalImgAdventure").src = `images/magic/${elementName}/모험마법.jpg`;
+  document.getElementById("modalImgCombat").src = `images/magic/${elementName}/전투마법.jpg`;
+
+  // 슬라이더 UI 노출
+  document.getElementById("sliderTabs").style.display = "flex";
+  document.getElementById("sliderDots").style.display = "flex";
+  document.querySelectorAll(".slide-nav-btn").forEach(btn => btn.style.display = "flex");
+
+  goToSlide(initialSlide);
+
+  document.getElementById("imageModal").classList.add("active");
+  document.body.style.overflow = "hidden";
+}
+
+// 개별 단일 마법 클릭 시 (슬라이더 없이 단일 이미지 보기)
+function openModal(title, imgSrc) {
+  document.getElementById("modalTitle").innerText = title;
+  document.getElementById("modalImgAdventure").src = imgSrc;
+
+  // 단일 마법일 때는 탭과 슬라이드 버튼 숨김
+  document.getElementById("sliderTabs").style.display = "none";
+  document.getElementById("sliderDots").style.display = "none";
+  document.querySelectorAll(".slide-nav-btn").forEach(btn => btn.style.display = "none");
+
+  goToSlide(0);
+
+  document.getElementById("imageModal").classList.add("active");
+  document.body.style.overflow = "hidden";
+}
+
+function goToSlide(index) {
+  currentSlideIndex = index;
+  const track = document.getElementById("sliderTrack");
+  track.style.transform = `translateX(-${index * 50}%)`;
+
+  const tabs = document.querySelectorAll(".slider-tab-btn");
+  tabs.forEach((tab, i) => {
+    if (i === index) tab.classList.add("active");
+    else tab.classList.remove("active");
+  });
+
+  const dots = document.querySelectorAll(".slider-dots .dot");
+  dots.forEach((dot, i) => {
+    if (i === index) dot.classList.add("active");
+    else dot.classList.remove("active");
+  });
+}
+
+function prevSlide() {
+  goToSlide(currentSlideIndex === 0 ? 1 : 0);
+}
+
+function nextSlide() {
+  goToSlide(currentSlideIndex === 0 ? 1 : 0);
+}
+
+function closeModal() {
+  document.getElementById("imageModal").classList.remove("active");
+  document.body.style.overflow = "";
+}
+
+// 터치 & 마우스 드래그 스와이프 제어
+const sliderWrapper = document.getElementById("sliderWrapper");
+let startX = 0;
+let isDragging = false;
+
+sliderWrapper.addEventListener("touchstart", (e) => {
+  startX = e.touches[0].clientX;
+}, { passive: true });
+
+sliderWrapper.addEventListener("touchend", (e) => {
+  const endX = e.changedTouches[0].clientX;
+  handleSwipe(startX, endX);
+}, { passive: true });
+
+sliderWrapper.addEventListener("mousedown", (e) => {
+  startX = e.clientX;
+  isDragging = true;
+});
+
+sliderWrapper.addEventListener("mouseup", (e) => {
+  if (!isDragging) return;
+  isDragging = false;
+  handleSwipe(startX, e.clientX);
+});
+
+function handleSwipe(start, end) {
+  const diff = start - end;
+  if (Math.abs(diff) > 40) {
+    if (diff > 0) {
+      goToSlide(1); // 왼쪽으로 드래그 -> 다음 슬라이드(전투마법)
+    } else {
+      goToSlide(0); // 오른쪽으로 드래그 -> 이전 슬라이드(모험마법)
+    }
+  }
+}
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") closeModal();
+  if (document.getElementById("imageModal").classList.contains("active")) {
+    if (e.key === "ArrowLeft") goToSlide(0);
+    if (e.key === "ArrowRight") goToSlide(1);
+  }
+});
+</script>
+</body>
+</html>
