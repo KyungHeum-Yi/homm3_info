@@ -537,6 +537,61 @@ header p {
   font-weight: 800;
   box-shadow: 0 0 10px rgba(197, 160, 89, 0.45);
 }
+
+/* 능력치 버튼 툴팁 */
+.stat-tooltip {
+  position: fixed;
+  z-index: 9999;
+  max-width: 280px;
+  background: #1a1e2a;
+  border: 1px solid #c5a059;
+  border-radius: 10px;
+  padding: 12px 14px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.7), 0 0 16px rgba(197,160,89,0.2);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+.stat-tooltip.visible {
+  opacity: 1;
+}
+.stat-tooltip-title {
+  font-size: 0.95rem;
+  font-weight: 900;
+  color: #ffd700;
+  margin-bottom: 6px;
+  border-bottom: 1px solid #2e3547;
+  padding-bottom: 6px;
+}
+.stat-tooltip-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 0.8rem;
+  color: #94a3b8;
+  margin-bottom: 3px;
+}
+.stat-tooltip-row span:first-child {
+  color: #a0a5b5;
+}
+.stat-tooltip-row span:last-child {
+  color: #e2e8f0;
+  font-weight: 700;
+  text-align: right;
+}
+.stat-tooltip-traits {
+  margin-top: 8px;
+  font-size: 0.8rem;
+  color: #ffd700;
+  font-weight: 700;
+  border-top: 1px solid #2e3547;
+  padding-top: 6px;
+}
+.stat-tooltip-traits span {
+  color: #94a3b8;
+  font-weight: 400;
+}
 .job-filter-reset {
   background: none;
   border: 1px solid #414960;
@@ -1227,89 +1282,7 @@ header p {
   <!-- 탭 2: 17개 부관 전직 직업 & 스킬 시너지 -->
   <div class="tab-content" id="sec-jobs">
     
-    <!-- 6대 기본 스탯 성장표 (최상단 배치) -->
-    <div class="stat-table-card" style="margin-bottom: 24px;">
-      <h3>📊 6대 기본 스탯 스킬 성장표 (6개 중 택 4)</h3>
-      <p>부관은 총 6가지 스킬 중 4개까지만 선택하여 배울 수 있습니다. (기술없음 &rarr; 초급 &rarr; 중급 &rarr; 고급 &rarr; 마스터 &rarr; 그랜드마스터)</p>
-      <div class="table-responsive">
-        <table class="stat-table">
-          <thead>
-            <tr>
-              <th>스킬</th>
-              <th>없음</th>
-              <th>초급</th>
-              <th>중급</th>
-              <th>고급</th>
-              <th>마스터</th>
-              <th>그랜드마스터</th>
-              <th>연계 핵심 특성</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="stat-highlight">공격 (Attack)</td>
-              <td>5</td>
-              <td>7</td>
-              <td>10</td>
-              <td>14</td>
-              <td>20</td>
-              <td class="stat-highlight">30</td>
-              <td>무반격, 사격, 공포, 방어력 50% 감소</td>
-            </tr>
-            <tr>
-              <td class="stat-highlight">방어 (Defense)</td>
-              <td>5</td>
-              <td>9</td>
-              <td>15</td>
-              <td>23</td>
-              <td>35</td>
-              <td class="stat-highlight">55</td>
-              <td>무제한 반격, 화염방패, 30% 물리공격 방어</td>
-            </tr>
-            <tr>
-              <td class="stat-highlight">체력 (Health)</td>
-              <td>기본 (400)</td>
-              <td>+10%</td>
-              <td>+25%</td>
-              <td>+45%</td>
-              <td>+70%</td>
-              <td class="stat-highlight">+100% (2배)</td>
-              <td>2회 공격, 마비공격, 재생</td>
-            </tr>
-            <tr>
-              <td class="stat-highlight">데미지 (Damage)</td>
-              <td>기본 (8+Lv*4)</td>
-              <td>+10%</td>
-              <td>+25%</td>
-              <td>+45%</td>
-              <td>+70%</td>
-              <td class="stat-highlight">+100% (2배)</td>
-              <td>2회 공격, 인접 적 전체공격, 항상 최대 데미지</td>
-            </tr>
-            <tr>
-              <td class="stat-highlight">마력 (Power)</td>
-              <td>시전 0 / 저항 5%</td>
-              <td>1회 / 저항 10%</td>
-              <td>2회 / 저항 20%</td>
-              <td>3회 / 저항 40%</td>
-              <td>4회 / 저항 65%</td>
-              <td class="stat-highlight">5회 / 저항 95%</td>
-              <td>마력(1~30), 마비공격, 무반격, 화염방패</td>
-            </tr>
-            <tr>
-              <td class="stat-highlight">속도 (Speed)</td>
-              <td>4</td>
-              <td>5</td>
-              <td>6</td>
-              <td>7</td>
-              <td>8</td>
-              <td class="stat-highlight">10</td>
-              <td>사격, 돌진공격, 비행, 30% 물리방어</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
+
 
     <!-- 통합 부관 직업 & 스킬 시너지 필터 바 (영웅도감 스타일, 최대 4개 선택, 플로팅 Sticky) -->
     <div class="job-filter-bar">
@@ -1337,12 +1310,12 @@ header p {
         </div>
       </div>
       <div class="job-filter-chips" id="jobStatFilterChips">
-        <button class="job-stat-btn" data-stat="공격력" onclick="toggleUnifiedStatFilter('공격력', this)">⚔️ 공격력</button>
-        <button class="job-stat-btn" data-stat="방어력" onclick="toggleUnifiedStatFilter('방어력', this)">🛡️ 방어력</button>
-        <button class="job-stat-btn" data-stat="체력" onclick="toggleUnifiedStatFilter('체력', this)">❤️ 체력</button>
-        <button class="job-stat-btn" data-stat="데미지" onclick="toggleUnifiedStatFilter('데미지', this)">💥 데미지</button>
-        <button class="job-stat-btn" data-stat="마력" onclick="toggleUnifiedStatFilter('마력', this)">🪄 마력</button>
-        <button class="job-stat-btn" data-stat="속도" onclick="toggleUnifiedStatFilter('속도', this)">👟 속도</button>
+        <button class="job-stat-btn" data-stat="공격력" data-tooltip-key="공격력" onclick="toggleUnifiedStatFilter('공격력', this)">⚔️ 공격력</button>
+        <button class="job-stat-btn" data-stat="방어력" data-tooltip-key="방어력" onclick="toggleUnifiedStatFilter('방어력', this)">🛡️ 방어력</button>
+        <button class="job-stat-btn" data-stat="체력" data-tooltip-key="체력" onclick="toggleUnifiedStatFilter('체력', this)">❤️ 체력</button>
+        <button class="job-stat-btn" data-stat="데미지" data-tooltip-key="데미지" onclick="toggleUnifiedStatFilter('데미지', this)">💥 데미지</button>
+        <button class="job-stat-btn" data-stat="마력" data-tooltip-key="마력" onclick="toggleUnifiedStatFilter('마력', this)">🪄 마력</button>
+        <button class="job-stat-btn" data-stat="속도" data-tooltip-key="속도" onclick="toggleUnifiedStatFilter('속도', this)">👟 속도</button>
       </div>
     </div>
 
@@ -1933,9 +1906,107 @@ function renderSynergyMatrix() {
   });
 }
 
+// ── 능력치 버튼 툴팁 ──────────────────────────────────
+const STAT_TOOLTIP_DATA = {
+  '공격력': {
+    title: '⚔️ 공격력 (Attack)',
+    rows: [
+      ['없음', '5'], ['초급', '7'], ['중급', '10'],
+      ['고급', '14'], ['마스터', '20'], ['그랜드마스터', '30']
+    ],
+    traits: '연계 핵심 특성: 무반격, 사격, 공포, 방어력 50% 감소'
+  },
+  '방어력': {
+    title: '🛡️ 방어력 (Defense)',
+    rows: [
+      ['없음', '5'], ['초급', '9'], ['중급', '15'],
+      ['고급', '23'], ['마스터', '35'], ['그랜드마스터', '55']
+    ],
+    traits: '연계 핵심 특성: 무제한 반격, 화염방패, 30% 물리공격 방어'
+  },
+  '체력': {
+    title: '❤️ 체력 (Health)',
+    rows: [
+      ['없음', '기본 (400)'], ['초급', '+10%'], ['중급', '+25%'],
+      ['고급', '+45%'], ['마스터', '+70%'], ['그랜드마스터', '+100% (2배)']
+    ],
+    traits: '연계 핵심 특성: 2회 공격, 마비공격, 재생'
+  },
+  '데미지': {
+    title: '💥 데미지 (Damage)',
+    rows: [
+      ['없음', '기본 (8+Lv×4)'], ['초급', '+10%'], ['중급', '+25%'],
+      ['고급', '+45%'], ['마스터', '+70%'], ['그랜드마스터', '+100% (2배)']
+    ],
+    traits: '연계 핵심 특성: 2회 공격, 인접 적 전체공격, 항상 최대 데미지'
+  },
+  '마력': {
+    title: '🪄 마력 (Power)',
+    rows: [
+      ['없음', '시전 0 / 저항 5%'], ['초급', '1회 / 저항 10%'], ['중급', '2회 / 저항 20%'],
+      ['고급', '3회 / 저항 40%'], ['마스터', '4회 / 저항 65%'], ['그랜드마스터', '5회 / 저항 95%']
+    ],
+    traits: '연계 핵심 특성: 마력(1~30), 마비공격, 무반격, 화염방패'
+  },
+  '속도': {
+    title: '👟 속도 (Speed)',
+    rows: [
+      ['없음', '4'], ['초급', '5'], ['중급', '6'],
+      ['고급', '7'], ['마스터', '8'], ['그랜드마스터', '10']
+    ],
+    traits: '연계 핵심 특성: 사격, 돌진공격, 비행, 30% 물리방어'
+  }
+};
+
+function initStatTooltips() {
+  const tooltip = document.createElement('div');
+  tooltip.id = 'statTooltip';
+  tooltip.className = 'stat-tooltip';
+  document.body.appendChild(tooltip);
+
+  document.querySelectorAll('.job-stat-btn[data-tooltip-key]').forEach(btn => {
+    btn.addEventListener('mouseenter', (e) => {
+      const key = btn.getAttribute('data-tooltip-key');
+      const data = STAT_TOOLTIP_DATA[key];
+      if (!data) return;
+
+      const rowsHTML = data.rows.map(([lv, val]) =>
+        `<div class="stat-tooltip-row"><span>${lv}</span><span>${val}</span></div>`
+      ).join('');
+
+      tooltip.innerHTML = `
+        <div class="stat-tooltip-title">${data.title}</div>
+        ${rowsHTML}
+        <div class="stat-tooltip-traits"><span>💡 </span>${data.traits}</div>
+      `;
+      positionTooltip(e);
+      tooltip.classList.add('visible');
+    });
+
+    btn.addEventListener('mousemove', positionTooltip);
+
+    btn.addEventListener('mouseleave', () => {
+      tooltip.classList.remove('visible');
+    });
+  });
+
+  function positionTooltip(e) {
+    const margin = 12;
+    const tw = tooltip.offsetWidth || 280;
+    const th = tooltip.offsetHeight || 160;
+    let x = e.clientX + margin;
+    let y = e.clientY + margin;
+    if (x + tw > window.innerWidth - 8) x = e.clientX - tw - margin;
+    if (y + th > window.innerHeight - 8) y = e.clientY - th - margin;
+    tooltip.style.left = x + 'px';
+    tooltip.style.top = y + 'px';
+  }
+}
+
 window.addEventListener("DOMContentLoaded", () => {
   renderSynergyMatrix();
   applyUnifiedFilter();
+  initStatTooltips();
 });
 </script>
 </body>
