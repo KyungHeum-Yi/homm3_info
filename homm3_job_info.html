@@ -1,0 +1,1174 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HoMM3 WoG info - 영웅 직업 도감</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800;900&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<script src="jobs_data.js"></script>
+<style>
+:root {
+  --bg-primary: #101115;
+  --bg-card: #181a22;
+  --bg-card-hover: #212430;
+  --border-default: #2e3345;
+  --border-gold: #c5a059;
+  --text-main: #f3f4f6;
+  --text-sub: #9ca3af;
+  --gold-glow: rgba(197, 160, 89, 0.4);
+
+  /* 계열별 포인트 컬러 */
+  --warrior-color: #ef4444;
+  --mage-color: #3b82f6;
+  --explorer-color: #10b981;
+  --special-color: #f59e0b;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  background: radial-gradient(circle at top center, #1b1e2a 0%, var(--bg-primary) 100%);
+  color: var(--text-main);
+  padding: 25px 20px 80px;
+  min-height: 100vh;
+}
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* ── Top Navigation Bar ────────────────────────── */
+.top-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 25px;
+  padding: 12px 20px;
+  background: rgba(24, 26, 32, 0.95);
+  border: 1px solid #3d4254;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+.nav-links {
+  display: flex;
+  gap: 12px;
+}
+.nav-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  background: #20232c;
+  color: #a0a5b5;
+  border: 1px solid #383d4e;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  transition: all 0.2s ease;
+}
+.nav-btn:hover {
+  background: #2c313f;
+  color: #ffd700;
+  border-color: #ffd700;
+}
+.nav-btn.active {
+  background: linear-gradient(135deg, #c5a059, #9e7d3b);
+  color: #121316;
+  border-color: #ffd700;
+  font-weight: 800;
+  box-shadow: 0 0 12px var(--gold-glow);
+}
+
+.dev-blog-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(32, 35, 44, 0.85);
+  color: #c5a059;
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 700;
+  padding: 5px 15px;
+  border-radius: 20px;
+  border: 1px solid #3d4254;
+  margin-bottom: 8px;
+  transition: all 0.25s ease;
+}
+.dev-blog-link:hover {
+  background: #2b3040;
+  color: #ffd700;
+  border-color: #ffd700;
+  box-shadow: 0 0 12px var(--gold-glow);
+  transform: translateY(-2px);
+}
+
+/* ── Header ───────────────────────────────────── */
+header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+header h1 {
+  font-family: 'Cinzel', 'Noto Sans KR', serif;
+  font-size: 2.3rem;
+  font-weight: 900;
+  color: #ffd700;
+  text-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+  letter-spacing: 1.5px;
+  margin-bottom: 6px;
+}
+header p {
+  color: var(--text-sub);
+  font-size: 0.98rem;
+}
+
+/* ── Rules Summary Banner ──────────────────────── */
+.rules-banner {
+  background: rgba(23, 26, 35, 0.85);
+  border: 1px solid #3b4256;
+  border-left: 4px solid #ffd700;
+  border-radius: 10px;
+  padding: 16px 22px;
+  margin-bottom: 28px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.rules-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+}
+
+/* 포인트 테이블 버튼 */
+.point-table-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #2b3245, #1e2333);
+  color: #ffd700;
+  border: 1px solid #ffd700;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 0.88rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
+}
+.point-table-btn:hover {
+  background: linear-gradient(135deg, #c5a059, #9e7d3b);
+  color: #121316;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+  transform: translateY(-2px);
+}
+
+.rule-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.88rem;
+  color: #d1d5db;
+}
+.rule-badge {
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+}
+.badge-m {
+  background: #374151;
+  color: #f3f4f6;
+  border: 1px solid #4b5563;
+}
+.badge-gm {
+  background: linear-gradient(135deg, #d97706, #92400e);
+  color: #fff;
+  border: 1px solid #f59e0b;
+  box-shadow: 0 0 8px rgba(245, 158, 11, 0.4);
+}
+.badge-leg {
+  background: linear-gradient(135deg, #dc2626, #7f1d1d);
+  color: #fef08a;
+  border: 1px solid #ef4444;
+  box-shadow: 0 0 10px rgba(239, 68, 68, 0.4);
+}
+.rule-tip {
+  font-size: 0.85rem;
+  color: #e5e7eb;
+  background: rgba(255, 215, 0, 0.08);
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px dashed rgba(255, 215, 0, 0.35);
+}
+
+/* ── Controls (Filter & Search - Floating Sticky) ─ */
+.controls-bar {
+  position: sticky;
+  top: 15px;
+  z-index: 100;
+  background: rgba(22, 25, 34, 0.95);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(197, 160, 89, 0.4);
+  border-radius: 12px;
+  padding: 14px 18px;
+  margin-bottom: 25px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7);
+}
+.filter-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.filter-btn {
+  background: #202432;
+  color: #94a3b8;
+  border: 1px solid #333a4d;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+.filter-btn:hover {
+  background: #2a3142;
+  color: #fff;
+  border-color: #ffd700;
+}
+.filter-btn.active {
+  background: linear-gradient(135deg, #c5a059, #9e7d3b);
+  color: #0f1015;
+  border-color: #ffd700;
+  font-weight: 800;
+  box-shadow: 0 0 12px rgba(197, 160, 89, 0.4);
+}
+
+.search-box {
+  position: relative;
+  min-width: 260px;
+}
+.search-box input {
+  width: 100%;
+  padding: 8px 14px 8px 36px;
+  background: #181a24;
+  border: 1px solid #374151;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 0.88rem;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+.search-box input:focus {
+  border-color: #ffd700;
+  box-shadow: 0 0 8px rgba(255, 215, 0, 0.25);
+}
+.search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #6b7280;
+}
+
+/* ── Jobs Grid (Simple View) ───────────────────── */
+.jobs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+  gap: 20px;
+}
+
+.job-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-default);
+  border-radius: 12px;
+  padding: 18px 20px;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.job-card:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-gold);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6), 0 0 15px rgba(197, 160, 89, 0.25);
+}
+
+.card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.job-title-group {
+  display: flex;
+  flex-direction: column;
+}
+.job-name-ko {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #ffd700;
+  letter-spacing: 0.5px;
+}
+.job-name-en {
+  font-size: 0.78rem;
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+.job-tier-badge {
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 3px 9px;
+  border-radius: 20px;
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+.tier-Master {
+  background: rgba(107, 114, 128, 0.2);
+  color: #d1d5db;
+  border-color: #4b5563;
+}
+.tier-Grandmaster {
+  background: rgba(245, 158, 11, 0.18);
+  color: #fbbf24;
+  border-color: #b45309;
+}
+.tier-Legend {
+  background: rgba(239, 68, 68, 0.2);
+  color: #fca5a5;
+  border-color: #b91c1c;
+}
+.tier-Dual, .tier-GM-Hybrid {
+  background: rgba(59, 130, 246, 0.2);
+  color: #93c5fd;
+  border-color: #2563eb;
+}
+.tier-Special {
+  background: rgba(168, 85, 247, 0.2);
+  color: #d8b4fe;
+  border-color: #9333ea;
+}
+
+/* ── 스티커 형태의 조건 뱃지 (마스터/그마/레전드 테마) ── */
+.stickers-wrapper {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+.tier-sticker {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 9px;
+  border-radius: 5px;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+  user-select: none;
+}
+.sticker-master {
+  background: #374151;
+  color: #f3f4f6;
+  border: 1px solid #4b5563;
+}
+.sticker-gm {
+  background: linear-gradient(135deg, #d97706, #92400e);
+  color: #ffffff;
+  border: 1px solid #f59e0b;
+  box-shadow: 0 0 8px rgba(245, 158, 11, 0.35);
+}
+.sticker-legend {
+  background: linear-gradient(135deg, #dc2626, #7f1d1d);
+  color: #fef08a;
+  border: 1px solid #ef4444;
+  box-shadow: 0 0 10px rgba(239, 68, 68, 0.4);
+}
+.sticker-sep {
+  font-size: 0.85rem;
+  font-weight: 900;
+  color: #ffd700;
+  margin: 0 1px;
+}
+
+.job-summary {
+  font-size: 0.88rem;
+  color: #d1d5db;
+  line-height: 1.5;
+  margin-bottom: 14px;
+  flex-grow: 1;
+}
+
+/* 요약 키워드 태그 */
+.trait-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: auto;
+}
+.trait-tag {
+  font-size: 0.76rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 4px;
+  border: 1px solid transparent;
+}
+.trait-buff {
+  background: rgba(16, 185, 129, 0.12);
+  color: #34d399;
+  border-color: rgba(16, 185, 129, 0.3);
+}
+.trait-special {
+  background: rgba(245, 158, 11, 0.15);
+  color: #fde047;
+  border-color: rgba(245, 158, 11, 0.35);
+}
+.trait-debuff {
+  background: rgba(239, 68, 68, 0.15);
+  color: #fca5a5;
+  border-color: rgba(239, 68, 68, 0.35);
+}
+
+/* ── Interactive Floating Tooltip (Hover Detail - 텍스트 스킬 상세) ─ */
+#job-tooltip {
+  position: fixed;
+  display: none;
+  z-index: 9999;
+  width: 400px;
+  max-width: 90vw;
+  background: #141722;
+  border: 2px solid #ffd700;
+  border-radius: 12px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.85), 0 0 25px rgba(255, 215, 0, 0.3);
+  padding: 16px 18px;
+  pointer-events: none;
+  color: #e5e7eb;
+  transition: opacity 0.15s ease;
+  opacity: 0;
+}
+#job-tooltip.visible {
+  display: block;
+  opacity: 1;
+}
+
+.tt-header {
+  border-bottom: 1px solid #2d3345;
+  padding-bottom: 8px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.tt-title {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #ffd700;
+}
+.tt-req {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #60a5fa;
+  background: rgba(96, 165, 250, 0.15);
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.tt-note {
+  background: rgba(245, 158, 11, 0.12);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  color: #fef08a;
+  font-size: 0.8rem;
+  padding: 6px 10px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+
+.tt-skills-title {
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: #94a3b8;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.tt-skill-item {
+  background: #1c202e;
+  border: 1px solid #2f364a;
+  border-radius: 6px;
+  padding: 8px 10px;
+  margin-bottom: 6px;
+}
+.tt-skill-name {
+  font-size: 0.86rem;
+  font-weight: 800;
+  color: #38bdf8;
+  margin-bottom: 2px;
+}
+.tt-skill-desc {
+  font-size: 0.8rem;
+  color: #cbd5e1;
+  line-height: 1.4;
+}
+
+/* ── Modal Popups ──────────────────────────────── */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  padding: 20px;
+}
+.modal-overlay.active {
+  display: flex;
+}
+.modal-content {
+  background: #181a22;
+  border: 2px solid var(--border-gold);
+  border-radius: 12px;
+  box-shadow: 0 0 35px rgba(0,0,0,0.9), 0 0 25px var(--gold-glow);
+  max-width: 95vw;
+  max-height: 92vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  background: #20232c;
+  border-bottom: 1px solid #383e50;
+}
+.modal-title {
+  font-size: 1.15rem;
+  font-weight: 900;
+  color: #ffd700;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.modal-close {
+  background: none;
+  border: none;
+  color: #a0a5b5;
+  font-size: 1.8rem;
+  cursor: pointer;
+  line-height: 1;
+  transition: color 0.2s;
+}
+.modal-close:hover { color: #ff4757; }
+.modal-body {
+  padding: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #0d0f14;
+  overflow: auto;
+}
+.modal-img {
+  max-width: 100%;
+  max-height: 78vh;
+  object-fit: contain;
+  border-radius: 6px;
+  border: 1px solid #33384a;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.8);
+}
+
+/* ── Job Image Slider in Modal ─────────────────── */
+.slider-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+.slider-view {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 320px;
+  max-width: 100%;
+}
+.slider-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(18, 20, 27, 0.85);
+  color: #ffd700;
+  border: 2px solid #ffd700;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 900;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 10;
+  user-select: none;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+}
+.slider-nav-btn:hover {
+  background: #ffd700;
+  color: #111317;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+  transform: translateY(-50%) scale(1.1);
+}
+.slider-nav-btn.prev { left: 15px; }
+.slider-nav-btn.next { right: 15px; }
+
+.gender-indicator-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 14px;
+}
+.gender-tab-btn {
+  background: #1c202d;
+  color: #94a3b8;
+  border: 1px solid #3b4256;
+  padding: 6px 18px;
+  border-radius: 20px;
+  font-size: 0.88rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.gender-tab-btn:hover {
+  color: #fff;
+  border-color: #ffd700;
+}
+.gender-tab-btn.active {
+  background: linear-gradient(135deg, #c5a059, #9e7d3b);
+  color: #121316;
+  border-color: #ffd700;
+  box-shadow: 0 0 12px rgba(197, 160, 89, 0.4);
+}
+
+footer {
+  text-align: center;
+  margin-top: 50px;
+  color: #636b7e;
+  font-size: 0.88rem;
+}
+</style>
+</head>
+<body>
+
+<!-- 1. 포인트 테이블 팝업 모달 -->
+<div class="modal-overlay" id="pointTableModal" onclick="closePointTableModal()">
+  <div class="modal-content" onclick="event.stopPropagation()">
+    <div class="modal-header">
+      <div class="modal-title">📊 ACM 스킬 계열별 포인트 테이블</div>
+      <button class="modal-close" onclick="closePointTableModal()">&times;</button>
+    </div>
+    <div class="modal-body">
+      <img class="modal-img" src="images/jobs/point_table.png" alt="포인트 테이블">
+    </div>
+  </div>
+</div>
+
+<!-- 2. 직업 인게임 스크린샷 슬라이드 팝업 모달 (클릭 시 출력) -->
+<div class="modal-overlay" id="jobModal" onclick="closeJobModal()">
+  <div class="modal-content" onclick="event.stopPropagation()">
+    <div class="modal-header">
+      <div class="modal-title" id="modalJobTitle">직업 정보</div>
+      <button class="modal-close" onclick="closeJobModal()">&times;</button>
+    </div>
+    <div class="modal-body">
+      <div class="slider-container">
+        <div class="slider-view">
+          <button class="slider-nav-btn prev" onclick="prevJobSlide()" title="이전 (좌우 화살표 키로도 이동 가능)">&#10094;</button>
+          <img id="modalJobImg" class="modal-img" src="" alt="직업 인게임 스크린샷">
+          <button class="slider-nav-btn next" onclick="nextJobSlide()" title="다음 (좌우 화살표 키로도 이동 가능)">&#10095;</button>
+        </div>
+        <div class="gender-indicator-bar">
+          <button class="gender-tab-btn" id="btnGenderMale" onclick="setJobGender('male')">
+            <span>⚔️</span> 남성 직업 화면
+          </button>
+          <button class="gender-tab-btn" id="btnGenderFemale" onclick="setJobGender('female')">
+            <span>🛡️</span> 여성 직업 화면
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <!-- 상단 네비게이션 바 -->
+  <nav class="top-nav">
+    <div style="display:flex;align-items:center;gap:12px;">
+      <a href="index.html" style="text-decoration:none;color:#ffd700;font-family:'Cinzel',serif;font-size:1.15rem;font-weight:900;letter-spacing:0.5px;">
+        ⚔️ HoMM3 WoG info
+      </a>
+    </div>
+    <div class="nav-links">
+      <a href="index.html" class="nav-btn">
+        <span>🏠</span> 메인 홈
+      </a>
+      <a href="homm3_hero_info.html" class="nav-btn">
+        <span>👑</span> 영웅 도감
+      </a>
+      <a href="homm3_job_info.html" class="nav-btn active">
+        <span>🏅</span> 직업 도감
+      </a>
+      <a href="homm3_adjutant_info.html" class="nav-btn">
+        <span>🛡️</span> 부관 도감
+      </a>
+      <a href="homm3_magic_info.html" class="nav-btn">
+        <span>📜</span> 마법 도감
+      </a>
+    </div>
+  </nav>
+
+  <header>
+    <h1>HoMM3 WoG info - HERO CLASS DIRECTORY</h1>
+    <div style="margin-bottom: 8px;">
+      <a href="https://blog.naver.com/gigi905" target="_blank" rel="noopener noreferrer" class="dev-blog-link">
+        <span>❄️</span> 직업, 부관, 콩순이냉장고 : 네이버 블로그 &rarr;
+      </a>
+    </div>
+    <p>전사, 마법사, 탐험가 3대 계열 전직 시스템 및 17개 고유 직업 특수 능력 도감</p>
+  </header>
+
+  <!-- 컨트롤 바 (필터 & 검색) -->
+  <div class="controls-bar">
+    <div class="filter-tabs">
+      <button class="filter-btn active" data-cat="all">전체 보기 (17)</button>
+      <button class="filter-btn" data-cat="warrior">순수 전사</button>
+      <button class="filter-btn" data-cat="mage">순수 마법사</button>
+      <button class="filter-btn" data-cat="explorer">순수 탐험가</button>
+      <button class="filter-btn" data-cat="warrior_mage">전사 + 마법사</button>
+      <button class="filter-btn" data-cat="warrior_explorer">전사 + 탐험가</button>
+      <button class="filter-btn" data-cat="mage_explorer">마법사 + 탐험가</button>
+      <button class="filter-btn" data-cat="special">종결/특수 직업</button>
+    </div>
+    <div class="search-box">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="jobSearch" placeholder="직업명, 스킬명, 효과 검색...">
+    </div>
+  </div>
+
+  <!-- 규칙 요약 배너 (포인트 테이블) -->
+  <div class="rules-banner">
+    <div class="rules-list">
+      <button class="point-table-btn" onclick="openPointTableModal()">
+        <span>📊</span> 포인트 테이블
+      </button>
+      <span class="rule-tag">
+        <span class="rule-badge badge-m">마스터</span> 32 포인트
+      </span>
+      <span class="rule-tag">
+        <span class="rule-badge badge-gm">그마</span> 55포인트
+      </span>
+      <span class="rule-tag">
+        <span class="rule-badge badge-leg">레전드</span> 72포인트
+      </span>
+    </div>
+    <div class="rule-tip">
+      ✨ <strong>Tip:</strong> 그마 전사 포함 직업군은 마법 <strong>'각성'</strong> 자동 습득 / 카드를 <strong>클릭하면 인게임 스크린샷</strong>이 열립니다.
+    </div>
+  </div>
+
+  <!-- 직업 카드 목록 -->
+  <div class="jobs-grid" id="jobsGrid"></div>
+
+  <footer>
+    &copy; HOMM III Info &bull; Heroes of Might and Magic III Fansite &bull; Advanced Class Mod
+  </footer>
+</div>
+
+<!-- 플로팅 툴팁 (호버링 시 상세 스킬 정보만 표시) -->
+<div id="job-tooltip">
+  <div class="tt-header">
+    <div class="tt-title" id="ttName">직업명</div>
+    <div class="tt-req" id="ttReq">전직 조건</div>
+  </div>
+  <div class="tt-note" id="ttNote" style="display:none;"></div>
+  <div class="tt-skills-title">보유 특수 능력</div>
+  <div id="ttSkills"></div>
+</div>
+
+<script>
+let currentCategory = 'all';
+let searchQuery = '';
+
+const grid = document.getElementById('jobsGrid');
+const tooltip = document.getElementById('job-tooltip');
+
+// 조건별 스티커 생성 헬퍼 함수 (마스터, 그마, 레전드 테마)
+function renderJobStickers(job) {
+  // tagCode 기반 또는 id 기반으로 전사/마법사/탐험가 및 등급 파악
+  // W: 전사, M: 마법사, A: 탐험가 (W: 마스터, WW: 그마, WWW: 레전드 등)
+  const stickers = [];
+
+  switch (job.id) {
+    // 1. 순수 계열
+    case 'master_warrior':
+      stickers.push(`<span class="tier-sticker sticker-master">전사</span>`);
+      break;
+    case 'gm_warrior':
+      stickers.push(`<span class="tier-sticker sticker-gm">전사</span>`);
+      break;
+    case 'legend_warrior':
+      stickers.push(`<span class="tier-sticker sticker-legend">전사</span>`);
+      break;
+
+    case 'master_explorer':
+      stickers.push(`<span class="tier-sticker sticker-master">탐험가</span>`);
+      break;
+    case 'gm_explorer':
+      stickers.push(`<span class="tier-sticker sticker-gm">탐험가</span>`);
+      break;
+    case 'legend_explorer':
+      stickers.push(`<span class="tier-sticker sticker-legend">탐험가</span>`);
+      break;
+
+    case 'master_mage':
+      stickers.push(`<span class="tier-sticker sticker-master">마법사</span>`);
+      break;
+    case 'gm_mage':
+      stickers.push(`<span class="tier-sticker sticker-gm">마법사</span>`);
+      break;
+    case 'legend_mage':
+      stickers.push(`<span class="tier-sticker sticker-legend">마법사</span>`);
+      break;
+
+    // 2. 마법사 + 탐험가
+    case 'druid': // M + A
+      stickers.push(`<span class="tier-sticker sticker-master">마법사</span>`);
+      stickers.push(`<span class="sticker-sep">+</span>`);
+      stickers.push(`<span class="tier-sticker sticker-master">탐험가</span>`);
+      break;
+    case 'beast_lord': // MM + A
+      stickers.push(`<span class="tier-sticker sticker-gm">마법사</span>`);
+      stickers.push(`<span class="sticker-sep">+</span>`);
+      stickers.push(`<span class="tier-sticker sticker-master">탐험가</span>`);
+      break;
+    case 'cardinal': // M + AA
+      stickers.push(`<span class="tier-sticker sticker-master">마법사</span>`);
+      stickers.push(`<span class="sticker-sep">+</span>`);
+      stickers.push(`<span class="tier-sticker sticker-gm">탐험가</span>`);
+      break;
+
+    // 3. 전사 + 마법사
+    case 'battle_mage': // W + M
+      stickers.push(`<span class="tier-sticker sticker-master">전사</span>`);
+      stickers.push(`<span class="sticker-sep">+</span>`);
+      stickers.push(`<span class="tier-sticker sticker-master">마법사</span>`);
+      break;
+    case 'reaver': // WW + M
+      stickers.push(`<span class="tier-sticker sticker-gm">전사</span>`);
+      stickers.push(`<span class="sticker-sep">+</span>`);
+      stickers.push(`<span class="tier-sticker sticker-master">마법사</span>`);
+      break;
+    case 'heretic': // W + MM
+      stickers.push(`<span class="tier-sticker sticker-master">전사</span>`);
+      stickers.push(`<span class="sticker-sep">+</span>`);
+      stickers.push(`<span class="tier-sticker sticker-gm">마법사</span>`);
+      break;
+
+    // 4. 전사 + 탐험가
+    case 'hunter': // W + A
+      stickers.push(`<span class="tier-sticker sticker-master">전사</span>`);
+      stickers.push(`<span class="sticker-sep">+</span>`);
+      stickers.push(`<span class="tier-sticker sticker-master">탐험가</span>`);
+      break;
+    case 'warlord': // WW + A
+      stickers.push(`<span class="tier-sticker sticker-gm">전사</span>`);
+      stickers.push(`<span class="sticker-sep">+</span>`);
+      stickers.push(`<span class="tier-sticker sticker-master">탐험가</span>`);
+      break;
+    case 'field_marshal': // W + AA
+      stickers.push(`<span class="tier-sticker sticker-master">전사</span>`);
+      stickers.push(`<span class="sticker-sep">+</span>`);
+      stickers.push(`<span class="tier-sticker sticker-gm">탐험가</span>`);
+      break;
+
+    // 5. 종결 및 특수
+    case 'general': // W + M + A
+      stickers.push(`<span class="tier-sticker sticker-master">전사</span>`);
+      stickers.push(`<span class="sticker-sep">+</span>`);
+      stickers.push(`<span class="tier-sticker sticker-master">마법사</span>`);
+      stickers.push(`<span class="sticker-sep">+</span>`);
+      stickers.push(`<span class="tier-sticker sticker-master">탐험가</span>`);
+      break;
+    case 'guardian': // MM + AA
+      stickers.push(`<span class="tier-sticker sticker-gm">마법사</span>`);
+      stickers.push(`<span class="sticker-sep">+</span>`);
+      stickers.push(`<span class="tier-sticker sticker-gm">탐험가</span>`);
+      break;
+    case 'slayer': // WW + MM
+      stickers.push(`<span class="tier-sticker sticker-gm">전사</span>`);
+      stickers.push(`<span class="sticker-sep">+</span>`);
+      stickers.push(`<span class="tier-sticker sticker-gm">마법사</span>`);
+      break;
+    case 'avenger': // WW + AA
+      stickers.push(`<span class="tier-sticker sticker-gm">전사</span>`);
+      stickers.push(`<span class="sticker-sep">+</span>`);
+      stickers.push(`<span class="tier-sticker sticker-gm">탐험가</span>`);
+      break;
+
+    default:
+      stickers.push(`<span class="tier-sticker sticker-master">${job.pointsReq}</span>`);
+      break;
+  }
+
+  return `<div class="stickers-wrapper">${stickers.join('')}</div>`;
+}
+
+function renderJobs() {
+  const filtered = JOBS_DATA.filter(job => {
+    const matchCat = (currentCategory === 'all') || (job.category === currentCategory);
+    if (!matchCat) return false;
+
+    if (!searchQuery) return true;
+    const q = searchQuery.toLowerCase();
+    const inName = job.nameKo.toLowerCase().includes(q) || job.nameEn.toLowerCase().includes(q);
+    const inSummary = job.summary.toLowerCase().includes(q);
+    const inSkills = job.skills.some(s => s.name.toLowerCase().includes(q) || s.desc.toLowerCase().includes(q));
+    const inTraits = job.traits.some(t => t.name.toLowerCase().includes(q));
+    return inName || inSummary || inSkills || inTraits;
+  });
+
+  if (filtered.length === 0) {
+    grid.innerHTML = `<div style="grid-column: 1/-1; text-align:center; padding: 40px; color:#9ca3af; font-size:1.1rem;">
+      검색 결과와 일치하는 직업이 없습니다.
+    </div>`;
+    return;
+  }
+
+  grid.innerHTML = filtered.map(job => {
+    let tierClass = 'tier-' + job.tier.replace(/\s+/g, '-');
+    if (job.tier.includes('Dual')) tierClass = 'tier-Dual';
+    else if (job.tier.includes('Hybrid')) tierClass = 'tier-GM-Hybrid';
+    else if (job.tier.includes('Double') || job.tier.includes('Trap')) tierClass = 'tier-Special';
+
+    const traitsHtml = job.traits.map(t => `<span class="trait-tag trait-${t.type}">${t.name}</span>`).join('');
+    const stickersHtml = renderJobStickers(job);
+
+    return `
+      <div class="job-card" data-job-id="${job.id}" onclick="openJobModal('${job.id}')">
+        <div class="card-header">
+          <div class="job-title-group">
+            <span class="job-name-ko">${job.nameKo}</span>
+            <span class="job-name-en">${job.nameEn} (${job.tagCode})</span>
+          </div>
+          <span class="job-tier-badge ${tierClass}">${job.tier}</span>
+        </div>
+        ${stickersHtml}
+        <p class="job-summary">${job.summary}</p>
+        <div class="trait-tags">${traitsHtml}</div>
+      </div>
+    `;
+  }).join('');
+
+  attachTooltipEvents();
+}
+
+function attachTooltipEvents() {
+  const cards = document.querySelectorAll('.job-card');
+  cards.forEach(card => {
+    const jobId = card.dataset.jobId;
+    const job = JOBS_DATA.find(j => j.id === jobId);
+    if (!job) return;
+
+    card.addEventListener('mouseenter', (e) => {
+      showTooltip(job, e);
+    });
+    card.addEventListener('mousemove', (e) => {
+      updateTooltipPos(e);
+    });
+    card.addEventListener('mouseleave', () => {
+      hideTooltip();
+    });
+  });
+}
+
+function showTooltip(job, e) {
+  document.getElementById('ttName').innerText = `${job.nameKo} (${job.nameEn})`;
+  document.getElementById('ttReq').innerText = job.reqDesc;
+
+  const noteEl = document.getElementById('ttNote');
+  if (job.specialNote) {
+    noteEl.innerText = `💡 ${job.specialNote}`;
+    noteEl.style.display = 'block';
+  } else {
+    noteEl.style.display = 'none';
+  }
+
+  const skillsEl = document.getElementById('ttSkills');
+  skillsEl.innerHTML = job.skills.map(s => `
+    <div class="tt-skill-item">
+      <div class="tt-skill-name">${s.name}</div>
+      <div class="tt-skill-desc">${s.desc}</div>
+    </div>
+  `).join('');
+
+  tooltip.classList.add('visible');
+  updateTooltipPos(e);
+}
+
+function updateTooltipPos(e) {
+  const offset = 20;
+  let x = e.clientX + offset;
+  let y = e.clientY + offset;
+
+  const tooltipWidth = tooltip.offsetWidth;
+  const tooltipHeight = tooltip.offsetHeight;
+  const viewportWidth = window.innerWidth;
+  const viewportHeight = window.innerHeight;
+
+  if (x + tooltipWidth > viewportWidth - 20) {
+    x = e.clientX - tooltipWidth - offset;
+  }
+  if (y + tooltipHeight > viewportHeight - 20) {
+    y = viewportHeight - tooltipHeight - 20;
+  }
+  if (y < 20) {
+    y = 20;
+  }
+
+  tooltip.style.left = `${Math.max(10, x)}px`;
+  tooltip.style.top = `${Math.max(10, y)}px`;
+}
+
+function hideTooltip() {
+  tooltip.classList.remove('visible');
+}
+
+// ── 모달 이벤트 ──────────────────────────────────────
+function openPointTableModal() {
+  document.getElementById('pointTableModal').classList.add('active');
+}
+function closePointTableModal() {
+  document.getElementById('pointTableModal').classList.remove('active');
+}
+
+let currentModalJob = null;
+let currentModalGender = 'male'; // 'male' or 'female'
+
+function openJobModal(jobId) {
+  const job = JOBS_DATA.find(j => j.id === jobId);
+  if (!job) return;
+
+  hideTooltip();
+  currentModalJob = job;
+  currentModalGender = 'male'; // 기본 남성으로 오픈
+
+  updateModalSlide();
+  document.getElementById('jobModal').classList.add('active');
+}
+
+function updateModalSlide() {
+  if (!currentModalJob) return;
+
+  const isMale = currentModalGender === 'male';
+  const titleGenderText = isMale ? "남성" : "여성";
+  document.getElementById('modalJobTitle').innerHTML = `
+    <span>${currentModalJob.nameKo} (${currentModalJob.nameEn})</span>
+    <span style="font-size:0.85rem; color:#a0a5b5; font-weight:normal; margin-left:8px;">[${titleGenderText} 직업 화면]</span>
+  `;
+
+  const imgSrc = isMale ? currentModalJob.imageMale : currentModalJob.imageFemale;
+  document.getElementById('modalJobImg').src = imgSrc;
+
+  // 하단 탭 버튼 활성화 스타일
+  const btnMale = document.getElementById('btnGenderMale');
+  const btnFemale = document.getElementById('btnGenderFemale');
+  if (isMale) {
+    btnMale.classList.add('active');
+    btnFemale.classList.remove('active');
+  } else {
+    btnMale.classList.remove('active');
+    btnFemale.classList.add('active');
+  }
+}
+
+function setJobGender(gender) {
+  if (currentModalGender === gender) return;
+  currentModalGender = gender;
+  updateModalSlide();
+}
+
+function prevJobSlide() {
+  currentModalGender = (currentModalGender === 'male') ? 'female' : 'male';
+  updateModalSlide();
+}
+
+function nextJobSlide() {
+  currentModalGender = (currentModalGender === 'male') ? 'female' : 'male';
+  updateModalSlide();
+}
+
+function closeJobModal() {
+  document.getElementById('jobModal').classList.remove('active');
+  currentModalJob = null;
+}
+
+// 키보드 조작 (ESC: 닫기, 좌/우 화살표: 남/여 슬라이드 전환)
+window.addEventListener('keydown', (e) => {
+  if (document.getElementById('jobModal').classList.contains('active')) {
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+      nextJobSlide();
+    }
+  }
+  if (e.key === 'Escape') {
+    closePointTableModal();
+    closeJobModal();
+  }
+});
+
+// ── 필터 버튼 이벤트 ─────────────────────────────────
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    currentCategory = btn.dataset.cat;
+    renderJobs();
+  });
+});
+
+// ── 검색 이벤트 ─────────────────────────────────────
+const searchInput = document.getElementById('jobSearch');
+searchInput.addEventListener('input', (e) => {
+  searchQuery = e.target.value.trim();
+  renderJobs();
+});
+
+// 초기 렌더링
+renderJobs();
+</script>
+
+</body>
+</html>

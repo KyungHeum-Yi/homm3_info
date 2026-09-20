@@ -29,7 +29,7 @@ body {
 }
 
 .portal-container {
-  max-width: 1040px;
+  max-width: 1200px;
   width: 100%;
   margin: 0 auto;
   text-align: center;
@@ -95,8 +95,8 @@ h1 {
 /* ── Portal Cards Grid ──────────────────────── */
 .portal-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 32px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 28px;
   margin-bottom: 40px;
 }
 
@@ -104,7 +104,7 @@ h1 {
   background: var(--bg-card);
   border: 2px solid #2d313f;
   border-radius: 16px;
-  padding: 38px 28px;
+  padding: 38px 24px;
   text-decoration: none;
   color: inherit;
   display: flex;
@@ -153,6 +153,11 @@ h1 {
 .card-adjutant {
   --accent-color: #f59e0b;
   --accent-glow: rgba(245, 158, 11, 0.35);
+}
+/* 직업 카드 테마 */
+.card-job {
+  --accent-color: #10b981;
+  --accent-glow: rgba(16, 185, 129, 0.35);
 }
 
 .card-icon {
@@ -253,7 +258,7 @@ footer {
   </div>
 
   <div class="portal-grid">
-    <!-- 영웅 도감 링크 -->
+    <!-- 1. 영웅 도감 링크 -->
     <a href="homm3_hero_info.html" class="portal-card card-hero">
       <div class="card-icon">👑</div>
       <h2 class="card-title">영웅 도감</h2>
@@ -269,23 +274,23 @@ footer {
       <span class="card-btn">영웅 도감 입장 &rarr;</span>
     </a>
 
-    <!-- 마법 도감 링크 -->
-    <a href="homm3_magic_info.html" class="portal-card card-magic">
-      <div class="card-icon">📜</div>
-      <h2 class="card-title">마법 도감</h2>
+    <!-- 2. 직업 도감 링크 -->
+    <a href="homm3_job_info.html" class="portal-card card-job">
+      <div class="card-icon">🏅</div>
+      <h2 class="card-title">직업 도감</h2>
       <p class="card-desc">
-        대기, 대지, 물, 불 4대 원소 마법의 모험마법 및 전투마법 스크린샷과 주문 정보를 확인하세요.
+        전사, 마법사, 탐험가 3대 계열 포인트 전직 체계와 17개 직업별 고유 특수 능력을 확인하세요.
       </p>
       <div class="card-features">
-        <span class="feature-chip">4대 원소 마법</span>
-        <span class="feature-chip">모험마법 도감</span>
-        <span class="feature-chip">전투마법 도감</span>
-        <span class="feature-chip">고화질 원본 확대 보기</span>
+        <span class="feature-chip">17개 고유 직업</span>
+        <span class="feature-chip">심플 카드 뷰</span>
+        <span class="feature-chip">마우스 호버 상세 정보</span>
+        <span class="feature-chip">인게임 화면 확인</span>
       </div>
-      <span class="card-btn">마법 도감 입장 &rarr;</span>
+      <span class="card-btn">직업 도감 입장 &rarr;</span>
     </a>
 
-    <!-- 부관 도감 링크 -->
+    <!-- 3. 부관 도감 링크 -->
     <a href="homm3_adjutant_info.html" class="portal-card card-adjutant">
       <div class="card-icon">🛡️</div>
       <h2 class="card-title">부관 도감</h2>
@@ -299,6 +304,22 @@ footer {
         <span class="feature-chip">스킬 조합 시뮬레이터</span>
       </div>
       <span class="card-btn">부관 도감 입장 &rarr;</span>
+    </a>
+
+    <!-- 4. 마법 도감 링크 -->
+    <a href="homm3_magic_info.html" class="portal-card card-magic">
+      <div class="card-icon">📜</div>
+      <h2 class="card-title">마법 도감</h2>
+      <p class="card-desc">
+        대기, 대지, 물, 불 4대 원소 마법의 모험마법 및 전투마법 스크린샷과 주문 정보를 확인하세요.
+      </p>
+      <div class="card-features">
+        <span class="feature-chip">4대 원소 마법</span>
+        <span class="feature-chip">모험마법 도감</span>
+        <span class="feature-chip">전투마법 도감</span>
+        <span class="feature-chip">고화질 원본 확대 보기</span>
+      </div>
+      <span class="card-btn">마법 도감 입장 &rarr;</span>
     </a>
   </div>
 
