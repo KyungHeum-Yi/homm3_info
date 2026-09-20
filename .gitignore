@@ -1,0 +1,7 @@
+# Python temporary files
+__pycache__/
+*.py[cod]
+*$py.class
+tmp_crop_test/
+images/tmp_*.png
+*.txt

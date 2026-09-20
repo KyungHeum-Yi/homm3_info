@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>HoMM3 WoG info - 마법 도감</title>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800;900&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<script src="magic_data.js"></script>
 <style>
 :root {
   --bg-primary: #121316;
@@ -178,6 +179,12 @@ header p {
   color: #fff;
   border-color: #616a82;
 }
+.magic-btn.active {
+  background: #ffd700;
+  color: #121316;
+  border-color: #ffd700;
+  box-shadow: 0 0 10px rgba(255,215,0,0.4);
+}
 
 /* 속성별 버튼 활성화 */
 .magic-btn.magic-air.active {
@@ -226,6 +233,32 @@ header p {
   color: #121316;
   border-color: #ffd700;
   box-shadow: 0 0 10px rgba(255,215,0,0.4);
+}
+
+.stats-badge {
+  font-size: 0.88rem;
+  color: #ffd700;
+  background: #20232c;
+  padding: 6px 14px;
+  border-radius: 8px;
+  border: 1px solid #3d4254;
+  white-space: nowrap;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+}
+
+.magic-empty-state {
+  text-align: center;
+  padding: 50px 20px;
+  color: #7e869e;
+  font-size: 1.1rem;
+  font-weight: 700;
+  background: #16181f;
+  border: 1px dashed #3d4254;
+  border-radius: 12px;
+  margin-top: 10px;
+  display: none;
 }
 
 /* ── Element Section Layout ──────────────────── */
@@ -401,13 +434,65 @@ header p {
   background: #0b0c10;
   display: block;
 }
+
+/* ── 마법 등급(레벨) 스티커 뱃지 스타일 ─────────── */
+.level-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.68rem;
+  font-weight: 800;
+  padding: 1px 5px;
+  border-radius: 4px;
+  margin-right: 5px;
+  line-height: 1.2;
+  vertical-align: middle;
+  position: relative;
+  top: -1.5px;
+  letter-spacing: 0.2px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+  flex-shrink: 0;
+}
+.level-badge-1 { background: #334155; color: #cbd5e1; border: 1px solid #64748b; }
+.level-badge-2 { background: #1e3a5f; color: #93c5fd; border: 1px solid #3b82f6; }
+.level-badge-3 { background: #064e3b; color: #6ee7b7; border: 1px solid #10b981; }
+.level-badge-4 { background: #4c1d95; color: #c4b5fd; border: 1px solid #8b5cf6; }
+.level-badge-5 { background: #7c2d12; color: #fed7aa; border: 1px solid #f97316; box-shadow: 0 0 8px rgba(249, 115, 22, 0.4); }
+
+/* 단계 필터 버튼 */
+.level-btn {
+  background: #20232c;
+  color: #8c94a9;
+  border: 1px solid #383d4e;
+  padding: 5px 11px;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.level-btn:hover {
+  background: #2b3040;
+  color: #fff;
+  border-color: #ffd700;
+}
+.level-btn.active {
+  background: linear-gradient(135deg, #c5a059, #9e7d3b);
+  color: #121316;
+  border-color: #ffd700;
+  font-weight: 800;
+  box-shadow: 0 0 10px rgba(197, 160, 89, 0.4);
+}
+
 .spell-name {
   font-size: 0.84rem;
   font-weight: 700;
   color: #f1f5f9;
-  line-height: 1.3;
+  line-height: 1.35;
   word-break: keep-all;
   white-space: normal;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 /* ── Search Input Box ────────────────────────── */
@@ -661,6 +746,9 @@ header p {
       <a href="homm3_magic_info.html" class="nav-btn active">
         <span>📜</span> 마법 도감
       </a>
+      <a href="homm3_adjutant_info.html" class="nav-btn">
+        <span>🛡️</span> 부관 도감
+      </a>
     </div>
   </nav>
 
@@ -693,15 +781,28 @@ header p {
         <button class="type-btn" data-type="전투마법">전투마법</button>
       </div>
 
+      <div class="tab-group" id="levelTabs">
+        <span class="group-label">마법 등급:</span>
+        <button class="level-btn active" data-level="ALL">전체</button>
+        <button class="level-btn" data-level="1">1단</button>
+        <button class="level-btn" data-level="2">2단</button>
+        <button class="level-btn" data-level="3">3단</button>
+        <button class="level-btn" data-level="4">4단</button>
+        <button class="level-btn" data-level="5">5단</button>
+      </div>
+
       <div class="search-box">
         <span class="search-icon">&#128269;</span>
         <input type="text" id="magicSearchInput" placeholder="마법 이름 검색 (예: 가속, 부활, 축복)..." oninput="applyFilters()">
       </div>
+
+      <div class="stats-badge" id="magicCounter">표시 중: 69개</div>
     </div>
   </div>
 
   <!-- 마법 리스트 컨테이너 -->
   <div id="magicSectionsContainer">
+    <div class="magic-empty-state" id="magicEmptyState">&#128269; 선택된 조건의 마법이 없습니다.</div>
 
     <!-- 1. 대기마법 -->
     <section class="element-section" data-element="대기마법">
@@ -728,27 +829,27 @@ header p {
           </div>
         </div>
         <div class="spells-grid">
-          <div class="spell-item" onclick="openModal('대기마법 - 대기 조망', 'images/magic/대기마법/모험마법/대기 조망.jpg')">
+          <div class="spell-item" onclick="openModal('대기마법 - 대기 조망 (모험마법 상세)', 'images/magic/모험마법info/대기 조망.jpg')">
             <img class="spell-thumb" src="images/magic/대기마법/모험마법/대기 조망.jpg" alt="대기 조망" loading="lazy">
             <span class="spell-name">대기 조망</span>
           </div>
-          <div class="spell-item" onclick="openModal('대기마법 - 대지 조망', 'images/magic/대기마법/모험마법/대지 조망.jpg')">
+          <div class="spell-item" onclick="openModal('대기마법 - 대지 조망 (모험마법 상세)', 'images/magic/모험마법info/대지 조망.jpg')">
             <img class="spell-thumb" src="images/magic/대기마법/모험마법/대지 조망.jpg" alt="대지 조망" loading="lazy">
             <span class="spell-name">대지 조망</span>
           </div>
-          <div class="spell-item" onclick="openModal('대기마법 - 예견', 'images/magic/대기마법/모험마법/예견.jpg')">
+          <div class="spell-item" onclick="openModal('대기마법 - 예견 (모험마법 상세)', 'images/magic/모험마법info/예견.jpg')">
             <img class="spell-thumb" src="images/magic/대기마법/모험마법/예견.jpg" alt="예견" loading="lazy">
             <span class="spell-name">예견</span>
           </div>
-          <div class="spell-item" onclick="openModal('대기마법 - 순풍', 'images/magic/대기마법/모험마법/순풍.jpg')">
+          <div class="spell-item" onclick="openModal('대기마법 - 순풍 (모험마법 상세)', 'images/magic/모험마법info/순풍.jpg')">
             <img class="spell-thumb" src="images/magic/대기마법/모험마법/순풍.jpg" alt="순풍" loading="lazy">
             <span class="spell-name">순풍</span>
           </div>
-          <div class="spell-item" onclick="openModal('대기마법 - 귀환', 'images/magic/대기마법/모험마법/귀환.jpg')">
+          <div class="spell-item" onclick="openModal('대기마법 - 귀환 (모험마법 상세)', 'images/magic/모험마법info/귀환.jpg')">
             <img class="spell-thumb" src="images/magic/대기마법/모험마법/귀환.jpg" alt="귀환" loading="lazy">
             <span class="spell-name">귀환</span>
           </div>
-          <div class="spell-item" onclick="openModal('대기마법 - 비행', 'images/magic/대기마법/모험마법/비행.jpg')">
+          <div class="spell-item" onclick="openModal('대기마법 - 비행 (모험마법 상세)', 'images/magic/모험마법info/비행.jpg')">
             <img class="spell-thumb" src="images/magic/대기마법/모험마법/비행.jpg" alt="비행" loading="lazy">
             <span class="spell-name">비행</span>
           </div>
@@ -764,67 +865,67 @@ header p {
           </div>
         </div>
         <div class="spells-grid">
-          <div class="spell-item" onclick="openModal('대기마법 - 대기의 저항력', 'images/magic/대기마법/전투마법/대기의 저항력.jpg')">
+          <div class="spell-item" onclick="openModal('대기마법 - 대기의 저항력 (전투마법 상세)', 'images/magic/전투마법info/대기의 저항력.jpg')">
             <img class="spell-thumb" src="images/magic/대기마법/전투마법/대기의 저항력.jpg" alt="대기의 저항력" loading="lazy">
             <span class="spell-name">대기의 저항력</span>
           </div>
-          <div class="spell-item" onclick="openModal('대기마법 - 마법 화살', 'images/magic/대기마법/전투마법/마법 화살.jpg')">
+          <div class="spell-item" onclick="openModal('대기마법 - 마법 화살 (전투마법 상세)', 'images/magic/전투마법info/마법 화살.jpg')">
             <img class="spell-thumb" src="images/magic/대기마법/전투마법/마법 화살.jpg" alt="마법 화살" loading="lazy">
             <span class="spell-name">마법 화살</span>
           </div>
-          <div class="spell-item" onclick="openModal('대기마법 - 정확성', 'images/magic/대기마법/전투마법/정확성.jpg')">
+          <div class="spell-item" onclick="openModal('대기마법 - 정확성 (전투마법 상세)', 'images/magic/전투마법info/정확성.jpg')">
             <img class="spell-thumb" src="images/magic/대기마법/전투마법/정확성.jpg" alt="정확성" loading="lazy">
             <span class="spell-name">정확성</span>
           </div>
-          <div class="spell-item" onclick="openModal('대기마법 - 행운', 'images/magic/대기마법/전투마법/행운.jpg')">
+          <div class="spell-item" onclick="openModal('대기마법 - 행운 (전투마법 상세)', 'images/magic/전투마법info/행운.jpg')">
             <img class="spell-thumb" src="images/magic/대기마법/전투마법/행운.jpg" alt="행운" loading="lazy">
             <span class="spell-name">행운</span>
           </div>
-          <div class="spell-item" onclick="openModal('대기마법 - 가속', 'images/magic/대기마법/전투마법/가속.jpg')">
+          <div class="spell-item" onclick="openModal('대기마법 - 가속 (전투마법 상세)', 'images/magic/전투마법info/가속.jpg')">
             <img class="spell-thumb" src="images/magic/대기마법/전투마법/가속.jpg" alt="가속" loading="lazy">
             <span class="spell-name">가속</span>
           </div>
-          <div class="spell-item" onclick="openModal('대기마법 - 마법 반사', 'images/magic/대기마법/전투마법/마법 반사.jpg')">
+          <div class="spell-item" onclick="openModal('대기마법 - 마법 반사 (전투마법 상세)', 'images/magic/전투마법info/마법 반사.jpg')">
             <img class="spell-thumb" src="images/magic/대기마법/전투마법/마법 반사.jpg" alt="마법 반사" loading="lazy">
             <span class="spell-name">마법 반사</span>
           </div>
-          <div class="spell-item" onclick="openModal('대기마법 - 반격', 'images/magic/대기마법/전투마법/반격.jpg')">
+          <div class="spell-item" onclick="openModal('대기마법 - 반격 (전투마법 상세)', 'images/magic/전투마법info/반격.jpg')">
             <img class="spell-thumb" src="images/magic/대기마법/전투마법/반격.jpg" alt="반격" loading="lazy">
             <span class="spell-name">반격</span>
           </div>
-          <div class="spell-item" onclick="openModal('대기마법 - 방어막', 'images/magic/대기마법/전투마법/방어막.jpg')">
+          <div class="spell-item" onclick="openModal('대기마법 - 방어막 (전투마법 상세)', 'images/magic/전투마법info/방어막.jpg')">
             <img class="spell-thumb" src="images/magic/대기마법/전투마법/방어막.jpg" alt="방어막" loading="lazy">
             <span class="spell-name">방어막</span>
           </div>
-          <div class="spell-item" onclick="openModal('대기마법 - 방해 광선', 'images/magic/대기마법/전투마법/방해 광선.jpg')">
+          <div class="spell-item" onclick="openModal('대기마법 - 방해 광선 (전투마법 상세)', 'images/magic/전투마법info/방해 광선.jpg')">
             <img class="spell-thumb" src="images/magic/대기마법/전투마법/방해 광선.jpg" alt="방해 광선" loading="lazy">
             <span class="spell-name">방해 광선</span>
           </div>
-          <div class="spell-item" onclick="openModal('대기마법 - 번개', 'images/magic/대기마법/전투마법/번개.jpg')">
+          <div class="spell-item" onclick="openModal('대기마법 - 번개 (전투마법 상세)', 'images/magic/전투마법info/번개.jpg')">
             <img class="spell-thumb" src="images/magic/대기마법/전투마법/번개.jpg" alt="번개" loading="lazy">
             <span class="spell-name">번개</span>
           </div>
-          <div class="spell-item" onclick="openModal('대기마법 - 언데드 파괴', 'images/magic/대기마법/전투마법/언데드 파괴.jpg')">
+          <div class="spell-item" onclick="openModal('대기마법 - 언데드 파괴 (전투마법 상세)', 'images/magic/전투마법info/언데드 파괴.jpg')">
             <img class="spell-thumb" src="images/magic/대기마법/전투마법/언데드 파괴.jpg" alt="언데드 파괴" loading="lazy">
             <span class="spell-name">언데드 파괴</span>
           </div>
-          <div class="spell-item" onclick="openModal('대기마법 - 헌신', 'images/magic/대기마법/전투마법/헌신.jpg')">
+          <div class="spell-item" onclick="openModal('대기마법 - 헌신 (전투마법 상세)', 'images/magic/전투마법info/헌신.jpg')">
             <img class="spell-thumb" src="images/magic/대기마법/전투마법/헌신.jpg" alt="헌신" loading="lazy">
             <span class="spell-name">헌신</span>
           </div>
-          <div class="spell-item" onclick="openModal('대기마법 - 뱀파이어릭 터치', 'images/magic/대기마법/전투마법/뱀파이어릭 터치.jpg')">
+          <div class="spell-item" onclick="openModal('대기마법 - 뱀파이어릭 터치 (전투마법 상세)', 'images/magic/전투마법info/뱀파이어릭 터치.jpg')">
             <img class="spell-thumb" src="images/magic/대기마법/전투마법/뱀파이어릭 터치.jpg" alt="뱀파이어릭 터치" loading="lazy">
             <span class="spell-name">뱀파이어릭 터치</span>
           </div>
-          <div class="spell-item" onclick="openModal('대기마법 - 연속 번개', 'images/magic/대기마법/전투마법/연속 번개.jpg')">
+          <div class="spell-item" onclick="openModal('대기마법 - 연속 번개 (전투마법 상세)', 'images/magic/전투마법info/연속 번개.jpg')">
             <img class="spell-thumb" src="images/magic/대기마법/전투마법/연속 번개.jpg" alt="연속 번개" loading="lazy">
             <span class="spell-name">연속 번개</span>
           </div>
-          <div class="spell-item" onclick="openModal('대기마법 - 최면', 'images/magic/대기마법/전투마법/최면.jpg')">
+          <div class="spell-item" onclick="openModal('대기마법 - 최면 (전투마법 상세)', 'images/magic/전투마법info/최면.jpg')">
             <img class="spell-thumb" src="images/magic/대기마법/전투마법/최면.jpg" alt="최면" loading="lazy">
             <span class="spell-name">최면</span>
           </div>
-          <div class="spell-item" onclick="openModal('대기마법 - 대천사 소환', 'images/magic/대기마법/전투마법/대천사 소환.jpg')">
+          <div class="spell-item" onclick="openModal('대기마법 - 대천사 소환 (전투마법 상세)', 'images/magic/전투마법info/대천사 소환.jpg')">
             <img class="spell-thumb" src="images/magic/대기마법/전투마법/대천사 소환.jpg" alt="대천사 소환" loading="lazy">
             <span class="spell-name">대천사 소환</span>
           </div>
@@ -857,19 +958,19 @@ header p {
           </div>
         </div>
         <div class="spells-grid">
-          <div class="spell-item" onclick="openModal('대지마법 - 대기 조망', 'images/magic/대지마법/모험마법/대기 조망.jpg')">
+          <div class="spell-item" onclick="openModal('대지마법 - 대기 조망 (모험마법 상세)', 'images/magic/모험마법info/대기 조망.jpg')">
             <img class="spell-thumb" src="images/magic/대지마법/모험마법/대기 조망.jpg" alt="대기 조망" loading="lazy">
             <span class="spell-name">대기 조망</span>
           </div>
-          <div class="spell-item" onclick="openModal('대지마법 - 대지 조망', 'images/magic/대지마법/모험마법/대지 조망.jpg')">
+          <div class="spell-item" onclick="openModal('대지마법 - 대지 조망 (모험마법 상세)', 'images/magic/모험마법info/대지 조망.jpg')">
             <img class="spell-thumb" src="images/magic/대지마법/모험마법/대지 조망.jpg" alt="대지 조망" loading="lazy">
             <span class="spell-name">대지 조망</span>
           </div>
-          <div class="spell-item" onclick="openModal('대지마법 - 귀환', 'images/magic/대지마법/모험마법/귀환.jpg')">
+          <div class="spell-item" onclick="openModal('대지마법 - 귀환 (모험마법 상세)', 'images/magic/모험마법info/귀환.jpg')">
             <img class="spell-thumb" src="images/magic/대지마법/모험마법/귀환.jpg" alt="귀환" loading="lazy">
             <span class="spell-name">귀환</span>
           </div>
-          <div class="spell-item" onclick="openModal('대지마법 - 역전', 'images/magic/대지마법/모험마법/역전.jpg')">
+          <div class="spell-item" onclick="openModal('대지마법 - 역전 (모험마법 상세)', 'images/magic/모험마법info/역전.jpg')">
             <img class="spell-thumb" src="images/magic/대지마법/모험마법/역전.jpg" alt="역전" loading="lazy">
             <span class="spell-name">역전</span>
           </div>
@@ -885,67 +986,67 @@ header p {
           </div>
         </div>
         <div class="spells-grid">
-          <div class="spell-item" onclick="openModal('대지마법 - 대지의 저항력', 'images/magic/대지마법/전투마법/대지의 저항력.jpg')">
+          <div class="spell-item" onclick="openModal('대지마법 - 대지의 저항력 (전투마법 상세)', 'images/magic/전투마법info/대지의 저항력.jpg')">
             <img class="spell-thumb" src="images/magic/대지마법/전투마법/대지의 저항력.jpg" alt="대지의 저항력" loading="lazy">
             <span class="spell-name">대지의 저항력</span>
           </div>
-          <div class="spell-item" onclick="openModal('대지마법 - 마법 화살', 'images/magic/대지마법/전투마법/마법 화살.jpg')">
+          <div class="spell-item" onclick="openModal('대지마법 - 마법 화살 (전투마법 상세)', 'images/magic/전투마법info/마법 화살.jpg')">
             <img class="spell-thumb" src="images/magic/대지마법/전투마법/마법 화살.jpg" alt="마법 화살" loading="lazy">
             <span class="spell-name">마법 화살</span>
           </div>
-          <div class="spell-item" onclick="openModal('대지마법 - 모래늪', 'images/magic/대지마법/전투마법/모래늪.jpg')">
+          <div class="spell-item" onclick="openModal('대지마법 - 모래늪 (전투마법 상세)', 'images/magic/전투마법info/모래늪.jpg')">
             <img class="spell-thumb" src="images/magic/대지마법/전투마법/모래늪.jpg" alt="모래늪" loading="lazy">
             <span class="spell-name">모래늪</span>
           </div>
-          <div class="spell-item" onclick="openModal('대지마법 - 석갑', 'images/magic/대지마법/전투마법/석갑.jpg')">
+          <div class="spell-item" onclick="openModal('대지마법 - 석갑 (전투마법 상세)', 'images/magic/전투마법info/석갑.jpg')">
             <img class="spell-thumb" src="images/magic/대지마법/전투마법/석갑.jpg" alt="석갑" loading="lazy">
             <span class="spell-name">석갑</span>
           </div>
-          <div class="spell-item" onclick="openModal('대지마법 - 둔화', 'images/magic/대지마법/전투마법/둔화.jpg')">
+          <div class="spell-item" onclick="openModal('대지마법 - 둔화 (전투마법 상세)', 'images/magic/전투마법info/둔화.jpg')">
             <img class="spell-thumb" src="images/magic/대지마법/전투마법/둔화.jpg" alt="둔화" loading="lazy">
             <span class="spell-name">둔화</span>
           </div>
-          <div class="spell-item" onclick="openModal('대지마법 - 방패', 'images/magic/대지마법/전투마법/방패.jpg')">
+          <div class="spell-item" onclick="openModal('대지마법 - 방패 (전투마법 상세)', 'images/magic/전투마법info/방패.jpg')">
             <img class="spell-thumb" src="images/magic/대지마법/전투마법/방패.jpg" alt="방패" loading="lazy">
             <span class="spell-name">방패</span>
           </div>
-          <div class="spell-item" onclick="openModal('대지마법 - 중력장', 'images/magic/대지마법/전투마법/중력장.jpg')">
+          <div class="spell-item" onclick="openModal('대지마법 - 중력장 (전투마법 상세)', 'images/magic/전투마법info/중력장.jpg')">
             <img class="spell-thumb" src="images/magic/대지마법/전투마법/중력장.jpg" alt="중력장" loading="lazy">
             <span class="spell-name">중력장</span>
           </div>
-          <div class="spell-item" onclick="openModal('대지마법 - 지진', 'images/magic/대지마법/전투마법/지진.jpg')">
+          <div class="spell-item" onclick="openModal('대지마법 - 지진 (전투마법 상세)', 'images/magic/전투마법info/지진.jpg')">
             <img class="spell-thumb" src="images/magic/대지마법/전투마법/지진.jpg" alt="지진" loading="lazy">
             <span class="spell-name">지진</span>
           </div>
-          <div class="spell-item" onclick="openModal('대지마법 - 마법 거부', 'images/magic/대지마법/전투마법/마법 거부.jpg')">
+          <div class="spell-item" onclick="openModal('대지마법 - 마법 거부 (전투마법 상세)', 'images/magic/전투마법info/마법 거부.jpg')">
             <img class="spell-thumb" src="images/magic/대지마법/전투마법/마법 거부.jpg" alt="마법 거부" loading="lazy">
             <span class="spell-name">마법 거부</span>
           </div>
-          <div class="spell-item" onclick="openModal('대지마법 - 시체 조종', 'images/magic/대지마법/전투마법/시체 조종.jpg')">
+          <div class="spell-item" onclick="openModal('대지마법 - 시체 조종 (전투마법 상세)', 'images/magic/전투마법info/시체 조종.jpg')">
             <img class="spell-thumb" src="images/magic/대지마법/전투마법/시체 조종.jpg" alt="시체 조종" loading="lazy">
             <span class="spell-name">시체 조종</span>
           </div>
-          <div class="spell-item" onclick="openModal('대지마법 - 죽음의 물결', 'images/magic/대지마법/전투마법/죽음의 물결.jpg')">
+          <div class="spell-item" onclick="openModal('대지마법 - 죽음의 물결 (전투마법 상세)', 'images/magic/전투마법info/죽음의 물결.jpg')">
             <img class="spell-thumb" src="images/magic/대지마법/전투마법/죽음의 물결.jpg" alt="죽음의 물결" loading="lazy">
             <span class="spell-name">죽음의 물결</span>
           </div>
-          <div class="spell-item" onclick="openModal('대지마법 - 땅의 정령 소환', 'images/magic/대지마법/전투마법/땅의 정령 소환.jpg')">
+          <div class="spell-item" onclick="openModal('대지마법 - 땅의 정령 소환 (전투마법 상세)', 'images/magic/전투마법info/땅의 정령 소환.jpg')">
             <img class="spell-thumb" src="images/magic/대지마법/전투마법/땅의 정령 소환.jpg" alt="땅의 정령 소환" loading="lazy">
             <span class="spell-name">땅의 정령 소환</span>
           </div>
-          <div class="spell-item" onclick="openModal('대지마법 - 부활', 'images/magic/대지마법/전투마법/부활.jpg')">
+          <div class="spell-item" onclick="openModal('대지마법 - 부활 (전투마법 상세)', 'images/magic/전투마법info/부활.jpg')">
             <img class="spell-thumb" src="images/magic/대지마법/전투마법/부활.jpg" alt="부활" loading="lazy">
             <span class="spell-name">부활</span>
           </div>
-          <div class="spell-item" onclick="openModal('대지마법 - 유성 폭풍', 'images/magic/대지마법/전투마법/유성 폭풍.jpg')">
+          <div class="spell-item" onclick="openModal('대지마법 - 유성 폭풍 (전투마법 상세)', 'images/magic/전투마법info/유성 폭풍.jpg')">
             <img class="spell-thumb" src="images/magic/대지마법/전투마법/유성 폭풍.jpg" alt="유성 폭풍" loading="lazy">
             <span class="spell-name">유성 폭풍</span>
           </div>
-          <div class="spell-item" onclick="openModal('대지마법 - 내파', 'images/magic/대지마법/전투마법/내파.jpg')">
+          <div class="spell-item" onclick="openModal('대지마법 - 내파 (전투마법 상세)', 'images/magic/전투마법info/내파.jpg')">
             <img class="spell-thumb" src="images/magic/대지마법/전투마법/내파.jpg" alt="내파" loading="lazy">
             <span class="spell-name">내파</span>
           </div>
-          <div class="spell-item" onclick="openModal('대지마법 - 유령 소환', 'images/magic/대지마법/전투마법/유령 소환.jpg')">
+          <div class="spell-item" onclick="openModal('대지마법 - 유령 소환 (전투마법 상세)', 'images/magic/전투마법info/유령 소환.jpg')">
             <img class="spell-thumb" src="images/magic/대지마법/전투마법/유령 소환.jpg" alt="유령 소환" loading="lazy">
             <span class="spell-name">유령 소환</span>
           </div>
@@ -964,7 +1065,7 @@ header p {
           </div>
           <div>
             <h2 class="element-name-text color-water">물마법 (Water Magic)</h2>
-            <div style="font-size:0.84rem;color:#70b6d9;margin-top:2px;">축복, 기원, 순간이동, 해재, 복재 등 아군 지원 및 강화의 마법</div>
+            <div style="font-size:0.84rem;color:#70b6d9;margin-top:2px;">축복, 기원, 순간이동, 해제, 복제 등 아군 지원 및 강화의 마법</div>
           </div>
         </div>
         </div>
@@ -978,19 +1079,19 @@ header p {
           </div>
         </div>
         <div class="spells-grid">
-          <div class="spell-item" onclick="openModal('물마법 - 대기 조망', 'images/magic/물마법/모험마법/대기 조망.jpg')">
+          <div class="spell-item" onclick="openModal('물마법 - 대기 조망 (모험마법 상세)', 'images/magic/모험마법info/대기 조망.jpg')">
             <img class="spell-thumb" src="images/magic/물마법/모험마법/대기 조망.jpg" alt="대기 조망" loading="lazy">
             <span class="spell-name">대기 조망</span>
           </div>
-          <div class="spell-item" onclick="openModal('물마법 - 대지 조망', 'images/magic/물마법/모험마법/대지 조망.jpg')">
+          <div class="spell-item" onclick="openModal('물마법 - 대지 조망 (모험마법 상세)', 'images/magic/모험마법info/대지 조망.jpg')">
             <img class="spell-thumb" src="images/magic/물마법/모험마법/대지 조망.jpg" alt="대지 조망" loading="lazy">
             <span class="spell-name">대지 조망</span>
           </div>
-          <div class="spell-item" onclick="openModal('물마법 - 마법사의 눈', 'images/magic/물마법/모험마법/마법사의 눈.jpg')">
+          <div class="spell-item" onclick="openModal('물마법 - 마법사의 눈 (모험마법 상세)', 'images/magic/모험마법info/마법사의 눈.jpg')">
             <img class="spell-thumb" src="images/magic/물마법/모험마법/마법사의 눈.jpg" alt="마법사의 눈" loading="lazy">
             <span class="spell-name">마법사의 눈</span>
           </div>
-          <div class="spell-item" onclick="openModal('물마법 - 차원의 문', 'images/magic/물마법/모험마법/차원의 문.jpg')">
+          <div class="spell-item" onclick="openModal('물마법 - 차원의 문 (모험마법 상세)', 'images/magic/모험마법info/차원의 문.jpg')">
             <img class="spell-thumb" src="images/magic/물마법/모험마법/차원의 문.jpg" alt="차원의 문" loading="lazy">
             <span class="spell-name">차원의 문</span>
           </div>
@@ -1006,59 +1107,59 @@ header p {
           </div>
         </div>
         <div class="spells-grid">
-          <div class="spell-item" onclick="openModal('물마법 - 마법 화살', 'images/magic/물마법/전투마법/마법 화살.jpg')">
+          <div class="spell-item" onclick="openModal('물마법 - 마법 화살 (전투마법 상세)', 'images/magic/전투마법info/마법 화살.jpg')">
             <img class="spell-thumb" src="images/magic/물마법/전투마법/마법 화살.jpg" alt="마법 화살" loading="lazy">
             <span class="spell-name">마법 화살</span>
           </div>
-          <div class="spell-item" onclick="openModal('물마법 - 물의 저항력', 'images/magic/물마법/전투마법/물의 저항력.jpg')">
+          <div class="spell-item" onclick="openModal('물마법 - 물의 저항력 (전투마법 상세)', 'images/magic/전투마법info/물의 저항력.jpg')">
             <img class="spell-thumb" src="images/magic/물마법/전투마법/물의 저항력.jpg" alt="물의 저항력" loading="lazy">
             <span class="spell-name">물의 저항력</span>
           </div>
-          <div class="spell-item" onclick="openModal('물마법 - 치료', 'images/magic/물마법/전투마법/치료.jpg')">
+          <div class="spell-item" onclick="openModal('물마법 - 치료 (전투마법 상세)', 'images/magic/전투마법info/치료.jpg')">
             <img class="spell-thumb" src="images/magic/물마법/전투마법/치료.jpg" alt="치료" loading="lazy">
             <span class="spell-name">치료</span>
           </div>
-          <div class="spell-item" onclick="openModal('물마법 - 환희', 'images/magic/물마법/전투마법/환희.jpg')">
+          <div class="spell-item" onclick="openModal('물마법 - 환희 (전투마법 상세)', 'images/magic/전투마법info/환희.jpg')">
             <img class="spell-thumb" src="images/magic/물마법/전투마법/환희.jpg" alt="환희" loading="lazy">
             <span class="spell-name">환희</span>
           </div>
-          <div class="spell-item" onclick="openModal('물마법 - 약화', 'images/magic/물마법/전투마법/약화.jpg')">
+          <div class="spell-item" onclick="openModal('물마법 - 약화 (전투마법 상세)', 'images/magic/전투마법info/약화.jpg')">
             <img class="spell-thumb" src="images/magic/물마법/전투마법/약화.jpg" alt="약화" loading="lazy">
             <span class="spell-name">약화</span>
           </div>
-          <div class="spell-item" onclick="openModal('물마법 - 얼음 화살', 'images/magic/물마법/전투마법/얼음 화살.jpg')">
+          <div class="spell-item" onclick="openModal('물마법 - 얼음 화살 (전투마법 상세)', 'images/magic/전투마법info/얼음 화살.jpg')">
             <img class="spell-thumb" src="images/magic/물마법/전투마법/얼음 화살.jpg" alt="얼음 화살" loading="lazy">
             <span class="spell-name">얼음 화살</span>
           </div>
-          <div class="spell-item" onclick="openModal('물마법 - 축복', 'images/magic/물마법/전투마법/축복.jpg')">
+          <div class="spell-item" onclick="openModal('물마법 - 축복 (전투마법 상세)', 'images/magic/전투마법info/축복.jpg')">
             <img class="spell-thumb" src="images/magic/물마법/전투마법/축복.jpg" alt="축복" loading="lazy">
             <span class="spell-name">축복</span>
           </div>
-          <div class="spell-item" onclick="openModal('물마법 - 해재', 'images/magic/물마법/전투마법/해재.jpg')">
-            <img class="spell-thumb" src="images/magic/물마법/전투마법/해재.jpg" alt="해재" loading="lazy">
-            <span class="spell-name">해재</span>
+          <div class="spell-item" onclick="openModal('물마법 - 해제 (전투마법 상세)', 'images/magic/전투마법info/해제.jpg')">
+            <img class="spell-thumb" src="images/magic/물마법/전투마법/해제.jpg" alt="해제" loading="lazy">
+            <span class="spell-name">해제</span>
           </div>
-          <div class="spell-item" onclick="openModal('물마법 - 망각', 'images/magic/물마법/전투마법/망각.jpg')">
+          <div class="spell-item" onclick="openModal('물마법 - 망각 (전투마법 상세)', 'images/magic/전투마법info/망각.jpg')">
             <img class="spell-thumb" src="images/magic/물마법/전투마법/망각.jpg" alt="망각" loading="lazy">
             <span class="spell-name">망각</span>
           </div>
-          <div class="spell-item" onclick="openModal('물마법 - 순간이동', 'images/magic/물마법/전투마법/순간이동.jpg')">
+          <div class="spell-item" onclick="openModal('물마법 - 순간이동 (전투마법 상세)', 'images/magic/전투마법info/순간이동.jpg')">
             <img class="spell-thumb" src="images/magic/물마법/전투마법/순간이동.jpg" alt="순간이동" loading="lazy">
             <span class="spell-name">순간이동</span>
           </div>
-          <div class="spell-item" onclick="openModal('물마법 - 얼음 고리', 'images/magic/물마법/전투마법/얼음 고리.jpg')">
+          <div class="spell-item" onclick="openModal('물마법 - 얼음 고리 (전투마법 상세)', 'images/magic/전투마법info/얼음 고리.jpg')">
             <img class="spell-thumb" src="images/magic/물마법/전투마법/얼음 고리.jpg" alt="얼음 고리" loading="lazy">
             <span class="spell-name">얼음 고리</span>
           </div>
-          <div class="spell-item" onclick="openModal('물마법 - 기원', 'images/magic/물마법/전투마법/기원.jpg')">
+          <div class="spell-item" onclick="openModal('물마법 - 기원 (전투마법 상세)', 'images/magic/전투마법info/기원.jpg')">
             <img class="spell-thumb" src="images/magic/물마법/전투마법/기원.jpg" alt="기원" loading="lazy">
             <span class="spell-name">기원</span>
           </div>
-          <div class="spell-item" onclick="openModal('물마법 - 복재', 'images/magic/물마법/전투마법/복재.jpg')">
-            <img class="spell-thumb" src="images/magic/물마법/전투마법/복재.jpg" alt="복재" loading="lazy">
-            <span class="spell-name">복재</span>
+          <div class="spell-item" onclick="openModal('물마법 - 복제 (전투마법 상세)', 'images/magic/전투마법info/복제.jpg')">
+            <img class="spell-thumb" src="images/magic/물마법/전투마법/복제.jpg" alt="복제" loading="lazy">
+            <span class="spell-name">복제</span>
           </div>
-          <div class="spell-item" onclick="openModal('물마법 - 블리자드', 'images/magic/물마법/전투마법/블리자드.jpg')">
+          <div class="spell-item" onclick="openModal('물마법 - 블리자드 (전투마법 상세)', 'images/magic/전투마법info/블리자드.jpg')">
             <img class="spell-thumb" src="images/magic/물마법/전투마법/블리자드.jpg" alt="블리자드" loading="lazy">
             <span class="spell-name">블리자드</span>
           </div>
@@ -1091,23 +1192,23 @@ header p {
           </div>
         </div>
         <div class="spells-grid">
-          <div class="spell-item" onclick="openModal('불마법 - 대기 조망', 'images/magic/불마법/모험마법/대기 조망.jpg')">
+          <div class="spell-item" onclick="openModal('불마법 - 대기 조망 (모험마법 상세)', 'images/magic/모험마법info/대기 조망.jpg')">
             <img class="spell-thumb" src="images/magic/불마법/모험마법/대기 조망.jpg" alt="대기 조망" loading="lazy">
             <span class="spell-name">대기 조망</span>
           </div>
-          <div class="spell-item" onclick="openModal('불마법 - 대지 조망', 'images/magic/불마법/모험마법/대지 조망.jpg')">
+          <div class="spell-item" onclick="openModal('불마법 - 대지 조망 (모험마법 상세)', 'images/magic/모험마법info/대지 조망.jpg')">
             <img class="spell-thumb" src="images/magic/불마법/모험마법/대지 조망.jpg" alt="대지 조망" loading="lazy">
             <span class="spell-name">대지 조망</span>
           </div>
-          <div class="spell-item" onclick="openModal('불마법 - 마법사의 눈', 'images/magic/불마법/모험마법/마법사의 눈.jpg')">
+          <div class="spell-item" onclick="openModal('불마법 - 마법사의 눈 (모험마법 상세)', 'images/magic/모험마법info/마법사의 눈.jpg')">
             <img class="spell-thumb" src="images/magic/불마법/모험마법/마법사의 눈.jpg" alt="마법사의 눈" loading="lazy">
             <span class="spell-name">마법사의 눈</span>
           </div>
-          <div class="spell-item" onclick="openModal('불마법 - 소망의 문', 'images/magic/불마법/모험마법/소망의 문.jpg')">
+          <div class="spell-item" onclick="openModal('불마법 - 소망의 문 (모험마법 상세)', 'images/magic/모험마법info/소망의 문.jpg')">
             <img class="spell-thumb" src="images/magic/불마법/모험마법/소망의 문.jpg" alt="소망의 문" loading="lazy">
             <span class="spell-name">소망의 문</span>
           </div>
-          <div class="spell-item" onclick="openModal('불마법 - 차원의 문', 'images/magic/불마법/모험마법/차원의 문.jpg')">
+          <div class="spell-item" onclick="openModal('불마법 - 차원의 문 (모험마법 상세)', 'images/magic/모험마법info/차원의 문.jpg')">
             <img class="spell-thumb" src="images/magic/불마법/모험마법/차원의 문.jpg" alt="차원의 문" loading="lazy">
             <span class="spell-name">차원의 문</span>
           </div>
@@ -1123,67 +1224,67 @@ header p {
           </div>
         </div>
         <div class="spells-grid">
-          <div class="spell-item" onclick="openModal('불마법 - 마법 화살', 'images/magic/불마법/전투마법/마법 화살.jpg')">
+          <div class="spell-item" onclick="openModal('불마법 - 마법 화살 (전투마법 상세)', 'images/magic/전투마법info/마법 화살.jpg')">
             <img class="spell-thumb" src="images/magic/불마법/전투마법/마법 화살.jpg" alt="마법 화살" loading="lazy">
             <span class="spell-name">마법 화살</span>
           </div>
-          <div class="spell-item" onclick="openModal('불마법 - 불의 저항력', 'images/magic/불마법/전투마법/불의 저항력.jpg')">
+          <div class="spell-item" onclick="openModal('불마법 - 불의 저항력 (전투마법 상세)', 'images/magic/전투마법info/불의 저항력.jpg')">
             <img class="spell-thumb" src="images/magic/불마법/전투마법/불의 저항력.jpg" alt="불의 저항력" loading="lazy">
             <span class="spell-name">불의 저항력</span>
           </div>
-          <div class="spell-item" onclick="openModal('불마법 - 지뢰', 'images/magic/불마법/전투마법/지뢰.jpg')">
+          <div class="spell-item" onclick="openModal('불마법 - 지뢰 (전투마법 상세)', 'images/magic/전투마법info/지뢰.jpg')">
             <img class="spell-thumb" src="images/magic/불마법/전투마법/지뢰.jpg" alt="지뢰" loading="lazy">
             <span class="spell-name">지뢰</span>
           </div>
-          <div class="spell-item" onclick="openModal('불마법 - 피의 굶주림', 'images/magic/불마법/전투마법/피의 굶주림.jpg')">
+          <div class="spell-item" onclick="openModal('불마법 - 피의 굶주림 (전투마법 상세)', 'images/magic/전투마법info/피의 굶주림.jpg')">
             <img class="spell-thumb" src="images/magic/불마법/전투마법/피의 굶주림.jpg" alt="피의 굶주림" loading="lazy">
             <span class="spell-name">피의 굶주림</span>
           </div>
-          <div class="spell-item" onclick="openModal('불마법 - 광분', 'images/magic/불마법/전투마법/광분.jpg')">
+          <div class="spell-item" onclick="openModal('불마법 - 광분 (전투마법 상세)', 'images/magic/전투마법info/광분.jpg')">
             <img class="spell-thumb" src="images/magic/불마법/전투마법/광분.jpg" alt="광분" loading="lazy">
             <span class="spell-name">광분</span>
           </div>
-          <div class="spell-item" onclick="openModal('불마법 - 저주', 'images/magic/불마법/전투마법/저주.jpg')">
+          <div class="spell-item" onclick="openModal('불마법 - 저주 (전투마법 상세)', 'images/magic/전투마법info/저주.jpg')">
             <img class="spell-thumb" src="images/magic/불마법/전투마법/저주.jpg" alt="저주" loading="lazy">
             <span class="spell-name">저주</span>
           </div>
-          <div class="spell-item" onclick="openModal('불마법 - 화염의 벽', 'images/magic/불마법/전투마법/화염의 벽.jpg')">
+          <div class="spell-item" onclick="openModal('불마법 - 화염의 벽 (전투마법 상세)', 'images/magic/전투마법info/화염의 벽.jpg')">
             <img class="spell-thumb" src="images/magic/불마법/전투마법/화염의 벽.jpg" alt="화염의 벽" loading="lazy">
             <span class="spell-name">화염의 벽</span>
           </div>
-          <div class="spell-item" onclick="openModal('불마법 - 불의 방패', 'images/magic/불마법/전투마법/불의 방패.jpg')">
+          <div class="spell-item" onclick="openModal('불마법 - 불의 방패 (전투마법 상세)', 'images/magic/전투마법info/불의 방패.jpg')">
             <img class="spell-thumb" src="images/magic/불마법/전투마법/불의 방패.jpg" alt="불의 방패" loading="lazy">
             <span class="spell-name">불의 방패</span>
           </div>
-          <div class="spell-item" onclick="openModal('불마법 - 불의 정령 소환', 'images/magic/불마법/전투마법/불의 정령 소환.jpg')">
+          <div class="spell-item" onclick="openModal('불마법 - 불의 정령 소환 (전투마법 상세)', 'images/magic/전투마법info/불의 정령 소환.jpg')">
             <img class="spell-thumb" src="images/magic/불마법/전투마법/불의 정령 소환.jpg" alt="불의 정령 소환" loading="lazy">
             <span class="spell-name">불의 정령 소환</span>
           </div>
-          <div class="spell-item" onclick="openModal('불마법 - 인챈트', 'images/magic/불마법/전투마법/인챈트.jpg')">
+          <div class="spell-item" onclick="openModal('불마법 - 인챈트 (전투마법 상세)', 'images/magic/전투마법info/인챈트.jpg')">
             <img class="spell-thumb" src="images/magic/불마법/전투마법/인챈트.jpg" alt="인챈트" loading="lazy">
             <span class="spell-name">인챈트</span>
           </div>
-          <div class="spell-item" onclick="openModal('불마법 - 장님', 'images/magic/불마법/전투마법/장님.jpg')">
+          <div class="spell-item" onclick="openModal('불마법 - 장님 (전투마법 상세)', 'images/magic/전투마법info/장님.jpg')">
             <img class="spell-thumb" src="images/magic/불마법/전투마법/장님.jpg" alt="장님" loading="lazy">
             <span class="spell-name">장님</span>
           </div>
-          <div class="spell-item" onclick="openModal('불마법 - 파이어볼', 'images/magic/불마법/전투마법/파이어볼.jpg')">
+          <div class="spell-item" onclick="openModal('불마법 - 파이어볼 (전투마법 상세)', 'images/magic/전투마법info/파이어볼.jpg')">
             <img class="spell-thumb" src="images/magic/불마법/전투마법/파이어볼.jpg" alt="파이어볼" loading="lazy">
             <span class="spell-name">파이어볼</span>
           </div>
-          <div class="spell-item" onclick="openModal('불마법 - 버서크', 'images/magic/불마법/전투마법/버서크.jpg')">
+          <div class="spell-item" onclick="openModal('불마법 - 버서크 (전투마법 상세)', 'images/magic/전투마법info/버서크.jpg')">
             <img class="spell-thumb" src="images/magic/불마법/전투마법/버서크.jpg" alt="버서크" loading="lazy">
             <span class="spell-name">버서크</span>
           </div>
-          <div class="spell-item" onclick="openModal('불마법 - 아마겟돈', 'images/magic/불마법/전투마법/아마겟돈.jpg')">
+          <div class="spell-item" onclick="openModal('불마법 - 아마겟돈 (전투마법 상세)', 'images/magic/전투마법info/아마겟돈.jpg')">
             <img class="spell-thumb" src="images/magic/불마법/전투마법/아마겟돈.jpg" alt="아마겟돈" loading="lazy">
             <span class="spell-name">아마겟돈</span>
           </div>
-          <div class="spell-item" onclick="openModal('불마법 - 희생', 'images/magic/불마법/전투마법/희생.jpg')">
+          <div class="spell-item" onclick="openModal('불마법 - 희생 (전투마법 상세)', 'images/magic/전투마법info/희생.jpg')">
             <img class="spell-thumb" src="images/magic/불마법/전투마법/희생.jpg" alt="희생" loading="lazy">
             <span class="spell-name">희생</span>
           </div>
-          <div class="spell-item" onclick="openModal('불마법 - 드래곤 스트렝스', 'images/magic/불마법/전투마법/드래곤 스트렝스.jpg')">
+          <div class="spell-item" onclick="openModal('불마법 - 드래곤 스트렝스 (전투마법 상세)', 'images/magic/전투마법info/드래곤 스트렝스.jpg')">
             <img class="spell-thumb" src="images/magic/불마법/전투마법/드래곤 스트렝스.jpg" alt="드래곤 스트렝스" loading="lazy">
             <span class="spell-name">드래곤 스트렝스</span>
           </div>
@@ -1195,54 +1296,200 @@ header p {
 </div>
 
 <script>
-let currentMagic = "ALL";
-let currentType = "ALL";
+const ALL_ELEMENTS = ['대기마법', '대지마법', '물마법', '불마법'];
+const ALL_TYPES = ['모험마법', '전투마법'];
+const ALL_LEVELS = ['1', '2', '3', '4', '5'];
+
+let selectedElements = new Set(ALL_ELEMENTS);
+let selectedTypes = new Set(ALL_TYPES);
+let selectedLevels = new Set(ALL_LEVELS);
+let magicData = {};
+
+// 마법 등급 데이터 로드 및 각 마법 카드에 스티커 뱃지 부착
+async function initMagicData() {
+  if (window.MAGIC_DATA && window.MAGIC_DATA.spells) {
+    magicData = window.MAGIC_DATA.spells;
+  } else {
+    try {
+      const res = await fetch("magic_data.json");
+      if (res.ok) {
+        const data = await res.json();
+        magicData = data.spells;
+      }
+    } catch(e) {
+      console.warn("magic_data.json fetch failed, checking window.MAGIC_DATA:", e);
+      if (window.MAGIC_DATA) magicData = window.MAGIC_DATA.spells;
+    }
+  }
+
+  // 모든 spell-item에 data-level 속성 부여 및 spell-name 앞에 스티커 뱃지 삽입
+  document.querySelectorAll(".spell-item").forEach(item => {
+    const nameEl = item.querySelector(".spell-name");
+    if (!nameEl) return;
+    const spellName = nameEl.innerText.trim();
+    item.setAttribute("data-name", spellName);
+    const info = magicData[spellName];
+    if (info && info.level) {
+      item.setAttribute("data-level", String(info.level));
+      // 스티커 뱃지 엘리먼트 생성
+      const badge = document.createElement("span");
+      badge.className = `level-badge level-badge-${info.level}`;
+      badge.innerText = `${info.level}단`;
+      nameEl.insertBefore(badge, nameEl.firstChild);
+    }
+  });
+
+  // 버튼 이벤트 리스너 등록
+  bindFilterEvents();
+  updateFilterButtonUI();
+  applyFilters();
+}
+
+/* ── 필터 버튼 이벤트 바인딩 ──────────────────────────── */
+function bindFilterEvents() {
+  // 1. 마법 계열 버튼
+  document.querySelectorAll("#magicTabs .magic-btn").forEach(btn => {
+    const elem = btn.getAttribute("data-magic");
+    btn.addEventListener("click", () => {
+      if (elem === "ALL") {
+        if (selectedElements.size === ALL_ELEMENTS.length) {
+          selectedElements.clear();
+        } else {
+          selectedElements = new Set(ALL_ELEMENTS);
+        }
+      } else {
+        if (selectedElements.has(elem)) {
+          selectedElements.delete(elem);
+        } else {
+          selectedElements.add(elem);
+        }
+      }
+      updateFilterButtonUI();
+      applyFilters();
+    });
+  });
+
+  // 2. 마법 분류(모험/전투) 버튼
+  document.querySelectorAll("#typeTabs .type-btn").forEach(btn => {
+    const type = btn.getAttribute("data-type");
+    btn.addEventListener("click", () => {
+      if (type === "ALL") {
+        if (selectedTypes.size === ALL_TYPES.length) {
+          selectedTypes.clear();
+        } else {
+          selectedTypes = new Set(ALL_TYPES);
+        }
+      } else {
+        if (selectedTypes.has(type)) {
+          selectedTypes.delete(type);
+        } else {
+          selectedTypes.add(type);
+        }
+      }
+      updateFilterButtonUI();
+      applyFilters();
+    });
+  });
+
+  // 3. 마법 등급(1단~5단) 버튼
+  document.querySelectorAll("#levelTabs .level-btn").forEach(btn => {
+    const level = btn.getAttribute("data-level");
+    btn.addEventListener("click", () => {
+      if (level === "ALL") {
+        if (selectedLevels.size === ALL_LEVELS.length) {
+          selectedLevels.clear();
+        } else {
+          selectedLevels = new Set(ALL_LEVELS);
+        }
+      } else {
+        if (selectedLevels.has(level)) {
+          selectedLevels.delete(level);
+        } else {
+          selectedLevels.add(level);
+        }
+      }
+      updateFilterButtonUI();
+      applyFilters();
+    });
+  });
+}
+
+/* ── 필터 버튼 active UI 동기화 ────────────────────────── */
+function updateFilterButtonUI() {
+  // 1. 마법 계열 버튼 UI
+  const isAllElements = selectedElements.size === ALL_ELEMENTS.length;
+  document.querySelectorAll("#magicTabs .magic-btn").forEach(btn => {
+    const elem = btn.getAttribute("data-magic");
+    if (elem === "ALL") {
+      btn.classList.toggle("active", isAllElements);
+    } else {
+      btn.classList.toggle("active", selectedElements.has(elem));
+    }
+  });
+
+  // 2. 마법 분류 버튼 UI
+  const isAllTypes = selectedTypes.size === ALL_TYPES.length;
+  document.querySelectorAll("#typeTabs .type-btn").forEach(btn => {
+    const type = btn.getAttribute("data-type");
+    if (type === "ALL") {
+      btn.classList.toggle("active", isAllTypes);
+    } else {
+      btn.classList.toggle("active", selectedTypes.has(type));
+    }
+  });
+
+  // 3. 마법 등급 버튼 UI
+  const isAllLevels = selectedLevels.size === ALL_LEVELS.length;
+  document.querySelectorAll("#levelTabs .level-btn").forEach(btn => {
+    const level = btn.getAttribute("data-level");
+    if (level === "ALL") {
+      btn.classList.toggle("active", isAllLevels);
+    } else {
+      btn.classList.toggle("active", selectedLevels.has(level));
+    }
+  });
+}
+
 let currentSlideIndex = 0;
 
-// 마법 계열 탭 필터
-document.querySelectorAll("#magicTabs .magic-btn").forEach(btn => {
-  btn.addEventListener("click", () => {
-    document.querySelectorAll("#magicTabs .magic-btn").forEach(b => b.classList.remove("active"));
-    btn.classList.add("active");
-    currentMagic = btn.getAttribute("data-magic");
-    applyFilters();
-  });
-});
-
-// 마법 분류(모험/전투) 필터
-document.querySelectorAll("#typeTabs .type-btn").forEach(btn => {
-  btn.addEventListener("click", () => {
-    document.querySelectorAll("#typeTabs .type-btn").forEach(b => b.classList.remove("active"));
-    btn.classList.add("active");
-    currentType = btn.getAttribute("data-type");
-    applyFilters();
-  });
-});
-
-// 검색 및 필터링 통합 함수
+// 검색 및 필터링 통합 함수 (0개 선택 시 0개 표시)
 function applyFilters() {
+  const counterEl = document.getElementById("magicCounter");
+  const emptyEl = document.getElementById("magicEmptyState");
+
+  // 어느 카테고리라도 0개 선택되어 있으면 0개 표시
+  if (selectedElements.size === 0 || selectedTypes.size === 0 || selectedLevels.size === 0) {
+    if (counterEl) counterEl.innerText = "표시 중: 0개";
+    if (emptyEl) emptyEl.style.display = "block";
+    document.querySelectorAll(".element-section").forEach(sec => sec.style.display = "none");
+    return;
+  }
+
   const searchTerm = (document.getElementById("magicSearchInput").value || "").trim().toLowerCase();
   const sections = document.querySelectorAll(".element-section");
+  let totalVisibleSpells = 0;
 
   sections.forEach(sec => {
     const secMagic = sec.getAttribute("data-element");
-    const matchesMagic = (currentMagic === "ALL" || currentMagic === secMagic);
+    const matchesMagic = selectedElements.has(secMagic);
 
     const catBlocks = sec.querySelectorAll(".category-block");
     let totalVisibleSpellsInSec = 0;
 
     catBlocks.forEach(block => {
       const cat = block.getAttribute("data-cat");
-      const matchesCat = (currentType === "ALL" || currentType === cat);
+      const matchesCat = selectedTypes.has(cat);
 
       const spellItems = block.querySelectorAll(".spell-item");
       let visibleSpellsInBlock = 0;
 
       spellItems.forEach(item => {
-        const spellName = item.querySelector(".spell-name").innerText.toLowerCase();
+        const spellName = (item.getAttribute("data-name") || item.querySelector(".spell-name").innerText).toLowerCase();
         const matchesSearch = !searchTerm || spellName.includes(searchTerm);
+        const itemLevel = item.getAttribute("data-level") || "1";
+        const matchesLevel = selectedLevels.has(itemLevel);
 
-        if (matchesCat && matchesSearch) {
+        if (matchesMagic && matchesCat && matchesSearch && matchesLevel) {
           item.style.display = "flex";
           visibleSpellsInBlock++;
         } else {
@@ -1250,7 +1497,7 @@ function applyFilters() {
         }
       });
 
-      if (matchesCat && visibleSpellsInBlock > 0) {
+      if (matchesMagic && matchesCat && visibleSpellsInBlock > 0) {
         block.style.display = "block";
         totalVisibleSpellsInSec += visibleSpellsInBlock;
       } else {
@@ -1260,10 +1507,14 @@ function applyFilters() {
 
     if (matchesMagic && totalVisibleSpellsInSec > 0) {
       sec.style.display = "block";
+      totalVisibleSpells += totalVisibleSpellsInSec;
     } else {
       sec.style.display = "none";
     }
   });
+
+  if (counterEl) counterEl.innerText = `표시 중: ${totalVisibleSpells}개`;
+  if (emptyEl) emptyEl.style.display = totalVisibleSpells === 0 ? "block" : "none";
 }
 
 // ── 모달 & 2-Slice 스와이프 슬라이더 제어 ─────────
@@ -1366,6 +1617,8 @@ function handleSwipe(start, end) {
     }
   }
 }
+
+window.addEventListener("DOMContentLoaded", initMagicData);
 
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") closeModal();
